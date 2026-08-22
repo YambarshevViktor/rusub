@@ -37,7 +37,7 @@ body{
 }
 
 .intro h1{
-  margin:0 0 13px;
+  margin:18px 0 12px;
   font-size:28px;
   line-height:1.1;
   font-weight:500;
@@ -58,6 +58,22 @@ body{
   font-style:italic;
   font-size:14px;
   letter-spacing:.01em;
+}
+
+.intro a {
+  font-family:"Victor Mono", monospace;
+  font-style:italic;
+  font-size:14px;
+  letter-spacing:.01em;
+
+  color:var(--ink);
+  text-decoration-line:underline;
+  text-decoration-color:var(--blue);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
+.intro a:hover {
+  color:var(--blue);
 }
 
 .grid{
