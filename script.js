@@ -44,19 +44,100 @@ const PEOPLE = {
   dark: { label: "DARK Subs",   href: "https://t.me/NightCinemaClub" },
   genco: { label: "Genco",   href: "https://t.me/genco_tm" },
   lebowski: { label: "Где тексты, Лебовски?",   href: "https://t.me/lebowskiposts" },
-  goodman: { label: "Goodman Subs",   href: "https://t.me/g00dmansubs" }
+  goodman: { label: "Goodman Subs",   href: "https://t.me/g00dmansubs" },
+  one: { label: "one inch tall",   href: "https://t.me/oneinchtall2" }
 };
 
 const FILMS = [
-  { title:"The Mandalorian and Grogu",             year:2026, poster:"posters/the-mandalorian-and-grogu-2026.jpg",             srt:"subtitles/the-mandalorian-and-grogu-2026.srt",             authors:["lebowski"], description:"Мандалорец защищает Новую Республику и Грогу" },
-  { title:"The Invite",             year:2026, poster:"posters/the-invite-2026.jpg",             srt:"subtitles/the-invite-2026.srt",             authors:["dark"], description:"Соседи предлагают необычный эксперимент" },
-  { title:"How to Divorce During the War",         year:2026, poster:"posters/how-to-divorce-during-the-war-2025.jpg",          srt:"subtitles/how-to-divorce-during-the-war-2025.srt",         authors:["alice"], description:"Развод супругов на фоне кризиса и потока беженцев" },
-  { title:"Sweet Sixteen", year:2002, poster:"posters/sweet-sixteen-2002.jpg",  srt:"subtitles/sweet-sixteen-2002.srt", authors:["genco"], description:"Юный Лиам выбирает опасный путь ради семьи" },
-  { title:"Masters of the Universe", year:2026, poster:"posters/masters-of-the-universe 2026.jpg",  srt:"subtitles/masters-of-the-universe 2026.srt", authors:["goodman"], description:""  },
-  { title:"Rose of Nevada", year:2026, poster:"posters/rose-of-nevada-2026.jpg",  srt:"subtitles/rose-of-nevada-2026.srt", authors:["genco"], description:"Рыбаки возвращаются из рейса в прошлое"  },
+  {
+    title: "Truly Naked",
+    year: 2026,
+    poster: "posters/truly-naked-2026.jpg",
+    srt: "subtitles/truly-naked-2026.srt",
+    authors: ["one"],
+    description: ""
+  },
   
-  { title:"Poor Cow", year:1967, poster:"posters/poor-cow-1967.jpg",  srt:"subtitles/poor-cow-1967.srt", authors:["genco"], description:"Пропажа сына заставляет сразиться за самое дорогое"  },
-  { title:"Love Streams", year:1984, poster:"posters/love-streams-1984.jpg",  srt:"subtitles/love-streams-1984.srt", authors:["genco"], description:""  },
+  {
+    title: "Bitter Christmas",
+    year: 2026,
+    poster: "posters/bitter-christmas-2026.jpg",
+    srt: "subtitles/bitter-christmas-2026.srt",
+    authors: ["genco"],
+    description: ""
+  },
+
+  {
+    title: "The Mandalorian and Grogu",
+    year: 2026,
+    poster: "posters/the-mandalorian-and-grogu-2026.jpg",
+    srt: "subtitles/the-mandalorian-and-grogu-2026.srt",
+    authors: ["lebowski"],
+    description: ""
+  },
+
+  {
+    title: "The Invite",
+    year: 2026,
+    poster: "posters/the-invite-2026.jpg",
+    srt: "subtitles/the-invite-2026.srt",
+    authors: ["dark"],
+    description: ""
+  },
+
+  {
+    title: "How to Divorce During the War",
+    year: 2026,
+    poster: "posters/how-to-divorce-during-the-war-2025.jpg",
+    srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
+    authors: ["alice"],
+    description: ""
+  },
+
+  {
+    title: "Sweet Sixteen",
+    year: 2002,
+    poster: "posters/sweet-sixteen-2002.jpg",
+    srt: "subtitles/sweet-sixteen-2002.srt",
+    authors: ["genco"],
+    description: ""
+  },
+
+  {
+    title: "Masters of the Universe",
+    year: 2026,
+    poster: "posters/masters-of-the-universe 2026.jpg",
+    srt: "subtitles/masters-of-the-universe 2026.srt",
+    authors: ["goodman"],
+    description: ""
+  },
+
+  {
+    title: "Rose of Nevada",
+    year: 2026,
+    poster: "posters/rose-of-nevada-2026.jpg",
+    srt: "subtitles/rose-of-nevada-2026.srt",
+    authors: ["genco"],
+    description: ""
+  },
+
+  {
+    title: "Poor Cow",
+    year: 1967,
+    poster: "posters/poor-cow-1967.jpg",
+    srt: "subtitles/poor-cow-1967.srt",
+    authors: ["genco"],
+    description: ""
+  },
+
+  {
+    title: "Love Streams",
+    year: 1984,
+    poster: "posters/love-streams-1984.jpg",
+    srt: "subtitles/love-streams-1984.srt",
+    authors: ["genco"],
+    description: ""
+  },
 ];
 
 // Палитра "бумажных" фонов карточек — цвет подставляется автоматически по названию.
