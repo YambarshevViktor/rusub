@@ -1,0 +1,303 @@
+:root{
+  --bg1:#182530;
+  --bg2:#0c1013;
+  --ink:#f1eee8;
+  --muted:#a9abad;
+  --blue:#4aa8ff;
+  --blue-soft:#78bcf4;
+  --card-w:158px;
+  --poster-h:238px;
+  --gap-x:9px;
+  --gap-y:24px;
+}
+
+*{box-sizing:border-box}
+html{background:#0c1013}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--ink);
+  font-family:"Literata", Georgia, serif;
+  background:
+    radial-gradient(900px 520px at 50% -4%, rgba(57,89,113,.34), transparent 67%),
+    radial-gradient(850px 520px at 88% 18%, rgba(42,58,70,.22), transparent 68%),
+    linear-gradient(148deg,#182530 0%,#121a21 42%,#0c1013 100%);
+}
+
+.page{
+  width:min(100%,1055px);
+  margin:0 auto;
+  padding:58px 34px 90px;
+}
+
+.intro{
+  max-width:620px;
+  margin:0 auto 42px;
+  text-align:center;
+}
+
+.intro h1{
+  margin:0 0 13px;
+  font-size:28px;
+  line-height:1.1;
+  font-weight:500;
+  letter-spacing:-.025em;
+}
+
+.intro p{
+  margin:0;
+  color:#aeb2b3;
+  font-size:14px;
+  line-height:1.65;
+}
+
+.intro .updated{
+  margin:14px 0 0;
+  color:#5b6266;
+  font-family:"Victor Mono", monospace;
+  font-style:italic;
+  font-size:14px;
+  letter-spacing:.01em;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:var(--gap-y) var(--gap-x);
+}
+
+.card{
+  position:relative;
+  min-width:0;
+  isolation:isolate;
+}
+
+.poster-button{
+  position:relative;
+  display:block;
+  width:100%;
+  height:var(--poster-h);
+  padding:0;
+  border:0;
+  border-radius:0;
+  overflow:hidden;
+  cursor:pointer;
+  background:var(--paper,#f4f2e9);
+  font:inherit;
+  text-align:center;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Поднимается только постер — подпись/ссылки под ним остаются на месте */
+.card:hover .poster-button{
+  transform:translateY(-6px);
+}
+
+/* Один прыжок после успешного скачивания, тоже только на постере */
+@keyframes cardBounce{
+  0%{transform:translateY(-6px)}
+  35%{transform:translateY(-17px)}
+  62%{transform:translateY(-2px)}
+  100%{transform:translateY(-6px)}
+}
+.card.bounce .poster-button{
+  animation:cardBounce .55s cubic-bezier(.3,.6,.3,1);
+}
+
+/* Фото полностью скрыто, пока не наведена вся карточка.
+   Никаких затемнений/забеливаний — при ховере видно на 100%. */
+.poster-image{
+  position:absolute;
+  inset:0;
+  background-image:var(--poster);
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transform:scale(1);
+  transition:opacity .28s ease,transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+/* На появление (hover-in) фото должно вскакивать мгновенно (0s),
+   а плавно исчезать — только когда убираем мышку (используется .28s выше) */
+.card:hover .poster-image{
+  opacity:1;
+  transform:scale(1.025);
+  transition:opacity 0s,transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+/* mix-blend-mode на всём блоке целиком (не по отдельным строкам) — год и
+   название инвертируются как одна группа относительно того, что под ними
+   (фото или бумага), и остаются читаемыми без плашек/теней. Цвет здесь
+   обязательно должен быть светлым — тёмный цвет на difference не даёт
+   видимого эффекта. */
+.poster-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:14px 12px 40px;
+  color:#fff;
+  mix-blend-mode:difference;
+}
+
+.year{
+  position:absolute;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:14px;
+  line-height:1;
+  color:var(--muted);
+}
+
+.title{
+  position:absolute;
+  top:38%;
+  left:12px;
+  right:12px;
+  min-height:100px;
+  max-height:124px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  text-align:center;
+  font-size:18px;
+  line-height:1.15;
+  -webkit-mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
+  mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
+}
+
+.poster-button:focus-visible{
+  outline:2px solid var(--blue);
+  outline-offset:3px;
+}
+
+.download{
+  position:absolute;
+  left:50%;
+  bottom:10px;
+  z-index:5;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  color:#fff;
+  mix-blend-mode:difference;
+  font-family:"Victor Mono", monospace;
+  font-size:14px;
+  font-style:italic;
+  font-weight:700;
+  line-height:1;
+  white-space:nowrap;
+  opacity:0;
+  transform:translate(-50%,4px);
+  transition:opacity .25s ease,transform .3s ease;
+  pointer-events:none;
+}
+
+.card:hover .download{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* Пока подпись показывает "downloaded", она видна независимо от ховера */
+.card.downloaded .download{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.download-arrow{
+  width:17px;
+  height:20px;
+  flex:0 0 17px;
+  overflow:visible;
+}
+
+.download-arrow path{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.65;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.meta{
+  position:relative;
+  /*height:64px;*/
+  padding-top:6px;
+}
+
+.meta-link{
+  position:relative;
+  z-index:1;
+  display:table;
+  max-width:100%;
+  color:var(--ink);
+  text-decoration-line:underline;
+  text-decoration-color:var(--blue);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+
+  font-family:"Literata", Georgia, serif;
+  font-size:14px;
+  font-weight:400;
+  line-height:1.25;
+  padding:0 2px 2px;
+  margin-left:-2px;
+
+  transition:color .18s ease,transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+.meta-link + .meta-link{margin-top:2px}
+
+.description{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.45;
+  color:var(--muted);
+}
+
+/* Заливка идёт слева направо */
+.meta-link::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:var(--blue);
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .32s cubic-bezier(.2,.8,.2,1);
+}
+
+.meta-link:hover,
+.meta-link:focus-visible{
+  color:#fff;
+  transform:translateX(3px);
+  outline:none;
+}
+
+.meta-link:hover::before,
+.meta-link:focus-visible::before{
+  transform:scaleX(1);
+}
+
+@media (max-width:900px){
+  .page{padding:42px 18px 60px}
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+@media (max-width:620px){
+  .intro{margin-bottom:30px}
+  .intro h1{font-size:23px}
+  .intro p{font-size:14px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}
+  :root{--poster-h:250px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
