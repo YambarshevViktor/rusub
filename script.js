@@ -33,28 +33,108 @@
       Цвет карточки и вариант рукописной стрелки подставляются
       автоматически — их не нужно прописывать вручную.
 
+   НОВОЕ — необязательные поля:
+
+     - type: "series" — если это сериал (по умолчанию считается фильмом).
+       У сериала вместо srt указывается zip — но только на ОДИН сезон целиком
+       (скачать сразу несколько сезонов одним архивом нельзя):
+         { ...,
+           type: "series",
+           zip: "subtitles/nazvanie-serial-2s.zip",
+           season: 2,
+           episodesAvailable: 4,
+           episodesTotal: 12 }
+       season/episodesAvailable/episodesTotal — необязательные, показываются
+       под годом как "2s · 4/12e" (сезон 2, добавлено 4 из 12 серий). Когда
+       выложите все серии сезона — просто уравняйте episodesAvailable и
+       episodesTotal (или уберите episodesAvailable), и подпись сама станет
+       короче: "2s · 12e".
+       У сериала карточка автоматически получает "стопку" из 2 слоёв сзади.
+
+     - ratings: { imdb, letterboxd, rt, metacritic } — любые из четырёх,
+       можно не указывать вообще или указать только часть:
+         ratings: { imdb: 7.3, rt: 88 }
+       Показываются в виде маленьких цветных меток под постером.
+
    3) Если появляется новый автор/кинопоказ, которого раньше не было —
       его нужно один раз завести в PEOPLE (см. ниже), а потом просто
       ссылаться на его ключ из authors у любого числа фильмов.
    ============================================================================ */
 
 const PEOPLE = {
-  alice:  { label: "Dark Alice",          href: "https://t.me/darkalicesubs" },
-  chacun: { label: "Chacun son cinema",   href: "https://t.me/chacun_son_cinema" },
-  dark: { label: "DARK Subs",   href: "https://t.me/NightCinemaClub" },
-  genco: { label: "Genco",   href: "https://t.me/genco_tm" },
-  lebowski: { label: "Где тексты, Лебовски?",   href: "https://t.me/lebowskiposts" },
-  goodman: { label: "Goodman Subs",   href: "https://t.me/g00dmansubs" },
-  one: { label: "one inch tall",   href: "https://t.me/oneinchtall2" }
+  alice: {
+    label: "Dark Alice",
+    href: "https://t.me/darkalicesubs"
+  },
+
+  chacun: {
+    label: "Chacun son cinema",
+    href: "https://t.me/chacun_son_cinema"
+  },
+
+  dark: {
+    label: "DARK Subs",
+    href: "https://t.me/NightCinemaClub"
+  },
+
+  genco: {
+    label: "Genco",
+    href: "https://t.me/genco_tm"
+  },
+
+  lebowski: {
+    label: "Где тексты, Лебовски?",
+    href: "https://t.me/lebowskiposts"
+  },
+
+  goodman: {
+    label: "Goodman Subs",
+    href: "https://t.me/g00dmansubs"
+  },
+
+  one: {
+    label: "one inch tall",
+    href: "https://t.me/oneinchtall2"
+  },
+
+  wastedTime: {
+    label: "All the Wasted Time",
+    href: "https://t.me/allthewastedtime"
+  },
 };
 
 const FILMS = [
+  {
+    title: "Minions & Monsters",
+    year: 2026,
+    poster: "posters/minions-monsters-2026.jpg",
+    srt: "subtitles/minions-monsters-2026.srt",
+    authors: ["goodman"],
+    ratings: { imdb: 6.4 },
+    description: ""
+  },
+
+  {
+    title: "Ann Droid",
+    year: 2026,
+    type: "series",
+    poster: "posters/ann-droid-2026.jpg",
+    zip: "subtitles/ann-droid-2026.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 6,
+    authors: ["wastedTime"],
+    ratings: { imdb: 7.7 },
+    description: ""
+  },
+
   {
     title: "Truly Naked",
     year: 2026,
     poster: "posters/truly-naked-2026.jpg",
     srt: "subtitles/truly-naked-2026.srt",
     authors: ["one"],
+    ratings: { imdb: 7.5, letterboxd: 3.2 },
     description: ""
   },
   
@@ -64,6 +144,7 @@ const FILMS = [
     poster: "posters/bitter-christmas-2026.jpg",
     srt: "subtitles/bitter-christmas-2026.srt",
     authors: ["genco"],
+    ratings: { imdb: 6.5 },
     description: ""
   },
 
@@ -73,6 +154,7 @@ const FILMS = [
     poster: "posters/the-mandalorian-and-grogu-2026.jpg",
     srt: "subtitles/the-mandalorian-and-grogu-2026.srt",
     authors: ["lebowski"],
+    ratings: { imdb: 7.4, rt: 65 },
     description: ""
   },
 
@@ -82,6 +164,7 @@ const FILMS = [
     poster: "posters/the-invite-2026.jpg",
     srt: "subtitles/the-invite-2026.srt",
     authors: ["dark"],
+    ratings: { imdb: 6.2, rt: 96 },
     description: ""
   },
 
@@ -91,6 +174,7 @@ const FILMS = [
     poster: "posters/how-to-divorce-during-the-war-2025.jpg",
     srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
     authors: ["alice"],
+    ratings: { rt: 100 },
     description: ""
   },
 
@@ -100,6 +184,7 @@ const FILMS = [
     poster: "posters/sweet-sixteen-2002.jpg",
     srt: "subtitles/sweet-sixteen-2002.srt",
     authors: ["genco"],
+    ratings: { imdb: 7.4, rt: 97, metacritic: 86 },
     description: ""
   },
 
@@ -109,6 +194,7 @@ const FILMS = [
     poster: "posters/masters-of-the-universe 2026.jpg",
     srt: "subtitles/masters-of-the-universe 2026.srt",
     authors: ["goodman"],
+    ratings: { rt: 74 },
     description: ""
   },
 
@@ -118,6 +204,7 @@ const FILMS = [
     poster: "posters/rose-of-nevada-2026.jpg",
     srt: "subtitles/rose-of-nevada-2026.srt",
     authors: ["genco"],
+    ratings: { imdb: 6.6, rt: 100, metacritic: 82 },
     description: ""
   },
 
@@ -127,6 +214,7 @@ const FILMS = [
     poster: "posters/poor-cow-1967.jpg",
     srt: "subtitles/poor-cow-1967.srt",
     authors: ["genco"],
+    ratings: { imdb: 6.8, rt: 50 },
     description: ""
   },
 
@@ -136,6 +224,7 @@ const FILMS = [
     poster: "posters/love-streams-1984.jpg",
     srt: "subtitles/love-streams-1984.srt",
     authors: ["genco"],
+    ratings: { imdb: 7.6, rt: 100 },
     description: ""
   },
 ];
@@ -169,6 +258,28 @@ const ARROWS = [
 // Галочка, которая заменяет стрелку после завершения скачивания
 const CHECK = '<path d="M3 10 L7 14 L14 4"/>';
 
+// Маленькая иконка-стрелочка перед каждым автором в подписи (не путать со стрелкой скачивания)
+const AUTHOR_ICON = '<path d="M2.5 2 v4.2 a2 2 0 0 0 2 2 h7"/><path d="M8.5 5.6 L11.5 8.2 L8.5 10.8"/>';
+
+// Скачивается всегда только ОДИН сезон целиком (один zip), поэтому подпись
+// показывает именно его: "2s · 4/12e" пока выложены не все серии сезона,
+// и просто "2s · 12e", когда весь сезон уже добавлен целиком.
+function episodesLabel(film){
+  if(film.type !== "series") return "";
+  const parts = [];
+  if(film.season) parts.push(`${film.season}s`);
+  if(film.episodesAvailable != null && film.episodesTotal != null){
+    parts.push(film.episodesAvailable === film.episodesTotal
+      ? `${film.episodesTotal}e`
+      : `${film.episodesAvailable}/${film.episodesTotal}e`);
+  } else if(film.episodesTotal != null){
+    parts.push(`${film.episodesTotal}e`);
+  } else if(film.episodesAvailable != null){
+    parts.push(`${film.episodesAvailable}e`);
+  }
+  return parts.join(" · ");
+}
+
 function escapeHtml(value){
   return String(value ?? "").replace(/[&<>"']/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
@@ -188,31 +299,51 @@ function hashString(str){
 function makeCard(film, i){
   const color = PALETTE[hashString(film.title + i) % PALETTE.length];
   const arrow = ARROWS[Math.floor(Math.random() * ARROWS.length)];
+  const isSeries = film.type === "series";
+  const downloadPath = isSeries ? (film.zip || "") : (film.srt || "");
+  const downloadLabel = isSeries ? "download zip" : "download srt";
+  const episodes = episodesLabel(film);
 
   const metaLinks = (film.authors || [])
     .map(key => PEOPLE[key])
     .filter(Boolean)
-    .map(p => `<a class="meta-link" href="${escapeHtml(p.href || '#')}" target="_blank" rel="noopener noreferrer">${escapeHtml(p.label)}</a>`)
+    .map(p => `<a class="meta-link" href="${escapeHtml(p.href || '#')}" target="_blank" rel="noopener noreferrer"><svg class="meta-icon" viewBox="0 0 14 14" aria-hidden="true">${AUTHOR_ICON}</svg><span class="meta-link-text">${escapeHtml(p.label)}</span></a>`)
     .join("");
+
+  const ratingsHtml = film.ratings ? `<div class="ratings">
+      ${film.ratings.imdb != null ? `<span class="rating rating-imdb"><span class="rating-dot"></span>${film.ratings.imdb}</span>` : ""}
+      ${film.ratings.letterboxd != null ? `<span class="rating rating-letterboxd"><span class="rating-dot"></span>${film.ratings.letterboxd}</span>` : ""}
+      ${film.ratings.rt != null ? `<span class="rating rating-rt"><span class="rating-dot"></span>${film.ratings.rt}%</span>` : ""}
+      ${film.ratings.metacritic != null ? `<span class="rating rating-metacritic"><span class="rating-dot"></span>${film.ratings.metacritic}</span>` : ""}
+    </div>` : "";
+
+  const stackLayers = isSeries
+    ? `<span class="stack-layer l2" aria-hidden="true"></span><span class="stack-layer l1" aria-hidden="true"></span>`
+    : "";
 
   return `
   <article class="card" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
+    ${stackLayers}
     <button class="poster-button" type="button"
-      aria-label="Скачать субтитры: ${escapeHtml(film.title)}"
-      data-srt="${escapeHtml(film.srt || '')}"
+      aria-label="Скачать субтитры${isSeries ? ' (zip)' : ''}: ${escapeHtml(film.title)}"
+      data-file="${escapeHtml(downloadPath)}"
       data-title="${escapeHtml(film.title)}">
       <span class="poster-image" aria-hidden="true"></span>
       <span class="poster-content">
         <span class="year">${film.year}</span>
+        ${episodes ? `<span class="episodes">${escapeHtml(episodes)}</span>` : ""}
         <span class="title">${escapeHtml(film.title)}</span>
       </span>
       <span class="download" aria-hidden="true">
-        <span class="download-label">download srt</span>
+        <span class="download-label">${downloadLabel}</span>
         <svg class="download-arrow" viewBox="0 0 17 20" aria-hidden="true">${arrow}</svg>
       </span>
     </button>
 
-    <div class="meta">${metaLinks}</div>
+    <div class="meta">
+      ${ratingsHtml}
+      ${metaLinks}
+    </div>
     ${film.description ? `<p class="description">${escapeHtml(film.description)}</p>` : ""}
   </article>`;
 }
@@ -224,20 +355,21 @@ document.querySelectorAll(".poster-button").forEach((button) => {
   const arrowSvg = button.querySelector(".download-arrow");
   const label = button.querySelector(".download-label");
   const originalArrow = arrowSvg.innerHTML;
-  const srtPath = button.dataset.srt;
+  const originalLabel = label.textContent;
+  const filePath = button.dataset.file;
 
   button.addEventListener("click", () => {
     if(card.classList.contains("downloaded")) return;
 
-    if(!srtPath){
-      console.warn(`У фильма «${button.dataset.title}» не указан srt-файл (поле "srt" в FILMS).`);
+    if(!filePath){
+      console.warn(`У «${button.dataset.title}» не указан файл для скачивания (поле "srt"/"zip" в FILMS).`);
       return;
     }
 
-    // Реальный файл из папки subtitles/ — путь берётся из film.srt.
+    // Реальный файл из папки subtitles/ — путь берётся из film.srt (или film.zip у сериала).
     const a = document.createElement("a");
-    a.href = srtPath;
-    a.download = srtPath.split("/").pop();
+    a.href = filePath;
+    a.download = filePath.split("/").pop();
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -256,7 +388,7 @@ document.querySelectorAll(".poster-button").forEach((button) => {
     setTimeout(() => {
       card.classList.remove("downloaded");
       arrowSvg.innerHTML = originalArrow;
-      label.textContent = "download srt";
+      label.textContent = originalLabel;
     }, 2000);
   });
 });

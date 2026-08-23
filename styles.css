@@ -96,6 +96,7 @@ body{
   padding:0;
   border:0;
   border-radius:0;
+  border: 1px solid rgba(12, 16, 19, 1);
   overflow:hidden;
   cursor:pointer;
   background:var(--paper,#f4f2e9);
@@ -167,6 +168,17 @@ body{
   font-size:14px;
   line-height:1;
   color:var(--muted);
+}
+
+.episodes{
+  position:absolute;
+  top:33px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size: 14px;
+  line-height:1;
+  color:var(--muted);
+  white-space:nowrap;
 }
 
 .title{
@@ -249,26 +261,59 @@ body{
 
 .meta-link{
   position:relative;
-  z-index:1;
-  display:table;
+  display:block;
   max-width:100%;
-  color:var(--ink);
-  text-decoration-line:underline;
-  text-decoration-color:var(--blue);
-  text-decoration-thickness:1px;
-  text-underline-offset:3px;
+  text-decoration:none;
+  margin-left:-2px;
+  padding-left:14px;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1);
+}
 
+.meta-link + .meta-link{margin-top:2px}
+
+/* Иконка-стрелочка перед каждым автором — просто маркер "подпись", не копируется.
+   Позиционируется абсолютно в отведённом padding-left у .meta-link, поэтому
+   ВСЕ строки текста (включая перенос на вторую) выравниваются по началу
+   текста, а не утыкаются под иконку. */
+.meta-icon{
+  position:absolute;
+  left:0;
+  top:7px;
+  width:12px;
+  height:11px;
+  color:var(--muted);
+}
+.meta-icon path{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.4;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Сама заливка — на отдельном inline-элементе с box-decoration-break:clone,
+   поэтому если подпись переносится на 2 строки, у каждой строки СВОЙ
+   прямоугольник заливки по ширине именно её текста, а не всей карточки. */
+.meta-link-text{
+  display:inline;
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
+  color:var(--ink);
   font-family:"Literata", Georgia, serif;
   font-size:14px;
   font-weight:400;
   line-height:1.25;
   padding:0 2px 2px;
-  margin-left:-2px;
-
-  transition:color .18s ease,transform .3s cubic-bezier(.2,.8,.2,1);
+  text-decoration-line:underline;
+  text-decoration-color:var(--blue);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  background-image:linear-gradient(var(--blue),var(--blue));
+  background-repeat:no-repeat;
+  background-position:left center;
+  background-size:0% 100%;
+  transition:background-size .32s cubic-bezier(.2,.8,.2,1),color .18s ease;
 }
-
-.meta-link + .meta-link{margin-top:2px}
 
 .description{
   margin:6px 0 0;
@@ -277,28 +322,92 @@ body{
   color:var(--muted);
 }
 
-/* Заливка идёт слева направо */
-.meta-link::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  background:var(--blue);
-  transform:scaleX(0);
-  transform-origin:left center;
-  transition:transform .32s cubic-bezier(.2,.8,.2,1);
-}
-
 .meta-link:hover,
 .meta-link:focus-visible{
-  color:#fff;
   transform:translateX(3px);
   outline:none;
 }
 
-.meta-link:hover::before,
-.meta-link:focus-visible::before{
-  transform:scaleX(1);
+.meta-link:hover .meta-link-text,
+.meta-link:focus-visible .meta-link-text{
+  color:#fff;
+  background-size:100% 100%;
+}
+
+/* Рейтинги — под постером, над подписями авторов */
+@font-face{
+  font-family:"Literata Oldstyle";
+  src:url("fonts/Literata-Regular.ttf") format("truetype");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+/* Рейтинги — под постером, над подписями авторов */
+.ratings{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+}
+.rating{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-family:"Literata Oldstyle","Literata", Georgia, serif;
+  font-size:14px;
+  color:var(--ink);
+  font-variant-numeric: oldstyle-nums;
+}
+.rating-dot{
+  position:relative;
+  top:1px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  flex:0 0 8px;
+}
+.rating-imdb .rating-dot{background:#f5c518}
+.rating-letterboxd .rating-dot{background:conic-gradient(from 0deg,#00e054,#40bcf4,#ff8000,#00e054)}
+.rating-rt .rating-dot{background:#fa320a}
+.rating-metacritic .rating-dot{background:#54a72a}
+
+/* "Стопка серий" — 2 псевдо-карточки позади постера, только у сериалов */
+.stack-layer{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:var(--poster-h);
+  z-index:-1;
+  background:var(--paper,#f4f2e9);
+  border:1px solid rgba(12, 16, 19, 1);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+/* Задержка задана прямо здесь (а не только внутри :hover), поэтому она
+   действует в обе стороны: и когда слои поднимаются вслед за постером,
+   и когда опускаются обратно — по одному и тому же порядку l1 → l2. */
+.stack-layer.l1{transform:translate(3px,-3px);transition-delay:.04s}
+.stack-layer.l2{transform:translate(6px,-6px);transition-delay:.09s}
+
+/* Слои поднимаются вместе с постером, но чуть дальше — эффект "следом" */
+.card:hover .stack-layer.l1{transform:translate(3px,-9px)}
+.card:hover .stack-layer.l2{transform:translate(6px,-12px)}
+
+.stack-layer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:var(--poster);
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity .28s ease;
+}
+
+.card:hover .stack-layer::before{
+  opacity:1;
+  transition:opacity 0s;
 }
 
 @media (max-width:900px){
