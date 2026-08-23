@@ -101,9 +101,123 @@ const PEOPLE = {
     label: "All the Wasted Time",
     href: "https://t.me/allthewastedtime"
   },
+
+  ripley: {
+    label: "Ripley_2092",
+    href: "https://t.me/ripley2092subs"
+  },
+
+  chatAndalou: {
+    label: "Un Chat Andalou",
+    href: "https://t.me/chat_andalou"
+  },
+
+  focs: {
+    label: "FOCS",
+    href: "https://t.me/forFOCSsake"
+  },
+
+  coolStory: {
+    label: "Cool Story Blog",
+    href: "https://t.me/coolstorysub"
+  },
+
+  noBetter: {
+    label: "no better",
+    href: "https://t.me/anobetter"
+  },
+
+  summer: {
+    label: "нелюбимое лето",
+    href: "https://t.me/fsumm3r"
+  },
 };
 
 const FILMS = [
+  {
+    title: "Scary Movie",
+    year: 2026,
+    poster: "posters/scary-movie-2026-g.jpg",
+    srt: "subtitles/scary-movie-2026-g.srt",
+    authors: ["goodman"],
+    ratings: { rt: 27 },
+    description: ""
+  },
+
+  {
+    title: "Scary Movie",
+    year: 2026,
+    poster: "posters/scary-movie-2026-r.jpg",
+    srt: "subtitles/scary-movie-2026-r.srt",
+    authors: ["ripley", "chatAndalou"],
+    ratings: { rt: 27 },
+    description: ""
+  },
+
+  {
+    title: "The Bear",
+    year: 2026,
+    type: "series",
+    poster: "posters/the-bear-2026.jpg",
+    zip: "subtitles/the-bear-2026.zip",
+    season: 5,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["focs"],
+    ratings: { rt: 100, metacritic: 82 },
+    description: ""
+  },
+
+  {
+    title: "Avatar Aang: The Last Airbender",
+    year: 2026,
+    poster: "posters/avatar-aang-the-last-airbender-2026.jpg",
+    srt: "subtitles/avatar-aang-the-last-airbender-2026.srt",
+    authors: ["coolStory"],
+    ratings: { imdb: 7.8, rt: 91 },
+    description: ""
+  },
+
+  {
+    title: "The Last Viking",
+    year: 2025,
+    poster: "posters/the-last-viking-2025.jpg",
+    srt: "subtitles/the-last-viking-2025.srt",
+    authors: ["one"],
+    ratings: { imdb: 7.2, rt: 94 },
+    description: ""
+  },
+
+  {
+    title: "Moss & Freud",
+    year: 2025,
+    poster: "posters/moss-freud-2025.jpg",
+    srt: "subtitles/moss-freud-2025.srt",
+    authors: ["noBetter"],
+    ratings: { imdb: 5.4 },
+    description: ""
+  },
+
+  {
+    title: "Backrooms",
+    year: 2026,
+    poster: "posters/backrooms-2026.jpg",
+    srt: "subtitles/backrooms-2026.srt",
+    authors: ["ripley", "summer"],
+    ratings: { rt: 87 },
+    description: ""
+  },
+
+  {
+    title: "I Love Boosters",
+    year: 2026,
+    poster: "posters/i-love-boosters-2026.jpg",
+    srt: "subtitles/i-love-boosters-2026.srt",
+    authors: ["summer"],
+    ratings: { imdb: 6.6, letterboxd: 3.8, rt: 92},
+    description: ""
+  },
+
   {
     title: "Minions & Monsters",
     year: 2026,
@@ -134,7 +248,7 @@ const FILMS = [
     poster: "posters/truly-naked-2026.jpg",
     srt: "subtitles/truly-naked-2026.srt",
     authors: ["one"],
-    ratings: { imdb: 7.5, letterboxd: 3.2 },
+    ratings: { imdb: 6.4, letterboxd: 3.2 },
     description: ""
   },
   
@@ -144,7 +258,7 @@ const FILMS = [
     poster: "posters/bitter-christmas-2026.jpg",
     srt: "subtitles/bitter-christmas-2026.srt",
     authors: ["genco"],
-    ratings: { imdb: 6.5 },
+    ratings: { imdb: 6.3 },
     description: ""
   },
 
@@ -154,7 +268,7 @@ const FILMS = [
     poster: "posters/the-mandalorian-and-grogu-2026.jpg",
     srt: "subtitles/the-mandalorian-and-grogu-2026.srt",
     authors: ["lebowski"],
-    ratings: { imdb: 7.4, rt: 65 },
+    ratings: { imdb: 6.8, rt: 65 },
     description: ""
   },
 
@@ -164,7 +278,7 @@ const FILMS = [
     poster: "posters/the-invite-2026.jpg",
     srt: "subtitles/the-invite-2026.srt",
     authors: ["dark"],
-    ratings: { imdb: 6.2, rt: 96 },
+    ratings: { imdb: 7.6, rt: 96 },
     description: ""
   },
 
@@ -184,7 +298,7 @@ const FILMS = [
     poster: "posters/sweet-sixteen-2002.jpg",
     srt: "subtitles/sweet-sixteen-2002.srt",
     authors: ["genco"],
-    ratings: { imdb: 7.4, rt: 97, metacritic: 86 },
+    ratings: { imdb: 7, rt: 97, metacritic: 86 },
     description: ""
   },
 
@@ -204,7 +318,7 @@ const FILMS = [
     poster: "posters/rose-of-nevada-2026.jpg",
     srt: "subtitles/rose-of-nevada-2026.srt",
     authors: ["genco"],
-    ratings: { imdb: 6.6, rt: 100, metacritic: 82 },
+    ratings: { imdb: 6.3, rt: 100, metacritic: 82 },
     description: ""
   },
 

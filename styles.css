@@ -348,12 +348,12 @@ body{
   display:flex;
   flex-wrap:wrap;
   align-items:center;
-  gap:9px;
+  gap:10px;
 }
 .rating{
   display:inline-flex;
   align-items:center;
-  gap:4px;
+  gap:3px;
   font-family:"Literata Oldstyle","Literata", Georgia, serif;
   font-size:14px;
   color:var(--ink);
