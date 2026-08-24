@@ -15,6 +15,7 @@
    2) В массив FILMS ниже добавляется ОДИН объект:
 
         {
+          id:      "nazvanie-filma-2026",
           title:   "Название фильма",
           year:    2026,
           poster:  "posters/nazvanie-filma.jpg",
@@ -22,6 +23,12 @@
           authors: ["alice"]
         }
 
+      - id — короткий уникальный идентификатор (лапслок, дефисы, обычно
+        как имя файла без расширения). Нужен для автообновления рейтингов
+        (см. README-ratings.md) — по нему сопоставляется фильм и его
+        оценки. На вид карточки не влияет. Если фильм только один —
+        можно сделать id как в poster; если несколько версий одного
+        фильма (как два перевода "Scary Movie") — добавьте суффикс (-g/-r).
       - poster и srt — пути к файлам, которые вы положили в папки выше
         (можно называть файлы как угодно, главное чтобы путь совпадал).
       - authors — необязательное поле, список ключей из справочника
@@ -55,6 +62,13 @@
        можно не указывать вообще или указать только часть:
          ratings: { imdb: 7.3, rt: 88 }
        Показываются в виде маленьких цветных меток под постером.
+
+       АВТООБНОВЛЕНИЕ: imdb/rt/metacritic раз в сутки подтягиваются сами
+       (см. README-ratings.md) прямо отсюда, из FILMS — отдельный список
+       вести не нужно, id достаточно. То, что вы впишете здесь вручную,
+       работает как запасной вариант, пока автообновление ещё не нашло
+       оценку. letterboxd автоматика не трогает вообще — его вы всегда
+       проставляете сюда сами.
 
    3) Если появляется новый автор/кинопоказ, которого раньше не было —
       его нужно один раз завести в PEOPLE (см. ниже), а потом просто
@@ -135,6 +149,7 @@ const PEOPLE = {
 
 const FILMS = [
   {
+    id: "scary-movie-2026-g",
     title: "Scary Movie",
     year: 2026,
     poster: "posters/scary-movie-2026-g.jpg",
@@ -145,6 +160,7 @@ const FILMS = [
   },
 
   {
+    id: "scary-movie-2026-r",
     title: "Scary Movie",
     year: 2026,
     poster: "posters/scary-movie-2026-r.jpg",
@@ -155,6 +171,7 @@ const FILMS = [
   },
 
   {
+    id: "the-bear-2026",
     title: "The Bear",
     year: 2026,
     type: "series",
@@ -169,6 +186,7 @@ const FILMS = [
   },
 
   {
+    id: "avatar-aang-the-last-airbender-2026",
     title: "Avatar Aang: The Last Airbender",
     year: 2026,
     poster: "posters/avatar-aang-the-last-airbender-2026.jpg",
@@ -179,6 +197,7 @@ const FILMS = [
   },
 
   {
+    id: "the-last-viking-2025",
     title: "The Last Viking",
     year: 2025,
     poster: "posters/the-last-viking-2025.jpg",
@@ -189,6 +208,7 @@ const FILMS = [
   },
 
   {
+    id: "moss-freud-2025",
     title: "Moss & Freud",
     year: 2025,
     poster: "posters/moss-freud-2025.jpg",
@@ -199,6 +219,7 @@ const FILMS = [
   },
 
   {
+    id: "backrooms-2026",
     title: "Backrooms",
     year: 2026,
     poster: "posters/backrooms-2026.jpg",
@@ -209,6 +230,7 @@ const FILMS = [
   },
 
   {
+    id: "i-love-boosters-2026",
     title: "I Love Boosters",
     year: 2026,
     poster: "posters/i-love-boosters-2026.jpg",
@@ -219,6 +241,7 @@ const FILMS = [
   },
 
   {
+    id: "minions-monsters-2026",
     title: "Minions & Monsters",
     year: 2026,
     poster: "posters/minions-monsters-2026.jpg",
@@ -229,6 +252,7 @@ const FILMS = [
   },
 
   {
+    id: "ann-droid-2026",
     title: "Ann Droid",
     year: 2026,
     type: "series",
@@ -243,6 +267,7 @@ const FILMS = [
   },
 
   {
+    id: "truly-naked-2026",
     title: "Truly Naked",
     year: 2026,
     poster: "posters/truly-naked-2026.jpg",
@@ -253,6 +278,7 @@ const FILMS = [
   },
   
   {
+    id: "bitter-christmas-2026",
     title: "Bitter Christmas",
     year: 2026,
     poster: "posters/bitter-christmas-2026.jpg",
@@ -263,6 +289,7 @@ const FILMS = [
   },
 
   {
+    id: "the-mandalorian-and-grogu-2026",
     title: "The Mandalorian and Grogu",
     year: 2026,
     poster: "posters/the-mandalorian-and-grogu-2026.jpg",
@@ -273,6 +300,7 @@ const FILMS = [
   },
 
   {
+    id: "the-invite-2026",
     title: "The Invite",
     year: 2026,
     poster: "posters/the-invite-2026.jpg",
@@ -283,8 +311,9 @@ const FILMS = [
   },
 
   {
+    id: "how-to-divorce-during-the-war-2025",
     title: "How to Divorce During the War",
-    year: 2026,
+    year: 2025,
     poster: "posters/how-to-divorce-during-the-war-2025.jpg",
     srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
     authors: ["alice"],
@@ -293,6 +322,7 @@ const FILMS = [
   },
 
   {
+    id: "sweet-sixteen-2002",
     title: "Sweet Sixteen",
     year: 2002,
     poster: "posters/sweet-sixteen-2002.jpg",
@@ -303,6 +333,7 @@ const FILMS = [
   },
 
   {
+    id: "masters-of-the-universe-2026",
     title: "Masters of the Universe",
     year: 2026,
     poster: "posters/masters-of-the-universe 2026.jpg",
@@ -313,6 +344,7 @@ const FILMS = [
   },
 
   {
+    id: "rose-of-nevada-2026",
     title: "Rose of Nevada",
     year: 2026,
     poster: "posters/rose-of-nevada-2026.jpg",
@@ -323,6 +355,7 @@ const FILMS = [
   },
 
   {
+    id: "poor-cow-1967",
     title: "Poor Cow",
     year: 1967,
     poster: "posters/poor-cow-1967.jpg",
@@ -333,6 +366,7 @@ const FILMS = [
   },
 
   {
+    id: "love-streams-1984",
     title: "Love Streams",
     year: 1984,
     poster: "posters/love-streams-1984.jpg",
@@ -462,47 +496,76 @@ function makeCard(film, i){
   </article>`;
 }
 
-document.getElementById("grid").innerHTML = FILMS.map(makeCard).join("");
+// Подтягивает автообновляемые оценки (imdb/rt/metacritic из ratings.json,
+// см. README-ratings.md) и накладывает их поверх того, что руками вписано
+// в FILMS — letterboxd этот файл никогда не трогает, он туда просто не
+// попадает при автосборке.
+async function loadAutoRatings(){
+  try{
+    const res = await fetch("ratings.json", { cache: "no-store" });
+    if(!res.ok) return {};
+    return await res.json();
+  }catch{
+    return {};
+  }
+}
 
-document.querySelectorAll(".poster-button").forEach((button) => {
-  const card = button.closest(".card");
-  const arrowSvg = button.querySelector(".download-arrow");
-  const label = button.querySelector(".download-label");
-  const originalArrow = arrowSvg.innerHTML;
-  const originalLabel = label.textContent;
-  const filePath = button.dataset.file;
+function attachDownloadHandlers(){
+  document.querySelectorAll(".poster-button").forEach((button) => {
+    const card = button.closest(".card");
+    const arrowSvg = button.querySelector(".download-arrow");
+    const label = button.querySelector(".download-label");
+    const originalArrow = arrowSvg.innerHTML;
+    const originalLabel = label.textContent;
+    const filePath = button.dataset.file;
 
-  button.addEventListener("click", () => {
-    if(card.classList.contains("downloaded")) return;
+    button.addEventListener("click", () => {
+      if(card.classList.contains("downloaded")) return;
 
-    if(!filePath){
-      console.warn(`У «${button.dataset.title}» не указан файл для скачивания (поле "srt"/"zip" в FILMS).`);
-      return;
-    }
+      if(!filePath){
+        console.warn(`У «${button.dataset.title}» не указан файл для скачивания (поле "srt"/"zip" в FILMS).`);
+        return;
+      }
 
-    // Реальный файл из папки subtitles/ — путь берётся из film.srt (или film.zip у сериала).
-    const a = document.createElement("a");
-    a.href = filePath;
-    a.download = filePath.split("/").pop();
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+      // Реальный файл из папки subtitles/ — путь берётся из film.srt (или film.zip у сериала).
+      const a = document.createElement("a");
+      a.href = filePath;
+      a.download = filePath.split("/").pop();
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
 
-    card.classList.add("downloaded");
-    arrowSvg.innerHTML = CHECK;
-    label.textContent = "downloaded";
-    card.classList.add("bounce");
+      card.classList.add("downloaded");
+      arrowSvg.innerHTML = CHECK;
+      label.textContent = "downloaded";
+      card.classList.add("bounce");
 
-    card.addEventListener("animationend", function onBounce(e){
-      if(e.animationName !== "cardBounce") return;
-      card.classList.remove("bounce");
-      card.removeEventListener("animationend", onBounce);
+      card.addEventListener("animationend", function onBounce(e){
+        if(e.animationName !== "cardBounce") return;
+        card.classList.remove("bounce");
+        card.removeEventListener("animationend", onBounce);
+      });
+
+      setTimeout(() => {
+        card.classList.remove("downloaded");
+        arrowSvg.innerHTML = originalArrow;
+        label.textContent = originalLabel;
+      }, 2000);
     });
-
-    setTimeout(() => {
-      card.classList.remove("downloaded");
-      arrowSvg.innerHTML = originalArrow;
-      label.textContent = originalLabel;
-    }, 2000);
   });
-});
+}
+
+(async () => {
+  const autoRatings = await loadAutoRatings();
+
+  FILMS.forEach(film => {
+    const auto = film.id ? autoRatings[film.id] : null;
+    if(auto){
+      const { updated, ...scores } = auto; // "updated" — служебное поле, в ratings не подмешиваем
+      film.ratings = { ...film.ratings, ...scores };
+    }
+  });
+
+  document.getElementById("grid").innerHTML = FILMS.map(makeCard).join("");
+  attachDownloadHandlers();
+})();
