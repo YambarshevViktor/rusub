@@ -145,9 +145,113 @@ const PEOPLE = {
     label: "нелюбимое лето",
     href: "https://t.me/fsumm3r"
   },
+
+  dungeons: {
+    label: "Подземелья и болота",
+    href: "https://t.me/dungeons_and_swamps"
+  },
+
+  naruhinka: {
+    label: "naruhinka",
+    href: "https://t.me/naruhinkaread"
+  },
+
+  notCloset: {
+    label: "Субтитры не из шкафа",
+    href: "https://t.me/notscandiscope"
+  },
+
+  homoSubiens: {
+    label: "homo SUBiens",
+    href: "https://t.me/homo_SUBiens"
+  },
 };
 
 const FILMS = [
+  {
+    id: "lanterns-2026",
+    title: "Lanterns",
+    year: 2026,
+    type: "series",
+    poster: "posters/lanterns-2026.jpg",
+    zip: "subtitles/lanterns-2026.zip",
+    season: 1,
+    episodesAvailable: 2,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: { rt: 94, metacritic: 72 },
+    description: ""
+  },
+
+  {
+    id: "the-death-of-cinema-and-my-father-too-2020",
+    title: "The Death of Cinema and My Father Too",
+    year: 2020,
+    poster: "posters/the-death-of-cinema-and-my-father-too-2020.jpg",
+    srt: "subtitles/the-death-of-cinema-and-my-father-too-2020.srt",
+    authors: ["chatAndalou"],
+    description: ""
+  },
+
+  {
+    id: "mike-nick-nick-alice-2026",
+    title: "Mike & Nick & Nick & Alice",
+    year: 2026,
+    poster: "posters/mike-nick-nick-alice-2026.jpg",
+    srt: "subtitles/mike-nick-nick-alice-2026.srt",
+    authors: ["dungeons"],
+    ratings: { rt: 75 },
+    description: ""
+  },
+
+  {
+    id: "the-mighty-nein-2025",
+    title: "The Mighty Nein",
+    year: 2025,
+    type: "series",
+    poster: "posters/the-mighty-nein-2025.jpg",
+    zip: "subtitles/the-mighty-nein-2025.zip",
+    season: 1,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["lebowski", "naruhinka"],
+    ratings: { rt: 100, metacritic: 80 },
+    description: ""
+  },
+
+  {
+    id: "blue-heron-2025",
+    title: "Blue Heron",
+    year: 2025,
+    poster: "posters/blue-heron-2025.jpg",
+    srt: "subtitles/blue-heron-2025.srt",
+    authors: ["dark"],
+    ratings: { imdb: 7.2, rt: 100, metacritic: 94 },
+    description: ""
+  },
+
+  {
+    id: "seven-winters-in-tehran-2023",
+    title: "Seven Winters in Tehran",
+    year: 2023,
+    poster: "posters/seven-winters-in-tehran-2023.jpg",
+    srt: "subtitles/seven-winters-in-tehran-2023.srt",
+    authors: ["notCloset"],
+    ratings: { imdb: 7.6, rt: 100 },
+    description: ""
+  },
+
+  {
+    id: "the-chronology-of-water-2025",
+    title: "The Chronology of Water",
+    year: 2025,
+    poster: "posters/the-chronology-of-water-2025.jpg",
+    srt: "subtitles/the-chronology-of-water-2025.srt",
+    authors: ["homoSubiens"],
+    ratings: { rt: 91 },
+    description: ""
+  },
+
   {
     id: "scary-movie-2026-g",
     title: "Scary Movie",
@@ -313,7 +417,7 @@ const FILMS = [
   {
     id: "how-to-divorce-during-the-war-2025",
     title: "How to Divorce During the War",
-    year: 2025,
+    year: 2026,
     poster: "posters/how-to-divorce-during-the-war-2025.jpg",
     srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
     authors: ["alice"],
@@ -470,7 +574,7 @@ function makeCard(film, i){
     : "";
 
   return `
-  <article class="card" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
+  <article class="card" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
     ${stackLayers}
     <button class="poster-button" type="button"
       aria-label="Скачать субтитры${isSeries ? ' (zip)' : ''}: ${escapeHtml(film.title)}"
@@ -555,6 +659,121 @@ function attachDownloadHandlers(){
   });
 }
 
+const CHEVRON = '<svg class="chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 2 L6 6.2 L10.5 2"/></svg>';
+
+// Списки для выпадающих списков собираются сами из реальных данных —
+// год/автор берутся только те, что реально встречаются в FILMS, руками
+// ничего вести не нужно.
+function renderFilters(){
+  const years = [...new Set(FILMS.map(f => f.year))].sort((a, b) => b - a);
+
+  const authorKeys = [...new Set(FILMS.flatMap(f => f.authors || []))];
+  const authors = authorKeys
+    .map(key => ({ key, label: PEOPLE[key]?.label }))
+    .filter(a => a.label)
+    .sort((a, b) => a.label.localeCompare(b.label, "en"));
+
+  const authorOptions = authors
+    .map(a => `<button type="button" class="filter-option" data-filter="author" data-value="${escapeHtml(a.key)}">${escapeHtml(a.label)}</button>`)
+    .join("");
+
+  const yearOptions = years
+    .map(y => `<button type="button" class="filter-option" data-filter="year" data-value="${y}">${y}</button>`)
+    .join("");
+
+  document.getElementById("filters").innerHTML = `
+    <details class="filter filter-author" id="filter-author">
+      <summary><span class="filter-label">Author</span>${CHEVRON}</summary>
+      <div class="filter-menu">
+        <button type="button" class="filter-option is-active" data-filter="author" data-value="">All authors</button>
+        ${authorOptions}
+      </div>
+    </details>
+
+    <details class="filter filter-year" id="filter-year">
+      <summary><span class="filter-label">Year</span>${CHEVRON}</summary>
+      <div class="filter-menu">
+        <button type="button" class="filter-option is-active" data-filter="year" data-value="">All years</button>
+        ${yearOptions}
+      </div>
+    </details>
+
+    <div class="type-toggle" role="group" aria-label="Type">
+      <button type="button" class="type-option" data-filter="type" data-value="movie">Films</button>
+      <button type="button" class="type-option" data-filter="type" data-value="series">Series</button>
+    </div>
+  `;
+}
+
+function applyCardFilters(state){
+  document.querySelectorAll(".card").forEach(card => {
+    const matchesAuthor = !state.author || (card.dataset.authors || "").split(" ").includes(state.author);
+    const matchesYear = !state.year || card.dataset.year === state.year;
+    const matchesType = !state.type || card.dataset.type === state.type;
+    card.classList.toggle("is-hidden", !(matchesAuthor && matchesYear && matchesType));
+  });
+}
+
+function attachFilterHandlers(){
+  const state = { author: "", year: "", type: "" };
+
+  // Автор / Год — выпадающие списки, выбор одного варианта
+  document.querySelectorAll(".filter-option[data-filter]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.filter;
+      state[key] = btn.dataset.value;
+
+      btn.closest(".filter-menu").querySelectorAll(".filter-option")
+        .forEach(b => b.classList.toggle("is-active", b === btn));
+
+      const details = btn.closest("details");
+
+      if(details){
+        const label = details.querySelector(".filter-label");
+
+        if(label){
+          label.textContent = btn.dataset.value
+            ? btn.textContent.trim()
+            : (key === "author" ? "Author" : "Year");
+        }
+
+        details.removeAttribute("open");
+      }
+
+      applyCardFilters(state);
+    });
+  });
+
+  // Фильмы / Сериалы — повторный клик по уже активной кнопке снимает фильтр
+  document.querySelectorAll(".type-option[data-filter='type']").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const wasActive = btn.classList.contains("is-active");
+      document.querySelectorAll(".type-option").forEach(b => b.classList.remove("is-active"));
+      state.type = wasActive ? "" : btn.dataset.value;
+      if(!wasActive) btn.classList.add("is-active");
+      applyCardFilters(state);
+    });
+  });
+
+  // Клик вне открытого выпадающего списка — закрывает его
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll("details.filter[open]").forEach(d => {
+      if(!d.contains(e.target)) d.removeAttribute("open");
+    });
+  });
+
+  // При открытии список сразу прокручивается так, чтобы выбранный пункт
+  // был виден — без этого казалось, что подсветка "перескакивает" сверху
+  // вниз (или наоборот), пока список сам не долистают до него вручную.
+  document.querySelectorAll("details.filter").forEach(details => {
+    details.addEventListener("toggle", () => {
+      if(!details.open) return;
+      const active = details.querySelector(".filter-option.is-active");
+      if(active) active.scrollIntoView({ block: "nearest" });
+    });
+  });
+}
+
 (async () => {
   const autoRatings = await loadAutoRatings();
 
@@ -568,4 +787,7 @@ function attachDownloadHandlers(){
 
   document.getElementById("grid").innerHTML = FILMS.map(makeCard).join("");
   attachDownloadHandlers();
+
+  renderFilters();
+  attachFilterHandlers();
 })();

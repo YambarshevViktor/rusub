@@ -423,6 +423,184 @@ body{
   :root{--poster-h:250px}
 }
 
+/* Фильтры — Автор / Год (выпадающие) + Фильмы|Сериалы (переключатель) */
+#filters{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin:30px 0 40px;
+  font-family:"Literata", Georgia, serif;
+  font-style:normal;
+  font-size:14px;
+}
+
+.filter{
+  position:relative;
+  font-family:"Literata", Georgia, serif;
+}
+
+.filter summary{
+  list-style:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 13px;
+  min-height:38px;
+  border:1px solid rgba(241,238,232,.42);
+  border-radius:999px;
+  color:var(--ink);
+  background:rgba(12,16,19,.22);
+  user-select:none;
+  transition:
+    border-color .18s ease,
+    background-color .18s ease,
+    color .18s ease;
+}
+.filter summary::-webkit-details-marker{display:none}
+.filter summary::marker{content:""}
+
+.filter:hover summary,
+.filter[open] summary{
+  border-color:rgba(74,168,255,.9);
+  background:rgba(74,168,255,.08);
+  color:#fff;
+}
+
+.filter .chevron{
+  width:10px;
+  height:7px;
+  flex:0 0 10px;
+  transition:transform .22s cubic-bezier(.2,.8,.2,1);
+}
+.filter .chevron path{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.4;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.filter[open] .chevron{ transform:rotate(180deg); }
+
+.filter-menu{
+  position:absolute;
+  top:calc(100% + 7px);
+  left:0;
+  transform:none;
+  width:max-content;
+  min-width:0;
+  max-width:min(360px, calc(100vw - 32px));
+  max-height:280px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:5px;
+  z-index:20;
+  background:rgba(16,22,28,.98);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:10px;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+.filter-author .filter-menu{
+  min-width:190px;
+}
+
+.filter-year .filter-menu{
+  min-width:0;
+}
+
+.filter-option{
+  display:block;
+  width:100%;
+  text-align:left;
+  white-space:nowrap;
+  padding:8px 11px;
+  border:0;
+  border-radius:7px;
+  background:none;
+  color:var(--ink);
+  font-family:"Literata", Georgia, serif;
+  font-size:14px;
+  font-style:normal;
+  line-height:1.25;
+  cursor:pointer;
+  transition:background-color .15s ease,color .15s ease;
+}
+.filter-option:hover{
+  background:rgba(255,255,255,.08);
+}
+.filter-option.is-active{
+  background:var(--blue);
+  color:#0c1013;
+  transition:none; /* без анимации — иначе при повторном открытии видно, как подсветка "едет" от прошлого пункта */
+}
+
+.type-toggle{
+  display:inline-flex;
+  position:relative;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(12,16,19,.22);
+  box-shadow:0 0 0 1px rgba(241,238,232,.42);
+  transition:box-shadow .18s ease;
+}
+/* Вся внешняя обводка целиком становится синей, пока наведена ИЛИ выбрана
+   любая из кнопок — без :has() пришлось бы красить только часть периметра
+   у одной кнопки, а обводка у соседней рвалась на стыке. */
+.type-toggle:has(.type-option:hover),
+.type-toggle:has(.type-option.is-active){
+  box-shadow:0 0 0 1px rgba(74,168,255,.9);
+}
+
+.type-option{
+  padding:8px 14px;
+  min-height:38px;
+  border:0;
+  background:none;
+  color:var(--ink);
+  font-family:"Literata", Georgia, serif;
+  font-size:14px;
+  font-style:normal;
+  line-height:1;
+  cursor:pointer;
+  transition:background-color .18s ease,color .18s ease;
+}
+
+/* Тонкий статичный разделитель между кнопками — всегда на месте, никогда не пропадает */
+.type-option:first-child{
+  box-shadow:inset -1px 0 0 rgba(241,238,232,.22);
+}
+
+.type-option:hover{
+  background:rgba(74,168,255,.1);
+  color:#fff;
+}
+
+.type-option.is-active{
+  background:var(--blue);
+  color:#0c1013;
+}
+
+.card.is-hidden{ display:none; }
+
+@media (max-width:620px){
+  #filters{
+    font-size:12px;
+    gap:8px;
+  }
+  .filter summary,
+  .type-option{
+    padding:8px 12px;
+  }
+  .filter-menu{
+    max-width:calc(100vw - 24px);
+  }
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
