@@ -1,1 +1,78 @@
-{}
+{
+  "scary-movie-2026-g": {
+    "imdb": 4.9,
+    "metacritic": 38,
+    "updated": "2026-08-24"
+  },
+  "scary-movie-2026-r": {
+    "imdb": 4.9,
+    "metacritic": 38,
+    "updated": "2026-08-24"
+  },
+  "the-last-viking-2025": {
+    "imdb": 7.2,
+    "metacritic": 82,
+    "updated": "2026-08-24"
+  },
+  "backrooms-2026": {
+    "imdb": 6.8,
+    "metacritic": 76,
+    "updated": "2026-08-24"
+  },
+  "i-love-boosters-2026": {
+    "imdb": 7.2,
+    "metacritic": 70,
+    "updated": "2026-08-24"
+  },
+  "minions-monsters-2026": {
+    "imdb": 6.4,
+    "metacritic": 70,
+    "updated": "2026-08-24"
+  },
+  "ann-droid-2026": {
+    "imdb": 7.7,
+    "updated": "2026-08-24"
+  },
+  "truly-naked-2026": {
+    "imdb": 6.5,
+    "updated": "2026-08-24"
+  },
+  "the-mandalorian-and-grogu-2026": {
+    "imdb": 6.8,
+    "rt": 60,
+    "metacritic": 53,
+    "updated": "2026-08-24"
+  },
+  "the-invite-2026": {
+    "imdb": 7.8,
+    "metacritic": 82,
+    "updated": "2026-08-24"
+  },
+  "sweet-sixteen-2002": {
+    "imdb": 7.4,
+    "rt": 97,
+    "metacritic": 86,
+    "updated": "2026-08-24"
+  },
+  "masters-of-the-universe-2026": {
+    "imdb": 6.5,
+    "metacritic": 52,
+    "updated": "2026-08-24"
+  },
+  "rose-of-nevada-2026": {
+    "imdb": 6.4,
+    "rt": 92,
+    "metacritic": 84,
+    "updated": "2026-08-24"
+  },
+  "poor-cow-1967": {
+    "imdb": 6.8,
+    "rt": 50,
+    "updated": "2026-08-24"
+  },
+  "love-streams-1984": {
+    "imdb": 7.6,
+    "rt": 100,
+    "updated": "2026-08-24"
+  }
+}
