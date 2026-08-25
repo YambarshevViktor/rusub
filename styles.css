@@ -604,3 +604,73 @@ body{
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* Карточка сбора на субтитры — та же самая карточка, что и у фильмов
+   (постер поднимается/кликабелен через .poster-button, как у всех),
+   просто в 2 раза шире и картинка видна постоянно, а не по ховеру. */
+.fundraiser-card{
+  grid-column:span 2;
+}
+
+/* .poster-button тут — <a>, у ссылок по умолчанию подчёркнутый текст,
+   выключаем на уровне самой ссылки */
+.fundraiser-card .poster-button{
+  text-decoration:none;
+}
+
+.fundraiser-image{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background-image:var(--poster);
+  background-size:cover;
+  background-position:center;
+}
+
+/* Необязательное затемнение снизу — включается полем shade:true у фильма,
+   если текст плохо видно на конкретной картинке */
+.fundraiser-shade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(to top, rgba(8,10,12,.72) 0%, rgba(8,10,12,0) 55%);
+}
+
+.fundraiser-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:0 28px;
+  text-align:center;
+}
+
+.fundraiser-label{
+  font-family:"Literata", Georgia, serif;
+  font-size:18px;
+  color:#fff;
+}
+
+.fundraiser-title{
+  font-family:"Victor Mono", monospace;
+  font-style:italic;
+  font-weight:700;
+  font-size:36px;
+  line-height:1.1;
+  color:#fff;
+}
+
+.fundraiser-goal{
+  font-family:"Literata", Georgia, serif;
+  font-size:18px;
+  color:#fff;
+}
+
+@media (max-width:620px){
+  .fundraiser-card{ grid-column:span 2; }
+  .fundraiser-title{ font-size:26px; }
+}

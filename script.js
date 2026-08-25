@@ -169,6 +169,17 @@ const PEOPLE = {
 
 const FILMS = [
   {
+    type: "fundraiser",
+    active: true,
+    title: "I Want Your Sex",
+    image: "fundraisers/i-want-your-sex-2026.jpg",
+    goal: "6 000 ₽",
+	  ratings: { imdb: 6.4 },
+    link: { label: "one inch tall", href: "https://t.me/oneinchtall2/85" },
+    shade: true
+  },
+
+  {
     id: "lanterns-2026",
     title: "Lanterns",
     year: 2026,
@@ -513,6 +524,47 @@ const CHECK = '<path d="M3 10 L7 14 L14 4"/>';
 // Маленькая иконка-стрелочка перед каждым автором в подписи (не путать со стрелкой скачивания)
 const AUTHOR_ICON = '<path d="M2.5 2 v4.2 a2 2 0 0 0 2 2 h7"/><path d="M8.5 5.6 L11.5 8.2 L8.5 10.8"/>';
 
+// Карточка сбора на субтитры — не фильм, поэтому отдельная функция рендера,
+// но по сути та же самая карточка (постер + подпись снизу), просто вдвое
+// шире и текст на постере свой. Формат объекта в FILMS:
+//   {
+//     type: "fundraiser",
+//     active: true,             // false — просто не показывать, ничего не удаляя
+//     title: "The Odyssey",
+//     image: "fundraisers/the-odyssey.jpg",
+//     goal: "7 777 ₽",
+//     shade: false,             // true — тёмная плашка снизу, если текст плохо видно на фото
+//     ratings: { imdb: 7.8 },   // необязательно, как у обычных карточек
+//     link: { label: "FOCS", href: "https://t.me/forFOCSsake" } // ссылка на пост, не на автора,
+//                                                                  поэтому не через PEOPLE
+//   }
+// Двойная ширина, позиция в сетке — просто её место в массиве FILMS.
+function makeFundraiserCard(item){
+  const href = escapeHtml(item.link?.href || "#");
+
+  return `
+  <article class="card fundraiser-card" style="--poster:url('${escapeHtml(item.image)}')">
+    <a class="poster-button" href="${href}" target="_blank" rel="noopener noreferrer"
+      aria-label="Сбор на субтитры: ${escapeHtml(item.title)}">
+      <span class="fundraiser-image" aria-hidden="true"></span>
+      ${item.shade ? `<span class="fundraiser-shade" aria-hidden="true"></span>` : ""}
+      <span class="fundraiser-content">
+        <span class="fundraiser-label">Сбор на субтитры</span>
+        <span class="fundraiser-title">${escapeHtml(item.title)}</span>
+        <span class="fundraiser-goal">Цель — ${escapeHtml(item.goal)}</span>
+      </span>
+    </a>
+
+    <div class="meta">
+      ${renderRatings(item.ratings)}
+      <a class="meta-link" href="${href}" target="_blank" rel="noopener noreferrer">
+        <svg class="meta-icon" viewBox="0 0 14 14" aria-hidden="true">${AUTHOR_ICON}</svg>
+        <span class="meta-link-text">${escapeHtml(item.link?.label || "")}</span>
+      </a>
+    </div>
+  </article>`;
+}
+
 // Скачивается всегда только ОДИН сезон целиком (один zip), поэтому подпись
 // показывает именно его: "2s · 4/12e" пока выложены не все серии сезона,
 // и просто "2s · 12e", когда весь сезон уже добавлен целиком.
@@ -548,7 +600,22 @@ function hashString(str){
   return Math.abs(h);
 }
 
+// Общий рендер блока рейтингов — используется и обычными карточками, и карточкой сбора
+function renderRatings(ratings){
+  if(!ratings) return "";
+  return `<div class="ratings">
+      ${ratings.imdb != null ? `<span class="rating rating-imdb"><span class="rating-dot"></span>${ratings.imdb}</span>` : ""}
+      ${ratings.letterboxd != null ? `<span class="rating rating-letterboxd"><span class="rating-dot"></span>${ratings.letterboxd}</span>` : ""}
+      ${ratings.rt != null ? `<span class="rating rating-rt"><span class="rating-dot"></span>${ratings.rt}%</span>` : ""}
+      ${ratings.metacritic != null ? `<span class="rating rating-metacritic"><span class="rating-dot"></span>${ratings.metacritic}</span>` : ""}
+    </div>`;
+}
+
 function makeCard(film, i){
+  if(film.type === "fundraiser"){
+    return film.active === false ? "" : makeFundraiserCard(film);
+  }
+  
   const color = PALETTE[hashString(film.title + i) % PALETTE.length];
   const arrow = ARROWS[Math.floor(Math.random() * ARROWS.length)];
   const isSeries = film.type === "series";
@@ -562,12 +629,7 @@ function makeCard(film, i){
     .map(p => `<a class="meta-link" href="${escapeHtml(p.href || '#')}" target="_blank" rel="noopener noreferrer"><svg class="meta-icon" viewBox="0 0 14 14" aria-hidden="true">${AUTHOR_ICON}</svg><span class="meta-link-text">${escapeHtml(p.label)}</span></a>`)
     .join("");
 
-  const ratingsHtml = film.ratings ? `<div class="ratings">
-      ${film.ratings.imdb != null ? `<span class="rating rating-imdb"><span class="rating-dot"></span>${film.ratings.imdb}</span>` : ""}
-      ${film.ratings.letterboxd != null ? `<span class="rating rating-letterboxd"><span class="rating-dot"></span>${film.ratings.letterboxd}</span>` : ""}
-      ${film.ratings.rt != null ? `<span class="rating rating-rt"><span class="rating-dot"></span>${film.ratings.rt}%</span>` : ""}
-      ${film.ratings.metacritic != null ? `<span class="rating rating-metacritic"><span class="rating-dot"></span>${film.ratings.metacritic}</span>` : ""}
-    </div>` : "";
+  const ratingsHtml = renderRatings(film.ratings);
 
   const stackLayers = isSeries
     ? `<span class="stack-layer l2" aria-hidden="true"></span><span class="stack-layer l1" aria-hidden="true"></span>`
@@ -616,6 +678,8 @@ async function loadAutoRatings(){
 
 function attachDownloadHandlers(){
   document.querySelectorAll(".poster-button").forEach((button) => {
+    if (!button.querySelector(".download-arrow")) return;
+    
     const card = button.closest(".card");
     const arrowSvg = button.querySelector(".download-arrow");
     const label = button.querySelector(".download-label");
