@@ -440,7 +440,7 @@ const FILMS = [
   {
     id: "how-to-divorce-during-the-war-2025",
     title: "How to Divorce During the War",
-    year: 2026,
+    year: 2025,
     poster: "posters/how-to-divorce-during-the-war-2025.jpg",
     srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
     authors: ["alice"],
@@ -748,7 +748,12 @@ const CHEVRON = '<svg class="chevron" viewBox="0 0 12 8" aria-hidden="true"><pat
 // год/автор берутся только те, что реально встречаются в FILMS, руками
 // ничего вести не нужно.
 function renderFilters(){
-  const years = [...new Set(FILMS.map(f => f.year))].sort((a, b) => b - a);
+  const years = [...new Set(
+    FILMS
+      .filter(f => f.type !== "fundraiser")
+      .map(f => f.year)
+      .filter(year => year != null)
+  )].sort((a, b) => b - a);
 
   const authorKeys = [...new Set(FILMS.flatMap(f => f.authors || []))];
   const authors = authorKeys

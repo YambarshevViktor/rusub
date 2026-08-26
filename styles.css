@@ -11,6 +11,14 @@
   --gap-y:30px;
 }
 
+@font-face{
+  font-family:"Literata";
+  src:url("fonts/Literata-Regular.ttf") format("truetype");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
 *{box-sizing:border-box}
 html{background:#0c1013}
 body{
@@ -22,6 +30,7 @@ body{
     radial-gradient(900px 520px at 50% -4%, rgba(57,89,113,.34), transparent 67%),
     radial-gradient(850px 520px at 88% 18%, rgba(42,58,70,.22), transparent 68%),
     linear-gradient(148deg,#182530 0%,#121a21 42%,#0c1013 100%);
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
 }
 
 .page{
@@ -41,7 +50,6 @@ body{
   font-size:28px;
   line-height:1.1;
   font-weight:500;
-  letter-spacing:-.025em;
 }
 
 .intro p{
@@ -57,14 +65,12 @@ body{
   font-family:"Victor Mono", monospace;
   font-style:italic;
   font-size:14px;
-  letter-spacing:.01em;
 }
 
 .intro a {
   font-family:"Victor Mono", monospace;
   font-style:italic;
   font-size:14px;
-  letter-spacing:.01em;
 
   color:var(--ink);
   text-decoration-line:underline;
@@ -216,7 +222,7 @@ body{
 
 .award-icon {
   position: absolute;
-  top: -33px;
+  top: -28px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -379,15 +385,6 @@ body{
 }
 
 /* Рейтинги — под постером, над подписями авторов */
-@font-face{
-  font-family:"Literata Oldstyle";
-  src:url("fonts/Literata-Regular.ttf") format("truetype");
-  font-weight:400;
-  font-style:normal;
-  font-display:swap;
-}
-
-/* Рейтинги — под постером, над подписями авторов */
 .ratings{
   display:flex;
   flex-wrap:wrap;
@@ -398,7 +395,7 @@ body{
   display:inline-flex;
   align-items:center;
   gap:3px;
-  font-family:"Literata Oldstyle","Literata", Georgia, serif;
+  font-family:"Literata", Georgia, serif;
   font-size:14px;
   color:var(--ink);
   font-variant-numeric: oldstyle-nums;
