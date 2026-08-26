@@ -180,6 +180,17 @@ const FILMS = [
   },
 
   {
+    type: "fundraiser",
+    active: true,
+    title: "A Woman Under the Influence",
+    image: "fundraisers/a-woman-under-the-influence-1974.jpg",
+    goal: "6 666 ₽",
+	  ratings: { imdb: 8.0 },
+    link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
+    shade: true
+  },
+
+  {
     id: "lanterns-2026",
     title: "Lanterns",
     year: 2026,
@@ -297,6 +308,7 @@ const FILMS = [
     episodesTotal: 8,
     authors: ["focs"],
     ratings: { rt: 100, metacritic: 82 },
+    award: true,
     description: ""
   },
 
@@ -433,6 +445,7 @@ const FILMS = [
     srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
     authors: ["alice"],
     ratings: { rt: 100 },
+    award: true,
     description: ""
   },
 
@@ -444,6 +457,7 @@ const FILMS = [
     srt: "subtitles/sweet-sixteen-2002.srt",
     authors: ["genco"],
     ratings: { imdb: 7, rt: 97, metacritic: 86 },
+    award: true,
     description: ""
   },
 
@@ -488,6 +502,7 @@ const FILMS = [
     srt: "subtitles/love-streams-1984.srt",
     authors: ["genco"],
     ratings: { imdb: 7.6, rt: 100 },
+    award: true,
     description: ""
   },
 ];
@@ -646,7 +661,11 @@ function makeCard(film, i){
       <span class="poster-content">
         <span class="year">${film.year}</span>
         ${episodes ? `<span class="episodes">${escapeHtml(episodes)}</span>` : ""}
-        <span class="title">${escapeHtml(film.title)}</span>
+
+        <span class="title-wrap">
+          ${film.award ? `<span class="award-icon" aria-label="Award-winning title"></span>` : ""}
+          <span class="title">${escapeHtml(film.title)}</span>
+        </span>
       </span>
       <span class="download" aria-hidden="true">
         <span class="download-label">${downloadLabel}</span>
@@ -854,4 +873,8 @@ function attachFilterHandlers(){
 
   renderFilters();
   attachFilterHandlers();
+
+  const titleCount = FILMS.filter(film => film.type !== "fundraiser").length;
+  document.getElementById("title-count").textContent =
+    `${titleCount} titles now on the site`;
 })();
