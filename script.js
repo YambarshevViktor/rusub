@@ -177,6 +177,7 @@ const FILMS = [
     type: "fundraiser",
     active: true,
     title: "I Want Your Sex",
+    titleRu: "Хочу твоего секса",
     image: "fundraisers/i-want-your-sex-2026.jpg",
     goal: "6 000 ₽",
 	  ratings: { imdb: 6.4 },
@@ -188,6 +189,7 @@ const FILMS = [
     type: "fundraiser",
     active: true,
     title: "A Woman Under the Influence",
+    titleRu: "Женщина под влиянием",
     image: "fundraisers/a-woman-under-the-influence-1974.jpg",
     goal: "6 666 ₽",
 	  ratings: { imdb: 8.0 },
@@ -198,6 +200,7 @@ const FILMS = [
   {
     id: "wildcat-2023",
     title: "Wildcat",
+    titleRu: "Дикая кошка",
     year: 2023,
     poster: "posters/wildcat-2023.jpg",
     srt: "subtitles/wildcat-2023.srt",
@@ -209,6 +212,7 @@ const FILMS = [
   {
     id: "batman-knightfall-part-1-knightfall-2026",
     title: "Batman: Knightfall – Part 1: Knightfall",
+    titleRu: "Бэтмен: Падение рыцаря",
     year: 2026,
     poster: "posters/batman-knightfall-part-1-knightfall-2026.jpg",
     srt: "subtitles/batman-knightfall-part-1-knightfall-2026.srt",
@@ -220,6 +224,7 @@ const FILMS = [
   {
     id: "preparations-to-be-together-for-an-unknown-period-of-time-2020",
     title: "Preparations to Be Together for an Unknown Period of Time",
+    titleRu: "Подготовка к совместной жизни на неопределённый срок",
     year: 2020,
     poster: "posters/preparations-to-be-together-for-an-unknown-period-of-time-2020.jpg",
     srt: "subtitles/preparations-to-be-together-for-an-unknown-period-of-time-2020.srt",
@@ -231,6 +236,7 @@ const FILMS = [
   {
     id: "lanterns-2026",
     title: "Lanterns",
+    titleRu: "Фонари",
     year: 2026,
     type: "series",
     poster: "posters/lanterns-2026.jpg",
@@ -246,6 +252,7 @@ const FILMS = [
   {
     id: "the-death-of-cinema-and-my-father-too-2020",
     title: "The Death of Cinema and My Father Too",
+    titleRu: "Смерть кино и моего отца тоже",
     year: 2020,
     poster: "posters/the-death-of-cinema-and-my-father-too-2020.jpg",
     srt: "subtitles/the-death-of-cinema-and-my-father-too-2020.srt",
@@ -256,6 +263,7 @@ const FILMS = [
   {
     id: "mike-nick-nick-alice-2026",
     title: "Mike & Nick & Nick & Alice",
+    titleRu: "Майк и Ник и Ник и Элис",
     year: 2026,
     poster: "posters/mike-nick-nick-alice-2026.jpg",
     srt: "subtitles/mike-nick-nick-alice-2026.srt",
@@ -267,6 +275,7 @@ const FILMS = [
   {
     id: "the-mighty-nein-2025",
     title: "The Mighty Nein",
+    titleRu: "Могучая девятка",
     year: 2025,
     type: "series",
     poster: "posters/the-mighty-nein-2025.jpg",
@@ -282,6 +291,7 @@ const FILMS = [
   {
     id: "blue-heron-2025",
     title: "Blue Heron",
+    titleRu: "Голубая цапля",
     year: 2025,
     poster: "posters/blue-heron-2025.jpg",
     srt: "subtitles/blue-heron-2025.srt",
@@ -293,6 +303,7 @@ const FILMS = [
   {
     id: "seven-winters-in-tehran-2023",
     title: "Seven Winters in Tehran",
+    titleRu: "Семь зим в Тегеране",
     year: 2023,
     poster: "posters/seven-winters-in-tehran-2023.jpg",
     srt: "subtitles/seven-winters-in-tehran-2023.srt",
@@ -304,6 +315,7 @@ const FILMS = [
   {
     id: "the-chronology-of-water-2025",
     title: "The Chronology of Water",
+    titleRu: "Хронология воды",
     year: 2025,
     poster: "posters/the-chronology-of-water-2025.jpg",
     srt: "subtitles/the-chronology-of-water-2025.srt",
@@ -315,6 +327,7 @@ const FILMS = [
   {
     id: "scary-movie-2026-g",
     title: "Scary Movie",
+    titleRu: "Очень страшное кино",
     year: 2026,
     poster: "posters/scary-movie-2026-g.jpg",
     srt: "subtitles/scary-movie-2026-g.srt",
@@ -326,6 +339,7 @@ const FILMS = [
   {
     id: "scary-movie-2026-r",
     title: "Scary Movie",
+    titleRu: "Очень страшное кино",
     year: 2026,
     poster: "posters/scary-movie-2026-r.jpg",
     srt: "subtitles/scary-movie-2026-r.srt",
@@ -337,6 +351,7 @@ const FILMS = [
   {
     id: "the-bear-2026",
     title: "The Bear",
+    titleRu: "Медведь",
     year: 2026,
     type: "series",
     poster: "posters/the-bear-2026.jpg",
@@ -353,6 +368,7 @@ const FILMS = [
   {
     id: "avatar-aang-the-last-airbender-2026",
     title: "Avatar Aang: The Last Airbender",
+    titleRu: "Аватар Аанг: Последний маг воздуха",
     year: 2026,
     poster: "posters/avatar-aang-the-last-airbender-2026.jpg",
     srt: "subtitles/avatar-aang-the-last-airbender-2026.srt",
@@ -364,6 +380,7 @@ const FILMS = [
   {
     id: "the-last-viking-2025",
     title: "The Last Viking",
+    titleRu: "Последний викинг",
     year: 2025,
     poster: "posters/the-last-viking-2025.jpg",
     srt: "subtitles/the-last-viking-2025.srt",
@@ -375,6 +392,7 @@ const FILMS = [
   {
     id: "moss-freud-2025",
     title: "Moss & Freud",
+    titleRu: "Мосс и Фрейд",
     year: 2025,
     poster: "posters/moss-freud-2025.jpg",
     srt: "subtitles/moss-freud-2025.srt",
@@ -386,6 +404,7 @@ const FILMS = [
   {
     id: "backrooms-2026",
     title: "Backrooms",
+    titleRu: "Закулисье",
     year: 2026,
     poster: "posters/backrooms-2026.jpg",
     srt: "subtitles/backrooms-2026.srt",
@@ -397,6 +416,7 @@ const FILMS = [
   {
     id: "i-love-boosters-2026",
     title: "I Love Boosters",
+    titleRu: "Я люблю бустеров",
     year: 2026,
     poster: "posters/i-love-boosters-2026.jpg",
     srt: "subtitles/i-love-boosters-2026.srt",
@@ -408,6 +428,7 @@ const FILMS = [
   {
     id: "minions-monsters-2026",
     title: "Minions & Monsters",
+    titleRu: "Миньоны и монстры",
     year: 2026,
     poster: "posters/minions-monsters-2026.jpg",
     srt: "subtitles/minions-monsters-2026.srt",
@@ -419,6 +440,7 @@ const FILMS = [
   {
     id: "ann-droid-2026",
     title: "Ann Droid",
+    titleRu: "Энн Дроид",
     year: 2026,
     type: "series",
     poster: "posters/ann-droid-2026.jpg",
@@ -434,6 +456,7 @@ const FILMS = [
   {
     id: "truly-naked-2026",
     title: "Truly Naked",
+    titleRu: "Совсем голый",
     year: 2026,
     poster: "posters/truly-naked-2026.jpg",
     srt: "subtitles/truly-naked-2026.srt",
@@ -445,6 +468,7 @@ const FILMS = [
   {
     id: "bitter-christmas-2026",
     title: "Bitter Christmas",
+    titleRu: "Горькое Рождество",
     year: 2026,
     poster: "posters/bitter-christmas-2026.jpg",
     srt: "subtitles/bitter-christmas-2026.srt",
@@ -456,6 +480,7 @@ const FILMS = [
   {
     id: "the-mandalorian-and-grogu-2026",
     title: "The Mandalorian and Grogu",
+    titleRu: "Мандалорец и Грогу",
     year: 2026,
     poster: "posters/the-mandalorian-and-grogu-2026.jpg",
     srt: "subtitles/the-mandalorian-and-grogu-2026.srt",
@@ -467,6 +492,7 @@ const FILMS = [
   {
     id: "the-invite-2026",
     title: "The Invite",
+    titleRu: "Приглашение",
     year: 2026,
     poster: "posters/the-invite-2026.jpg",
     srt: "subtitles/the-invite-2026.srt",
@@ -478,6 +504,7 @@ const FILMS = [
   {
     id: "how-to-divorce-during-the-war-2025",
     title: "How to Divorce During the War",
+    titleRu: "Как развестись во время войны",
     year: 2025,
     poster: "posters/how-to-divorce-during-the-war-2025.jpg",
     srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
@@ -490,6 +517,7 @@ const FILMS = [
   {
     id: "sweet-sixteen-2002",
     title: "Sweet Sixteen",
+    titleRu: "Сладкие шестнадцать",
     year: 2002,
     poster: "posters/sweet-sixteen-2002.jpg",
     srt: "subtitles/sweet-sixteen-2002.srt",
@@ -502,6 +530,7 @@ const FILMS = [
   {
     id: "masters-of-the-universe-2026",
     title: "Masters of the Universe",
+    titleRu: "Властелины вселенной",
     year: 2026,
     poster: "posters/masters-of-the-universe 2026.jpg",
     srt: "subtitles/masters-of-the-universe 2026.srt",
@@ -513,6 +542,7 @@ const FILMS = [
   {
     id: "rose-of-nevada-2026",
     title: "Rose of Nevada",
+    titleRu: "Роза Невады",
     year: 2026,
     poster: "posters/rose-of-nevada-2026.jpg",
     srt: "subtitles/rose-of-nevada-2026.srt",
@@ -524,6 +554,7 @@ const FILMS = [
   {
     id: "poor-cow-1967",
     title: "Poor Cow",
+    titleRu: "Бедная корова",
     year: 1967,
     poster: "posters/poor-cow-1967.jpg",
     srt: "subtitles/poor-cow-1967.srt",
@@ -535,6 +566,7 @@ const FILMS = [
   {
     id: "love-streams-1984",
     title: "Love Streams",
+    titleRu: "Потоки любви",
     year: 1984,
     poster: "posters/love-streams-1984.jpg",
     srt: "subtitles/love-streams-1984.srt",
@@ -594,9 +626,10 @@ const AUTHOR_ICON = '<path d="M2.5 2 v4.2 a2 2 0 0 0 2 2 h7"/><path d="M8.5 5.6 
 // Двойная ширина, позиция в сетке — просто её место в массиве FILMS.
 function makeFundraiserCard(item){
   const href = escapeHtml(item.link?.href || "#");
+  const searchText = [item.title, item.titleRu, item.link?.label].filter(Boolean).join(" ").toLowerCase();
 
   return `
-  <article class="card fundraiser-card" style="--poster:url('${escapeHtml(item.image)}')">
+  <article class="card fundraiser-card" data-search="${escapeHtml(searchText)}" style="--poster:url('${escapeHtml(item.image)}')">
     <a class="poster-button" href="${href}" target="_blank" rel="noopener noreferrer"
       aria-label="Сбор на субтитры: ${escapeHtml(item.title)}">
       <img class="fundraiser-image" loading="lazy" src="${escapeHtml(item.image)}" alt="" aria-hidden="true">
@@ -686,12 +719,16 @@ function makeCard(film, i){
 
   const ratingsHtml = renderRatings(film.ratings);
 
+  const searchText = [film.title, film.titleRu, film.year]
+    .concat((film.authors || []).map(key => PEOPLE[key]?.label))
+    .filter(Boolean).join(" ").toLowerCase();
+
   const stackLayers = isSeries
     ? `<span class="stack-layer l2" aria-hidden="true"></span><span class="stack-layer l1" aria-hidden="true"></span>`
     : "";
 
   return `
-  <article class="card" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
+  <article class="card" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
     ${stackLayers}
     <button class="poster-button" type="button"
       aria-label="Скачать субтитры${isSeries ? ' (zip)' : ''}: ${escapeHtml(film.title)}"
@@ -810,6 +847,7 @@ function renderFilters(){
     .join("");
 
   document.getElementById("filters").innerHTML = `
+    <input type="search" id="search" class="search" placeholder="Search" aria-label="Search" autocomplete="off">
     <details class="filter filter-author" id="filter-author">
       <summary><span class="filter-label">Author</span>${CHEVRON}</summary>
       <div class="filter-menu">
@@ -835,16 +873,23 @@ function renderFilters(){
 
 function applyCardFilters(state){
   if(!cachedCards) cachedCards = document.querySelectorAll(".card");
+  const q = (state.q || "").toLowerCase().trim();
   cachedCards.forEach(card => {
     const matchesAuthor = !state.author || (card.dataset.authors || "").split(" ").includes(state.author);
     const matchesYear = !state.year || card.dataset.year === state.year;
     const matchesType = !state.type || card.dataset.type === state.type;
-    card.classList.toggle("is-hidden", !(matchesAuthor && matchesYear && matchesType));
+    const matchesQ = !q || (card.dataset.search || "").includes(q);
+    card.classList.toggle("is-hidden", !(matchesAuthor && matchesYear && matchesType && matchesQ));
   });
 }
 
 function attachFilterHandlers(){
-  const state = { author: "", year: "", type: "" };
+  const state = { author: "", year: "", type: "", q: "" };
+
+  document.getElementById("search").addEventListener("input", (e) => {
+    state.q = e.target.value;
+    applyCardFilters(state);
+  });
 
   // Один делегированный listener на всём контейнере фильтров
   document.getElementById("filters").addEventListener("click", (e) => {

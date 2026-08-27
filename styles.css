@@ -230,7 +230,7 @@ body{
   width: 24px;
   height: 24px;
 
-  background: url("posters/award-icon.svg") center / contain no-repeat;
+  background: url("assets/award-icon.svg") center / contain no-repeat;
 
   z-index: 10;
   pointer-events: none;
@@ -483,6 +483,37 @@ body{
   position:relative;
   font-family:"Literata", Georgia, serif;
 }
+
+/* Поиск — слева от фильтров, та же "пилюля", что у выпадающих списков */
+.search{
+  width:168px;
+  min-height:38px;
+  padding:8px 14px;
+  border:1px solid rgba(241,238,232,.42);
+  border-radius:999px;
+  background:rgba(12,16,19,.22);
+  color:var(--ink);
+  font-family:"Literata", Georgia, serif;
+  font-size:14px;
+  font-style:normal;
+  line-height:1.25;
+  outline:none;
+  appearance:none;
+  -webkit-appearance:none;
+  transition:
+    border-color .18s ease,
+    background-color .18s ease,
+    box-shadow .18s ease,
+    color .18s ease;
+}
+.search::placeholder{color:var(--muted)}
+.search:focus{
+  border-color:rgba(74,168,255,.9);
+  background:rgba(74,168,255,.08);
+  box-shadow:0 0 0 1px rgba(74,168,255,.9);
+  color:#fff;
+}
+.search::-webkit-search-cancel-button{cursor:pointer}
 
 .filter summary{
   list-style:none;
