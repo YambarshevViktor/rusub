@@ -165,6 +165,11 @@ const PEOPLE = {
     label: "homo SUBiens",
     href: "https://t.me/homo_SUBiens"
   },
+
+  serpentarium: {
+    label: "serpentarium",
+    href: "https://t.me/serpentarium_subs"
+  },
 };
 
 const FILMS = [
@@ -188,6 +193,39 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "wildcat-2023",
+    title: "Wildcat",
+    year: 2023,
+    poster: "posters/wildcat-2023.jpg",
+    srt: "subtitles/wildcat-2023.srt",
+    authors: ["serpentarium"],
+    ratings: { imdb: 5.8, letterboxd: 3.1, rt: 59, metacritic: 55 },
+    description: ""
+  },
+
+  {
+    id: "batman-knightfall-part-1-knightfall-2026",
+    title: "Batman: Knightfall – Part 1: Knightfall",
+    year: 2026,
+    poster: "posters/batman-knightfall-part-1-knightfall-2026.jpg",
+    srt: "subtitles/batman-knightfall-part-1-knightfall-2026.srt",
+    authors: ["goodman"],
+    ratings: { imdb: 8.1 },
+    description: ""
+  },
+
+  {
+    id: "preparations-to-be-together-for-an-unknown-period-of-time-2020",
+    title: "Preparations to Be Together for an Unknown Period of Time",
+    year: 2020,
+    poster: "posters/preparations-to-be-together-for-an-unknown-period-of-time-2020.jpg",
+    srt: "subtitles/preparations-to-be-together-for-an-unknown-period-of-time-2020.srt",
+    authors: ["chatAndalou"],
+    ratings: { imdb: 6.5, rt: 88, metacritic: 70 },
+    description: ""
   },
 
   {
@@ -222,7 +260,7 @@ const FILMS = [
     poster: "posters/mike-nick-nick-alice-2026.jpg",
     srt: "subtitles/mike-nick-nick-alice-2026.srt",
     authors: ["dungeons"],
-    ratings: { rt: 75 },
+    ratings: { rt: 75, letterboxd: 3.0 },
     description: ""
   },
 
@@ -270,7 +308,7 @@ const FILMS = [
     poster: "posters/the-chronology-of-water-2025.jpg",
     srt: "subtitles/the-chronology-of-water-2025.srt",
     authors: ["homoSubiens"],
-    ratings: { rt: 91 },
+    ratings: { rt: 91, letterboxd: 3.6 },
     description: ""
   },
 
@@ -281,7 +319,7 @@ const FILMS = [
     poster: "posters/scary-movie-2026-g.jpg",
     srt: "subtitles/scary-movie-2026-g.srt",
     authors: ["goodman"],
-    ratings: { rt: 27 },
+    ratings: { rt: 27, letterboxd: 2.4 },
     description: ""
   },
 
@@ -292,7 +330,7 @@ const FILMS = [
     poster: "posters/scary-movie-2026-r.jpg",
     srt: "subtitles/scary-movie-2026-r.srt",
     authors: ["ripley", "chatAndalou"],
-    ratings: { rt: 27 },
+    ratings: { rt: 27, letterboxd: 2.4 },
     description: ""
   },
 
@@ -456,7 +494,7 @@ const FILMS = [
     poster: "posters/sweet-sixteen-2002.jpg",
     srt: "subtitles/sweet-sixteen-2002.srt",
     authors: ["genco"],
-    ratings: { imdb: 7, rt: 97, metacritic: 86 },
+    ratings: { imdb: 7, letterboxd: 3.8, rt: 97, metacritic: 86 },
     award: true,
     description: ""
   },
@@ -468,7 +506,7 @@ const FILMS = [
     poster: "posters/masters-of-the-universe 2026.jpg",
     srt: "subtitles/masters-of-the-universe 2026.srt",
     authors: ["goodman"],
-    ratings: { rt: 74 },
+    ratings: { rt: 74, letterboxd: 3.2 },
     description: ""
   },
 
@@ -490,7 +528,7 @@ const FILMS = [
     poster: "posters/poor-cow-1967.jpg",
     srt: "subtitles/poor-cow-1967.srt",
     authors: ["genco"],
-    ratings: { imdb: 6.8, rt: 50 },
+    ratings: { imdb: 6.8, letterboxd: 3.6, rt: 50 },
     description: ""
   },
 
@@ -501,7 +539,7 @@ const FILMS = [
     poster: "posters/love-streams-1984.jpg",
     srt: "subtitles/love-streams-1984.srt",
     authors: ["genco"],
-    ratings: { imdb: 7.6, rt: 100 },
+    ratings: { imdb: 7.6, letterboxd: 4.2, rt: 100 },
     award: true,
     description: ""
   },
@@ -561,7 +599,7 @@ function makeFundraiserCard(item){
   <article class="card fundraiser-card" style="--poster:url('${escapeHtml(item.image)}')">
     <a class="poster-button" href="${href}" target="_blank" rel="noopener noreferrer"
       aria-label="Сбор на субтитры: ${escapeHtml(item.title)}">
-      <span class="fundraiser-image" aria-hidden="true"></span>
+      <img class="fundraiser-image" loading="lazy" src="${escapeHtml(item.image)}" alt="" aria-hidden="true">
       ${item.shade ? `<span class="fundraiser-shade" aria-hidden="true"></span>` : ""}
       <span class="fundraiser-content">
         <span class="fundraiser-label">Сбор на субтитры</span>
@@ -615,6 +653,8 @@ function hashString(str){
   return Math.abs(h);
 }
 
+let cachedCards = null;
+
 // Общий рендер блока рейтингов — используется и обычными карточками, и карточкой сбора
 function renderRatings(ratings){
   if(!ratings) return "";
@@ -632,7 +672,7 @@ function makeCard(film, i){
   }
   
   const color = PALETTE[hashString(film.title + i) % PALETTE.length];
-  const arrow = ARROWS[Math.floor(Math.random() * ARROWS.length)];
+  const arrow = ARROWS[hashString(film.title + i) % ARROWS.length];
   const isSeries = film.type === "series";
   const downloadPath = isSeries ? (film.zip || "") : (film.srt || "");
   const downloadLabel = isSeries ? "download zip" : "download srt";
@@ -657,7 +697,7 @@ function makeCard(film, i){
       aria-label="Скачать субтитры${isSeries ? ' (zip)' : ''}: ${escapeHtml(film.title)}"
       data-file="${escapeHtml(downloadPath)}"
       data-title="${escapeHtml(film.title)}">
-      <span class="poster-image" aria-hidden="true"></span>
+      <img class="poster-image" loading="lazy" src="${escapeHtml(film.poster)}" alt="" aria-hidden="true">
       <span class="poster-content">
         <span class="year">${film.year}</span>
         ${episodes ? `<span class="episodes">${escapeHtml(episodes)}</span>` : ""}
@@ -794,7 +834,8 @@ function renderFilters(){
 }
 
 function applyCardFilters(state){
-  document.querySelectorAll(".card").forEach(card => {
+  if(!cachedCards) cachedCards = document.querySelectorAll(".card");
+  cachedCards.forEach(card => {
     const matchesAuthor = !state.author || (card.dataset.authors || "").split(" ").includes(state.author);
     const matchesYear = !state.year || card.dataset.year === state.year;
     const matchesType = !state.type || card.dataset.type === state.type;
@@ -805,9 +846,10 @@ function applyCardFilters(state){
 function attachFilterHandlers(){
   const state = { author: "", year: "", type: "" };
 
-  // Автор / Год — выпадающие списки, выбор одного варианта
-  document.querySelectorAll(".filter-option[data-filter]").forEach(btn => {
-    btn.addEventListener("click", () => {
+  // Один делегированный listener на всём контейнере фильтров
+  document.getElementById("filters").addEventListener("click", (e) => {
+    const btn = e.target.closest(".filter-option[data-filter]");
+    if(btn){
       const key = btn.dataset.filter;
       state[key] = btn.dataset.value;
 
@@ -829,18 +871,17 @@ function attachFilterHandlers(){
       }
 
       applyCardFilters(state);
-    });
-  });
+      return;
+    }
 
-  // Фильмы / Сериалы — повторный клик по уже активной кнопке снимает фильтр
-  document.querySelectorAll(".type-option[data-filter='type']").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const wasActive = btn.classList.contains("is-active");
+    const typeBtn = e.target.closest(".type-option[data-filter='type']");
+    if(typeBtn){
+      const wasActive = typeBtn.classList.contains("is-active");
       document.querySelectorAll(".type-option").forEach(b => b.classList.remove("is-active"));
-      state.type = wasActive ? "" : btn.dataset.value;
-      if(!wasActive) btn.classList.add("is-active");
+      state.type = wasActive ? "" : typeBtn.dataset.value;
+      if(!wasActive) typeBtn.classList.add("is-active");
       applyCardFilters(state);
-    });
+    }
   });
 
   // Клик вне открытого выпадающего списка — закрывает его
@@ -874,6 +915,7 @@ function attachFilterHandlers(){
   });
 
   document.getElementById("grid").innerHTML = FILMS.map(makeCard).join("");
+  cachedCards = document.querySelectorAll(".card");
   attachDownloadHandlers();
 
   renderFilters();
