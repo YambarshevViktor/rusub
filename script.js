@@ -190,6 +190,12 @@ const PEOPLE = {
     label: "Subbed AF",
     href: "https://t.me/SubbedAsFck"
   },
+
+  no_74: {
+    label: "@no_74",
+    href: "https://t.me/no_74"
+  },
+
 };
 
 const FILMS = [
@@ -215,6 +221,39 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "suspended-time-2024",
+    title: "Suspended Time",
+    titleRu: "Вне времени",
+    year: 2024,
+    poster: "posters/suspended-time-2024.jpg",
+    srt: "subtitles/suspended-time-2024.srt",
+    authors: ["genco"],
+    description: ""
+  },
+
+  {
+    id: "david-and-lisa-1962",
+    title: "David and Lisa",
+    titleRu: "Дэвид и Лиза",
+    year: 1962,
+    poster: "posters/david-and-lisa-1962.jpg",
+    srt: "subtitles/david-and-lisa-1962.srt",
+    authors: ["genco"],
+    description: ""
+  },
+
+  {
+    id: "hippo-2023",
+    title: "Hippo",
+    titleRu: "Хиппо",
+    year: 2023,
+    poster: "posters/hippo-2023.jpg",
+    srt: "subtitles/hippo-2023.srt",
+    authors: ["no_74"],
+    description: ""
   },
 
   {
