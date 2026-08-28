@@ -170,6 +170,26 @@ const PEOPLE = {
     label: "serpentarium",
     href: "https://t.me/serpentarium_subs"
   },
+
+  vital: {
+    label: "Витальное кино",
+    href: "https://t.me/vitalkino"
+  },
+
+  scandi: {
+    label: "Сканди-шкаф",
+    href: "https://t.me/scandiscope_true"
+  },
+
+  kleinzeit: {
+    label: "Kleinzeit Rus Sub",
+    href: "https://t.me/kleinzeitrussub"
+  },
+
+  subbedAf: {
+    label: "Subbed AF",
+    href: "https://t.me/SubbedAsFck"
+  },
 };
 
 const FILMS = [
@@ -195,6 +215,130 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "rosebush-pruning-2026",
+    title: "Rosebush Pruning",
+    titleRu: "Обрезка розового куста",
+    year: 2026,
+    poster: "posters/rosebush-pruning-2026.jpg",
+    srt: "subtitles/rosebush-pruning-2026.srt",
+    authors: ["focs"],
+    ratings: { imdb: 5.8, letterboxd: 2.5, rt: 17, metacritic: 45 },
+    description: ""
+  },
+
+  {
+    id: "you-dont-belong-here-2026",
+    title: "You Don't Belong Here",
+    titleRu: "Тебе здесь не место",
+    year: 2026,
+    poster: "posters/you-dont-belong-here-2026.jpg",
+    srt: "subtitles/you-dont-belong-here-2026.srt",
+    authors: ["alice"],
+    description: ""
+  },
+
+  {
+    id: "the-moment-2026",
+    title: "The Moment",
+    titleRu: "Момент",
+    year: 2026,
+    poster: "posters/the-moment-2026.jpg",
+    srt: "subtitles/the-moment-2026.srt",
+    authors: ["one", "chatAndalou"],
+    ratings: { imdb: 6.1, letterboxd: 3.4, rt: 66, metacritic: 53 },
+    description: ""
+  },
+
+  {
+    id: "the-disappearance-of-josef-mengele-2025",
+    title: "The Disappearance of Josef Mengele",
+    titleRu: "Исчезновение Йозефа Менгеле",
+    year: 2025,
+    poster: "posters/the-disappearance-of-josef-mengele-2025.jpg",
+    srt: "subtitles/the-disappearance-of-josef-mengele-2025.srt",
+    authors: ["chatAndalou"],
+    ratings: { imdb: 7.3, letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "proud-2026",
+    title: "Proud",
+    titleRu: "Гордый",
+    year: 2026,
+    type: "series",
+    poster: "posters/proud-2026.jpg",
+    zip: "subtitles/proud-2026.zip",
+    season: 1,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["focs"],
+    ratings: { imdb: 7.4 },
+    description: ""
+  },
+
+  {
+    id: "sundays-2025",
+    title: "Sundays",
+    titleRu: "Воскресенья",
+    year: 2025,
+    poster: "posters/sundays-2025.jpg",
+    srt: "subtitles/sundays-2025.srt",
+    authors: ["vital"],
+    award: true,
+    ratings: { imdb: 7.9, letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
+    id: "the-assessment-2024",
+    title: "The Assessment",
+    titleRu: "Оценка",
+    year: 2024,
+    poster: "posters/the-assessment-2024.jpg",
+    srt: "subtitles/the-assessment-2024.srt",
+    authors: ["scandi"],
+    ratings: { imdb: 6.6, letterboxd: 3.5, rt: 83, metacritic: 62 },
+    description: ""
+  },
+
+  {
+    id: "human-resource-2025",
+    title: "Human Resource",
+    titleRu: "Человеческий ресурс",
+    year: 2025,
+    poster: "posters/human-resource-2025.jpg",
+    srt: "subtitles/human-resource-2025.srt",
+    authors: ["kleinzeit", "chatAndalou", "dark"],
+    ratings: { imdb: 6.6, letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "nightborn-2026",
+    title: "Nightborn",
+    titleRu: "Ночью рождённый",
+    year: 2026,
+    poster: "posters/nightborn-2026.jpg",
+    srt: "subtitles/nightborn-2026.srt",
+    authors: ["subbedAf"],
+    ratings: { imdb: 5.9, letterboxd: 2.7, rt: 74 },
+    description: ""
+  },
+
+  {
+    id: "leviticus-2026",
+    title: "Leviticus",
+    titleRu: "Левит",
+    year: 2026,
+    poster: "posters/leviticus-2026.jpg",
+    srt: "subtitles/leviticus-2026.srt",
+    authors: ["focs"],
+    ratings: { imdb: 6.8, letterboxd: 3.7, rt: 92 },
+    description: ""
   },
 
   {
@@ -626,7 +770,7 @@ const AUTHOR_ICON = '<path d="M2.5 2 v4.2 a2 2 0 0 0 2 2 h7"/><path d="M8.5 5.6 
 // Двойная ширина, позиция в сетке — просто её место в массиве FILMS.
 function makeFundraiserCard(item){
   const href = escapeHtml(item.link?.href || "#");
-  const searchText = [item.title, item.titleRu, item.link?.label].filter(Boolean).join(" ").toLowerCase();
+  const searchText = normForSearch([item.title, item.titleRu, item.link?.label].filter(Boolean).join(" "));
 
   return `
   <article class="card fundraiser-card" data-search="${escapeHtml(searchText)}" style="--poster:url('${escapeHtml(item.image)}')">
@@ -676,6 +820,39 @@ function escapeHtml(value){
   }[c]));
 }
 
+// ЙЦУКЕН-раскладка: "vtl" (англ-раскладка) ⇒ "мед", "еру" (рус-раскладка) ⇒ "the".
+// Поиск ищет и по исходному токену, и по обеим раскладкам — не зависит от языка ввода.
+const LAYOUT_LAT_TO_CYR = {
+  "q":"й","w":"ц","e":"у","r":"к","t":"е","y":"н","u":"г","i":"ш","o":"щ","p":"з","[":"х","]":"ъ",
+  "a":"ф","s":"ы","d":"в","f":"а","g":"п","h":"р","j":"о","k":"л","l":"д",";":"ж","'":"э",
+  "z":"я","x":"ч","c":"с","v":"м","b":"и","n":"т","m":"ь",",":"б",".":"ю","/":".","`":"ё"
+};
+const LAYOUT_CYR_TO_LAT = Object.fromEntries(
+  Object.entries(LAYOUT_LAT_TO_CYR).map(([lat, cyr]) => [cyr, lat])
+);
+
+function translitLayout(text, toCyr){
+  const map = toCyr ? LAYOUT_LAT_TO_CYR : LAYOUT_CYR_TO_LAT;
+  let out = "";
+  for(const ch of text) out += map[ch] || ch;
+  return out;
+}
+
+// Приводит текст к виду, пригодному для сравнения: нижний регистр, без диакритики
+// (ё→е, é→e) и без всей "мусорной" пунктуации — регистр/пробелы/скобки больше не мешают.
+function normForSearch(s){
+  return String(s ?? "")
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zа-я0-9]+/g, " ")
+    .replace(/^\s+|\s+$/g, "");
+}
+
+// Все варианты, по которым токен может лечь на карточку
+function searchCandidates(token){
+  return [token, translitLayout(token, true), translitLayout(token, false)];
+}
+
 // Стабильный хэш строки — один и тот же фильм всегда получает один и тот же цвет.
 function hashString(str){
   let h = 0;
@@ -719,9 +896,9 @@ function makeCard(film, i){
 
   const ratingsHtml = renderRatings(film.ratings);
 
-  const searchText = [film.title, film.titleRu, film.year]
+  const searchText = normForSearch([film.title, film.titleRu, film.year]
     .concat((film.authors || []).map(key => PEOPLE[key]?.label))
-    .filter(Boolean).join(" ").toLowerCase();
+    .filter(Boolean).join(" "));
 
   const stackLayers = isSeries
     ? `<span class="stack-layer l2" aria-hidden="true"></span><span class="stack-layer l1" aria-hidden="true"></span>`
@@ -873,12 +1050,18 @@ function renderFilters(){
 
 function applyCardFilters(state){
   if(!cachedCards) cachedCards = document.querySelectorAll(".card");
-  const q = (state.q || "").toLowerCase().trim();
+  // Каждый токен запроса должен лечь на карточку хоть одним из вариантов
+  // (сам токен или ЙЦУКЕН-варианты) — так работают и "медведь 2026",
+  // и "медведь (2026)", и ввод с пробелом/скобками.
+  const qTokens = normForSearch(state.q || "").split(" ").filter(Boolean);
+  const tokenVariants = qTokens.map(token => searchCandidates(token).filter(v => v));
+
   cachedCards.forEach(card => {
+    const corpus = card.dataset.search || "";
     const matchesAuthor = !state.author || (card.dataset.authors || "").split(" ").includes(state.author);
     const matchesYear = !state.year || card.dataset.year === state.year;
     const matchesType = !state.type || card.dataset.type === state.type;
-    const matchesQ = !q || (card.dataset.search || "").includes(q);
+    const matchesQ = tokenVariants.every(variants => variants.some(v => corpus.includes(v)));
     card.classList.toggle("is-hidden", !(matchesAuthor && matchesYear && matchesType && matchesQ));
   });
 }
