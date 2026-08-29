@@ -84,8 +84,27 @@ body{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(var(--card-w),220px));
+  justify-content:center;
   gap:var(--gap-y) var(--gap-x);
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  padding:0 34px;
+}
+@media (min-width:1016px){
+  .grid{grid-template-columns:repeat(6,minmax(var(--card-w),220px))}
+}
+@media (min-width:1400px){
+  .grid{grid-template-columns:repeat(8,minmax(var(--card-w),220px))}
+}
+@media (min-width:1780px){
+  .grid{grid-template-columns:repeat(10,minmax(var(--card-w),220px))}
+}
+@media (min-width:2200px){
+  .grid{grid-template-columns:repeat(12,minmax(var(--card-w),220px))}
+}
+@media (min-width:2640px){
+  .grid{grid-template-columns:repeat(14,minmax(var(--card-w),220px))}
 }
 
 .card{
@@ -455,14 +474,18 @@ body{
 
 @media (max-width:900px){
   .page{padding:42px 18px 60px}
-  .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid{padding:0 18px}
 }
 
-@media (max-width:620px){
+@media (max-width:700px){
   .intro{margin-bottom:30px}
   .intro h1{font-size:23px}
   .intro p{font-size:14px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}
+  #filters{font-size:12px;gap:8px}
+  .filter summary,
+  .type-option{padding:8px 12px}
+  .filter-menu{max-width:calc(100vw - 24px)}
   :root{--poster-h:250px}
 }
 
@@ -671,19 +694,6 @@ body{
 
 .card.is-hidden{ display:none; }
 
-@media (max-width:620px){
-  #filters{
-    font-size:12px;
-    gap:8px;
-  }
-  .filter summary,
-  .type-option{
-    padding:8px 12px;
-  }
-  .filter-menu{
-    max-width:calc(100vw - 24px);
-  }
-}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
@@ -755,7 +765,7 @@ body{
   color:#fff;
 }
 
-@media (max-width:620px){
+@media (max-width:700px){
   .fundraiser-card{ grid-column:span 2; }
   .fundraiser-title{ font-size:26px; }
 }

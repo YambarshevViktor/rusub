@@ -814,13 +814,13 @@ function makeFundraiserCard(item){
   return `
   <article class="card fundraiser-card" data-search="${escapeHtml(searchText)}" style="--poster:url('${escapeHtml(item.image)}')">
     <a class="poster-button" href="${href}" target="_blank" rel="noopener noreferrer"
-      aria-label="Сбор на субтитры: ${escapeHtml(item.title)}">
+      aria-label="fundraiser: ${escapeHtml(item.title)}">
       <img class="fundraiser-image" loading="lazy" src="${escapeHtml(item.image)}" alt="" aria-hidden="true">
       ${item.shade ? `<span class="fundraiser-shade" aria-hidden="true"></span>` : ""}
       <span class="fundraiser-content">
-        <span class="fundraiser-label">Сбор на субтитры</span>
+        <span class="fundraiser-label">Fundraiser</span>
         <span class="fundraiser-title">${escapeHtml(item.title)}</span>
-        <span class="fundraiser-goal">Цель — ${escapeHtml(item.goal)}</span>
+        <span class="fundraiser-goal">Goal — ${escapeHtml(item.goal)}</span>
       </span>
     </a>
 
@@ -1188,7 +1188,9 @@ function attachFilterHandlers(){
   renderFilters();
   attachFilterHandlers();
 
-  const titleCount = FILMS.filter(film => film.type !== "fundraiser").length;
+  const titleCount = new Set(
+    FILMS.filter(f => f.type !== "fundraiser").map(f => f.title + f.year)
+  ).size;
   document.getElementById("title-count").textContent =
     `${titleCount} titles now on the site`;
 })();
