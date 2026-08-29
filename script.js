@@ -944,7 +944,7 @@ function makeCard(film, i){
     : "";
 
   return `
-  <article class="card" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
+  <article class="card" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-award="${film.award ? '1' : ''}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
     ${stackLayers}
     <button class="poster-button" type="button"
       aria-label="Скачать субтитры${isSeries ? ' (zip)' : ''}: ${escapeHtml(film.title)}"
@@ -1064,13 +1064,15 @@ function renderFilters(){
 
   document.getElementById("filters").innerHTML = `
     <input type="search" id="search" class="search" placeholder="Search" aria-label="Search" autocomplete="off">
-    <details class="filter filter-author" id="filter-author">
-      <summary><span class="filter-label">Author</span>${CHEVRON}</summary>
-      <div class="filter-menu">
-        <button type="button" class="filter-option is-active" data-filter="author" data-value="">All authors</button>
-        ${authorOptions}
-      </div>
-    </details>
+
+    <div class="type-toggle" role="group" aria-label="Type">
+      <button type="button" class="type-option" data-filter="type" data-value="movie">Films</button>
+      <button type="button" class="type-option" data-filter="type" data-value="series">Series</button>
+    </div>
+
+    <div class="type-toggle" role="group" aria-label="Award">
+      <button type="button" class="type-option" data-filter="award" data-value="true">Award</button>
+    </div>
 
     <details class="filter filter-year" id="filter-year">
       <summary><span class="filter-label">Year</span>${CHEVRON}</summary>
@@ -1080,10 +1082,13 @@ function renderFilters(){
       </div>
     </details>
 
-    <div class="type-toggle" role="group" aria-label="Type">
-      <button type="button" class="type-option" data-filter="type" data-value="movie">Films</button>
-      <button type="button" class="type-option" data-filter="type" data-value="series">Series</button>
-    </div>
+    <details class="filter filter-author" id="filter-author">
+      <summary><span class="filter-label">Author</span>${CHEVRON}</summary>
+      <div class="filter-menu">
+        <button type="button" class="filter-option is-active" data-filter="author" data-value="">All authors</button>
+        ${authorOptions}
+      </div>
+    </details>
   `;
 }
 
@@ -1100,16 +1105,18 @@ function applyCardFilters(state){
     const matchesAuthor = !state.author || (card.dataset.authors || "").split(" ").includes(state.author);
     const matchesYear = !state.year || card.dataset.year === state.year;
     const matchesType = !state.type || card.dataset.type === state.type;
+    const matchesAward = !state.award || card.dataset.award === "1";
     const matchesQ = tokenVariants.every(variants => variants.some(v => corpus.includes(v)));
-    card.classList.toggle("is-hidden", !(matchesAuthor && matchesYear && matchesType && matchesQ));
+    card.classList.toggle("is-hidden", !(matchesAuthor && matchesYear && matchesType && matchesAward && matchesQ));
   });
 }
 
 function attachFilterHandlers(){
-  const state = { author: "", year: "", type: "", q: "" };
+  const state = { author: "", year: "", type: "", award: "", q: "" };
 
   document.getElementById("search").addEventListener("input", (e) => {
     state.q = e.target.value;
+    document.getElementById("search").classList.toggle("is-active", Boolean(state.q));
     applyCardFilters(state);
   });
 
@@ -1134,6 +1141,7 @@ function attachFilterHandlers(){
             : (key === "author" ? "Author" : "Year");
         }
 
+        details.classList.toggle("is-active", Boolean(state[key]));
         details.removeAttribute("open");
       }
 
@@ -1141,12 +1149,14 @@ function attachFilterHandlers(){
       return;
     }
 
-    const typeBtn = e.target.closest(".type-option[data-filter='type']");
-    if(typeBtn){
-      const wasActive = typeBtn.classList.contains("is-active");
-      document.querySelectorAll(".type-option").forEach(b => b.classList.remove("is-active"));
-      state.type = wasActive ? "" : typeBtn.dataset.value;
-      if(!wasActive) typeBtn.classList.add("is-active");
+    const toggleBtn = e.target.closest(".type-option[data-filter='type'], .type-option[data-filter='award']");
+    if(toggleBtn){
+      const key = toggleBtn.dataset.filter;
+      const wasActive = toggleBtn.classList.contains("is-active");
+      toggleBtn.closest(".type-toggle").querySelectorAll(".type-option")
+        .forEach(b => b.classList.remove("is-active"));
+      state[key] = wasActive ? "" : toggleBtn.dataset.value;
+      if(!wasActive) toggleBtn.classList.add("is-active");
       applyCardFilters(state);
     }
   });
