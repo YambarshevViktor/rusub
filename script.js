@@ -196,6 +196,18 @@ const PEOPLE = {
     href: "https://t.me/no_74"
   },
 
+  lazyCats: {
+    label: "LazyCats"
+  },
+
+  deeffest: {
+    label: "deeffest"
+  },
+
+  tuffetu: {
+    label: "TuffeTu"
+  },
+
 };
 
 const FILMS = [
@@ -221,6 +233,40 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "her-story-2024",
+    title: "Her Story",
+    titleRu: "Её история",
+    year: 2024,
+    poster: "posters/her-story-2024.jpg",
+    srt: "subtitles/her-story-2024.srt",
+    authors: ["lazyCats"],
+    description: ""
+  },
+
+  {
+    id: "tomorrows-joe-2011",
+    title: "Tomorrow's Joe",
+    titleRu: "Завтрашний Джо",
+    year: 2011,
+    poster: "posters/tomorrows-joe-2011.jpg",
+    srt: "subtitles/tomorrows-joe-2011.srt",
+    authors: ["deeffest"],
+    description: ""
+  },
+
+  {
+    id: "real-women-have-curves-2002",
+    title: "Real Women Have Curves",
+    titleRu: "Настоящие женщины всегда в теле",
+    year: 2002,
+    poster: "posters/real-women-have-curves-2002.jpg",
+    srt: "subtitles/real-women-have-curves-2002.srt",
+    authors: ["tuffetu"],
+    award: true,
+    description: ""
   },
 
   {
@@ -930,7 +976,9 @@ function makeCard(film, i){
   const metaLinks = (film.authors || [])
     .map(key => PEOPLE[key])
     .filter(Boolean)
-    .map(p => `<a class="meta-link" href="${escapeHtml(p.href || '#')}" target="_blank" rel="noopener noreferrer"><svg class="meta-icon" viewBox="0 0 14 14" aria-hidden="true">${AUTHOR_ICON}</svg><span class="meta-link-text">${escapeHtml(p.label)}</span></a>`)
+    .map(p => p.href
+      ? `<a class="meta-link" href="${escapeHtml(p.href)}" target="_blank" rel="noopener noreferrer"><svg class="meta-icon" viewBox="0 0 14 14" aria-hidden="true">${AUTHOR_ICON}</svg><span class="meta-link-text">${escapeHtml(p.label)}</span></a>`
+      : `<span class="meta-author"><svg class="meta-icon" viewBox="0 0 14 14" aria-hidden="true">${AUTHOR_ICON}</svg><span class="meta-author-label">${escapeHtml(p.label)}</span></span>`)
     .join("");
 
   const ratingsHtml = renderRatings(film.ratings);
