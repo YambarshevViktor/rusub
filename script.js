@@ -208,6 +208,20 @@ const PEOPLE = {
     label: "TuffeTu"
   },
 
+  jwrlbex: {
+    label: "jwrlbex",
+    href: "https://t.me/jwrlbexxeblrwj"
+  },
+
+  blindSubs: {
+    label: "BlindSubs",
+    href: "https://t.me/blindsubtitles"
+  },
+
+  bazhenov: {
+    label: "Роман Баженов"
+  },
+
 };
 
 const FILMS = [
@@ -233,6 +247,84 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "all-thats-left-of-you-2025",
+    title: "All That's Left of You",
+    titleRu: "Всё, что осталось",
+    year: 2025,
+    poster: "posters/all-thats-left-of-you-2025.jpg",
+    srt: "subtitles/all-thats-left-of-you-2025.srt",
+    authors: ["jwrlbex"],
+    description: ""
+  },
+
+  {
+    id: "atropia-2025",
+    title: "Atropia",
+    titleRu: "Атропия",
+    year: 2025,
+    poster: "posters/atropia-2025.jpg",
+    srt: "subtitles/atropia-2025.srt",
+    authors: ["one", "chatAndalou"],
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "eephus-2024",
+    title: "Eephus",
+    titleRu: "Замирающий",
+    year: 2024,
+    poster: "posters/eephus-2024.jpg",
+    srt: "subtitles/eephus-2024.srt",
+    authors: ["genco"],
+    description: ""
+  },
+
+  {
+    id: "islands-2025",
+    title: "Islands",
+    titleRu: "Острова",
+    year: 2025,
+    poster: "posters/islands-2025.jpg",
+    srt: "subtitles/islands-2025.srt",
+    authors: ["bazhenov"],
+    description: ""
+  },
+
+  {
+    id: "papicha-2019",
+    title: "Papicha",
+    titleRu: "Чикуля (Лапочка)",
+    year: 2019,
+    poster: "posters/papicha-2019.jpg",
+    srt: "subtitles/papicha-2019.srt",
+    authors: ["notCloset"],
+    description: ""
+  },
+
+  {
+    id: "frownland-2007",
+    title: "Frownland",
+    titleRu: "Хмурляндия",
+    year: 2007,
+    poster: "posters/frownland-2007.jpg",
+    srt: "subtitles/frownland-2007.srt",
+    authors: ["chacun"],
+    description: ""
+  },
+
+  {
+    id: "the-ninth-configuration-1979",
+    title: "The Ninth Configuration",
+    titleRu: "Девятая конфигурация",
+    year: 1979,
+    poster: "posters/the-ninth-configuration-1979.jpg",
+    srt: "subtitles/the-ninth-configuration-1979.srt",
+    authors: ["blindSubs"],
+    description: ""
   },
 
   {
