@@ -1251,4 +1251,19 @@ function attachFilterHandlers(){
   ).size;
   document.getElementById("title-count").textContent =
     `${titleCount} titles now on the site`;
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      item.classList.toggle('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(o => {
+        if (o !== item) o.classList.remove('is-open');
+      });
+    });
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.faq-item')) {
+      document.querySelectorAll('.faq-item.is-open').forEach(o => o.classList.remove('is-open'));
+    }
+  });
 })();
