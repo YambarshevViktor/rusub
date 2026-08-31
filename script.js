@@ -228,6 +228,7 @@ const FILMS = [
   {
     type: "fundraiser",
     active: true,
+    done: true,
     title: "I Want Your Sex",
     titleRu: "Хочу твоего секса",
     image: "fundraisers/i-want-your-sex-2026.jpg",
@@ -247,6 +248,22 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "lanterns-2026",
+    title: "Lanterns",
+    titleRu: "Фонари",
+    year: 2026,
+    type: "series",
+    poster: "posters/lanterns-2026.jpg",
+    zip: "subtitles/lanterns-2026.zip",
+    season: 1,
+    episodesAvailable: 3,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: { rt: 94, metacritic: 72 },
+    description: ""
   },
 
   {
@@ -551,22 +568,6 @@ const FILMS = [
     srt: "subtitles/preparations-to-be-together-for-an-unknown-period-of-time-2020.srt",
     authors: ["chatAndalou"],
     ratings: { imdb: 6.5, rt: 88, metacritic: 70 },
-    description: ""
-  },
-
-  {
-    id: "lanterns-2026",
-    title: "Lanterns",
-    titleRu: "Фонари",
-    year: 2026,
-    type: "series",
-    poster: "posters/lanterns-2026.jpg",
-    zip: "subtitles/lanterns-2026.zip",
-    season: 1,
-    episodesAvailable: 2,
-    episodesTotal: 8,
-    authors: ["goodman"],
-    ratings: { rt: 94, metacritic: 72 },
     description: ""
   },
 
@@ -972,6 +973,35 @@ function makeFundraiserCard(item){
   </article>`;
 }
 
+// Карточка завершённого сбора — та же карточка сбора, но «Goal — …»
+// заменяется на «Collected ✓»: собирались, собрали, осталось как памятка.
+function makeCompletedCard(item){
+  const href = escapeHtml(item.link?.href || "#");
+  const searchText = normForSearch([item.title, item.titleRu, item.link?.label].filter(Boolean).join(" "));
+
+  return `
+  <article class="card fundraiser-card fundraiser-card--done" data-search="${escapeHtml(searchText)}" style="--poster:url('${escapeHtml(item.image)}')">
+    <a class="poster-button" href="${href}" target="_blank" rel="noopener noreferrer"
+      aria-label="fundraiser: ${escapeHtml(item.title)}">
+      <img class="fundraiser-image" loading="lazy" src="${escapeHtml(item.image)}" alt="" aria-hidden="true">
+      <span class="fundraiser-shade" aria-hidden="true"></span>
+      <span class="fundraiser-content">
+        <span class="fundraiser-label">Fundraiser</span>
+        <span class="fundraiser-title">${escapeHtml(item.title)}</span>
+        <span class="fundraiser-collected"><svg class="collected-check" viewBox="0 0 17 20" aria-hidden="true">${CHECK}</svg>Collected</span>
+      </span>
+    </a>
+
+    <div class="meta">
+      ${renderRatings(item.ratings)}
+      <a class="meta-link" href="${href}" target="_blank" rel="noopener noreferrer">
+        <svg class="meta-icon" viewBox="0 0 14 14" aria-hidden="true">${AUTHOR_ICON}</svg>
+        <span class="meta-link-text">${escapeHtml(item.link?.label || "")}</span>
+      </a>
+    </div>
+  </article>`;
+}
+
 // Скачивается всегда только ОДИН сезон целиком (один zip), поэтому подпись
 // показывает именно его: "2s · 4/12e" пока выложены не все серии сезона,
 // и просто "2s · 12e", когда весь сезон уже добавлен целиком.
@@ -1055,7 +1085,8 @@ function renderRatings(ratings){
 
 function makeCard(film, i){
   if(film.type === "fundraiser"){
-    return film.active === false ? "" : makeFundraiserCard(film);
+    if(film.active === false || film.done) return "";
+    return makeFundraiserCard(film);
   }
   
   const color = PALETTE[hashString(film.title + i) % PALETTE.length];
@@ -1332,6 +1363,18 @@ function attachFilterHandlers(){
   });
 
   document.getElementById("grid").innerHTML = FILMS.map(makeCard).join("");
+
+  const doneCards = FILMS
+    .filter(f => f.type === "fundraiser" && f.done)
+    .map(makeCompletedCard);
+  if(doneCards.length){
+    document.getElementById("grid").insertAdjacentHTML("afterend",
+      `<section class="completed" id="completed">
+        <h2 class="completed-title">Completed fundraisers</h2>
+        <div class="grid">${doneCards.join("")}</div>
+      </section>`);
+  }
+
   cachedCards = document.querySelectorAll(".card");
   attachDownloadHandlers();
 
@@ -1341,8 +1384,10 @@ function attachFilterHandlers(){
   const titleCount = new Set(
     FILMS.filter(f => f.type !== "fundraiser").map(f => f.title + f.year)
   ).size;
-  document.getElementById("title-count").textContent =
-    `${titleCount} titles now on the site`;
+  const doneCount = FILMS.filter(f => f.type === "fundraiser" && f.done).length;
+  document.getElementById("title-count").innerHTML =
+    `${titleCount} titles now on the site` +
+    (doneCount ? ` · <a class="completed-link" href="#completed">Fundraiser ↓</a>` : "");
 
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-q');
