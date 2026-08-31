@@ -274,6 +274,7 @@ const FILMS = [
     poster: "posters/all-thats-left-of-you-2025.jpg",
     srt: "subtitles/all-thats-left-of-you-2025.srt",
     authors: ["jwrlbex"],
+    ratings: { letterboxd: 4.19 },
     description: ""
   },
 
@@ -286,6 +287,7 @@ const FILMS = [
     srt: "subtitles/atropia-2025.srt",
     authors: ["one", "chatAndalou"],
     award: true,
+    ratings: { letterboxd: 3.21 },
     description: ""
   },
 
@@ -297,6 +299,7 @@ const FILMS = [
     poster: "posters/eephus-2024.jpg",
     srt: "subtitles/eephus-2024.srt",
     authors: ["genco"],
+    ratings: { letterboxd: 3.67 },
     description: ""
   },
 
@@ -308,6 +311,7 @@ const FILMS = [
     poster: "posters/islands-2025.jpg",
     srt: "subtitles/islands-2025.srt",
     authors: ["bazhenov"],
+    ratings: { letterboxd: 3.24 },
     description: ""
   },
 
@@ -319,6 +323,7 @@ const FILMS = [
     poster: "posters/papicha-2019.jpg",
     srt: "subtitles/papicha-2019.srt",
     authors: ["notCloset"],
+    ratings: { letterboxd: 3.91 },
     description: ""
   },
 
@@ -330,6 +335,7 @@ const FILMS = [
     poster: "posters/frownland-2007.jpg",
     srt: "subtitles/frownland-2007.srt",
     authors: ["chacun"],
+    ratings: { letterboxd: 3.67 },
     description: ""
   },
 
@@ -341,6 +347,7 @@ const FILMS = [
     poster: "posters/the-ninth-configuration-1979.jpg",
     srt: "subtitles/the-ninth-configuration-1979.srt",
     authors: ["blindSubs"],
+    ratings: { letterboxd: 3.58 },
     description: ""
   },
 
@@ -352,6 +359,7 @@ const FILMS = [
     poster: "posters/her-story-2024.jpg",
     srt: "subtitles/her-story-2024.srt",
     authors: ["lazyCats"],
+    ratings: { letterboxd: 3.92 },
     description: ""
   },
 
@@ -375,6 +383,7 @@ const FILMS = [
     srt: "subtitles/real-women-have-curves-2002.srt",
     authors: ["tuffetu"],
     award: true,
+    ratings: { letterboxd: 4.01 },
     description: ""
   },
 
@@ -386,6 +395,7 @@ const FILMS = [
     poster: "posters/suspended-time-2024.jpg",
     srt: "subtitles/suspended-time-2024.srt",
     authors: ["genco"],
+    ratings: { letterboxd: 2.96 },
     description: ""
   },
 
@@ -397,6 +407,7 @@ const FILMS = [
     poster: "posters/david-and-lisa-1962.jpg",
     srt: "subtitles/david-and-lisa-1962.srt",
     authors: ["genco"],
+    ratings: { letterboxd: 3.70 },
     description: ""
   },
 
@@ -408,6 +419,7 @@ const FILMS = [
     poster: "posters/hippo-2023.jpg",
     srt: "subtitles/hippo-2023.srt",
     authors: ["no_74"],
+    ratings: { letterboxd: 3.40 },
     description: ""
   },
 
@@ -431,6 +443,7 @@ const FILMS = [
     poster: "posters/you-dont-belong-here-2026.jpg",
     srt: "subtitles/you-dont-belong-here-2026.srt",
     authors: ["alice"],
+    ratings: { letterboxd: 3.55 },
     description: ""
   },
 
