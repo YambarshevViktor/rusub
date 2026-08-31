@@ -198,7 +198,7 @@ body{
   flex:0 0 10px;
   margin-top:5px;
 }
-.faq-rating .rating-imdb{background:#f5c518}
+.faq-rating .rating-imdb{background:#ffaa05}
 .faq-rating .rating-letterboxd{background:conic-gradient(from 0deg,#00e054,#40bcf4,#ff8000,#00e054)}
 .faq-rating .rating-rt{background:#fa320a}
 .faq-rating .rating-metacritic{background:#54a72a}
@@ -566,29 +566,23 @@ body{
   display:flex;
   flex-wrap:wrap;
   align-items:center;
-  gap:10px;
+  gap:2px;
 }
 .rating{
   display:inline-flex;
   align-items:center;
-  gap:2px;
+  padding:0 3px 6px;
+  border-radius:0;
   font-family:"Literata", Georgia, serif;
   font-size:17.5px;
+  line-height:1;
   color:var(--ink);
   font-variant-numeric: oldstyle-nums;
 }
-.rating-dot{
-  position:relative;
-  top:1px;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  flex:0 0 10px;
-}
-.rating-imdb .rating-dot{background:#f5c518}
-.rating-letterboxd .rating-dot{background:conic-gradient(from 0deg,#00e054,#40bcf4,#ff8000,#00e054)}
-.rating-rt .rating-dot{background:#fa320a}
-.rating-metacritic .rating-dot{background:#54a72a}
+.rating-imdb{background:rgba(255,170,5,1);color:#fff}
+.rating-letterboxd{background:conic-gradient(from 0deg,rgba(0,224,84,1),rgba(64,188,244,1),rgba(255,128,0,1),rgba(0,224,84,1));color:#fff}
+.rating-rt{background:rgba(250,50,10,1);color:#fff}
+.rating-metacritic{background:rgba(84,167,42,1);color:#fff}
 
 /* "Стопка серий" — 2 псевдо-карточки позади постера, только у сериалов */
 .stack-layer{
@@ -662,8 +656,7 @@ body{
   .meta-link{padding-left:14px}
   .meta-link-text{font-size:14px}
   .description{font-size:14px}
-  .rating{font-size:14px}
-  .rating-dot{width:8px;height:8px;flex:0 0 8px}
+  .rating{font-size:14px;padding:0 3px 6px}
   :root{--poster-h:250px}
   .faq{flex-direction:column;align-items:center;gap:12px;font-size:13px}
   .faq-card{

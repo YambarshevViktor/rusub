@@ -222,6 +222,15 @@ const PEOPLE = {
     label: "Роман Баженов"
   },
 
+  tenshi: {
+    label: "оптика и тирамису",
+    href: "https://t.me/tenshiglasses"
+  },
+
+  AndreiStalker: {
+    label: "Andrei Stalker"
+  },
+
 };
 
 const FILMS = [
@@ -248,6 +257,107 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "la-gradiva-2026",
+    title: "La Gradiva",
+    titleRu: "Градива",
+    year: 2026,
+    poster: "posters/la-gradiva-2026.jpg",
+    srt: "subtitles/la-gradiva-2026.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 4.1 },
+    description: ""
+  },
+
+  {
+    id: "small-prophets-2026",
+    title: "Small Prophets",
+    titleRu: "Маленькие пророки",
+    year: 2026,
+    type: "series",
+    poster: "posters/small-prophets-2026.jpg",
+    zip: "subtitles/small-prophets-2026.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 6,
+    authors: ["focs"],
+    description: ""
+  },
+
+  {
+    id: "rooster-2026",
+    title: "Rooster",
+    titleRu: "Рустер",
+    year: 2026,
+    type: "series",
+    poster: "posters/rooster-2026.jpg",
+    zip: "subtitles/rooster-2026.zip",
+    season: 1,
+    episodesAvailable: 10,
+    episodesTotal: 10,
+    authors: ["dungeons"],
+    description: ""
+  },
+
+  {
+    id: "good-luck-have-fun-dont-die-2025",
+    title: "Good Luck, Have Fun, Don't Die",
+    titleRu: "Удачи, веселья, не сдохни",
+    year: 2025,
+    poster: "posters/good-luck-have-fun-dont-die-2025.jpg",
+    srt: "subtitles/good-luck-have-fun-dont-die-2025.srt",
+    authors: ["alice", "dark", "naruhinka", "summer"],
+    ratings: { letterboxd: 3.38 },
+    description: ""
+  },
+
+  {
+    id: "the-testament-of-ann-lee-2025",
+    title: "The Testament Of Ann Lee",
+    titleRu: "Завещание Анны Ли",
+    year: 2025,
+    poster: "posters/the-testament-of-ann-lee-2025.jpg",
+    srt: "subtitles/the-testament-of-ann-lee-2025.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.44 },
+    description: ""
+  },
+
+  {
+    id: "ghost-elephants-2025",
+    title: "Ghost Elephants",
+    titleRu: "Слоны-призраки",
+    year: 2025,
+    poster: "posters/ghost-elephants-2025.jpg",
+    srt: "subtitles/ghost-elephants-2025.srt",
+    authors: ["tenshi"],
+    ratings: { letterboxd: 3.67 },
+    description: ""
+  },
+
+  {
+    id: "phantom-youth-2023",
+    title: "Phantom Youth",
+    titleRu: "Наш мир",
+    year: 2023,
+    poster: "posters/phantom-youth-2023.jpg",
+    srt: "subtitles/phantom-youth-2023.srt",
+    authors: ["AndreiStalker"],
+    description: ""
+  },
+
+  {
+    id: "johns-gone-2010",
+    title: "John's Gone",
+    titleRu: "Джон вышел",
+    year: 2010,
+    poster: "posters/johns-gone-2010.jpg",
+    srt: "subtitles/johns-gone-2010.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.32 },
+    description: ""
   },
 
   {
@@ -1086,13 +1196,14 @@ function hashString(str){
 let cachedCards = null;
 
 // Общий рендер блока рейтингов — используется и обычными карточками, и карточкой сбора
+function fmt(n){ return Number.isInteger(n) && n >= 0 && n < 10 ? n.toFixed(1) : n; }
 function renderRatings(ratings){
   if(!ratings) return "";
   return `<div class="ratings">
-      ${ratings.imdb != null ? `<span class="rating rating-imdb"><span class="rating-dot"></span>${ratings.imdb}</span>` : ""}
-      ${ratings.letterboxd != null ? `<span class="rating rating-letterboxd"><span class="rating-dot"></span>${ratings.letterboxd}</span>` : ""}
-      ${ratings.rt != null ? `<span class="rating rating-rt"><span class="rating-dot"></span>${ratings.rt}%</span>` : ""}
-      ${ratings.metacritic != null ? `<span class="rating rating-metacritic"><span class="rating-dot"></span>${ratings.metacritic}</span>` : ""}
+      ${ratings.imdb != null ? `<span class="rating rating-imdb">${fmt(ratings.imdb)}</span>` : ""}
+      ${ratings.letterboxd != null ? `<span class="rating rating-letterboxd">${fmt(ratings.letterboxd)}</span>` : ""}
+      ${ratings.rt != null ? `<span class="rating rating-rt">${fmt(ratings.rt)}%</span>` : ""}
+      ${ratings.metacritic != null ? `<span class="rating rating-metacritic">${fmt(ratings.metacritic)}</span>` : ""}
     </div>`;
 }
 
