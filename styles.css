@@ -885,6 +885,7 @@ body{
 }
 
 .card.is-hidden{ display:none; }
+.completed.is-hidden{ display:none; }
 
 
 @media (prefers-reduced-motion:reduce){

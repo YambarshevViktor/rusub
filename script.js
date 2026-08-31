@@ -1389,6 +1389,8 @@ function renderFilters(){
 
 function applyCardFilters(state){
   if(!cachedCards) cachedCards = document.querySelectorAll(".card");
+  const completed = document.getElementById("completed");
+  if(completed) completed.classList.toggle("is-hidden", Boolean(state.q || state.author || state.year || state.type || state.award));
   // Каждый токен запроса должен лечь на карточку хоть одним из вариантов
   // (сам токен или ЙЦУКЕН-варианты) — так работают и "медведь 2026",
   // и "медведь (2026)", и ввод с пробелом/скобками.
