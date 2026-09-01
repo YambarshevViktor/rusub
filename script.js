@@ -260,6 +260,34 @@ const FILMS = [
   },
 
   {
+    id: "furious-2026",
+    title: "Furious",
+    titleRu: "Ярость",
+    year: 2026,
+    type: "series",
+    poster: "posters/furious-2026.jpg",
+    zip: "subtitles/furious-2026.zip",
+    season: 1,
+    episodesAvailable: 4,
+    episodesTotal: 8,
+    authors: ["noBetter"],
+    ratings: {},
+    description: ""
+  },
+
+  {
+    id: "toy-story-5-2026",
+    title: "Toy Story 5",
+    titleRu: "История игрушек 5",
+    year: 2026,
+    poster: "posters/toy-story-5-2026.jpg",
+    srt: "subtitles/toy-story-5-2026.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
     id: "la-gradiva-2026",
     title: "La Gradiva",
     titleRu: "Градива",
@@ -1201,8 +1229,8 @@ function renderRatings(ratings){
   if(!ratings) return "";
   return `<div class="ratings">
       ${ratings.imdb != null ? `<span class="rating rating-imdb">${fmt(ratings.imdb)}</span>` : ""}
-      ${ratings.letterboxd != null ? `<span class="rating rating-letterboxd">${fmt(ratings.letterboxd)}</span>` : ""}
-      ${ratings.rt != null ? `<span class="rating rating-rt">${fmt(ratings.rt)}%</span>` : ""}
+      ${ratings.letterboxd != null ? `<span class="rating rating-letterboxd">${Number(ratings.letterboxd).toFixed(1)}</span>` : ""}
+      ${ratings.rt != null ? `<span class="rating rating-rt">${fmt(ratings.rt)}</span>` : ""}
       ${ratings.metacritic != null ? `<span class="rating rating-metacritic">${fmt(ratings.metacritic)}</span>` : ""}
     </div>`;
 }
