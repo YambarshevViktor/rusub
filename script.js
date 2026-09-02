@@ -329,6 +329,7 @@ const FILMS = [
     authors: ["genco"],
     award: true,
     ratings: { letterboxd: 4.12 },
+    rip: "A.Poet.2025.1080p.AMZN.WEB-DL.DDP5.1.H.264-BiOMA",
     description: ""
   },
 
@@ -1441,6 +1442,12 @@ function makeCard(film, i){
     .join("");
 
   const ratingsHtml = renderRatings(film.ratings);
+  const ripHtml = film.rip
+    ? `<button type="button" class="rip-row" data-rip="${escapeHtml(film.rip)}" aria-label="Скопировать название рипа">
+        <span class="rip-text">${escapeHtml(film.rip)}</span>
+        <span class="rip-copy">copy</span>
+      </button>`
+    : "";
 
   const searchText = normForSearch([film.title, film.titleRu, film.year]
     .concat((film.authors || []).map(key => PEOPLE[key]?.label))
@@ -1475,6 +1482,7 @@ function makeCard(film, i){
     </button>
 
     <div class="meta">
+      ${ripHtml}
       ${ratingsHtml}
       ${metaLinks}
     </div>
@@ -1541,6 +1549,40 @@ function attachDownloadHandlers(){
       }, 2000);
     });
   });
+}
+
+// Копирование названия рипа по клику: "copy" → "copied" на ~2с.
+function attachRipHandlers(){
+  document.querySelectorAll(".rip-row").forEach((row) => {
+    if (row.dataset.hooked) return;
+    row.dataset.hooked = "1";
+    row.addEventListener("click", async () => {
+      const copy = row.querySelector(".rip-copy");
+      try {
+        await navigator.clipboard.writeText(row.dataset.rip);
+      } catch {
+        fallbackCopy(row.dataset.rip);
+      }
+      row.classList.add("copied");
+      copy.textContent = "copied";
+      clearTimeout(row._ripTimer);
+      row._ripTimer = setTimeout(() => {
+        row.classList.remove("copied");
+        copy.textContent = "copy";
+      }, 2000);
+    });
+  });
+}
+
+function fallbackCopy(text){
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch {}
+  ta.remove();
 }
 
 const CHEVRON = '<svg class="chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 2 L6 6.2 L10.5 2"/></svg>';
@@ -1716,6 +1758,7 @@ function attachFilterHandlers(){
 
   cachedCards = document.querySelectorAll(".card");
   attachDownloadHandlers();
+  attachRipHandlers();
 
   renderFilters();
   attachFilterHandlers();
