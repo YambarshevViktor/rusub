@@ -231,6 +231,26 @@ const PEOPLE = {
     label: "Andrei Stalker"
   },
 
+  kirgitara: {
+    label: "kirgitara"
+  },
+
+  rainbow_world: {
+    label: "rainbow_world"
+  },
+
+  serge_shepeleff: {
+    label: "serge_shepeleff"
+  },
+
+  novoid13: {
+    label: "novoid13"
+  },
+
+  ded_sto_let: {
+    label: "ded_sto_let"
+  },
+
 };
 
 const FILMS = [
@@ -257,6 +277,170 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "invincible-2021",
+    title: "Invincible",
+    titleRu: "Неуязвимый",
+    year: 2026,
+    type: "series",
+    poster: "posters/invincible-2021.jpg",
+    zip: "subtitles/invincible-2021.zip",
+    season: 4,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: {},
+    description: ""
+  },
+
+  {
+    id: "magellan-2025",
+    title: "Magellan",
+    titleRu: "Магеллан",
+    year: 2025,
+    poster: "posters/magellan-2025.jpg",
+    srt: "subtitles/magellan-2025.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 2.88 },
+    description: ""
+  },
+
+  {
+    id: "wuthering-heights-2026",
+    title: "Wuthering Heights",
+    titleRu: "Грозовой перевал",
+    year: 2026,
+    poster: "posters/wuthering-heights-2026.jpg",
+    srt: "subtitles/wuthering-heights-2026.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 2.74 },
+    description: ""
+  },
+
+  {
+    id: "a-poet-2025",
+    title: "A Poet",
+    titleRu: "Поэт",
+    year: 2025,
+    poster: "posters/a-poet-2025.jpg",
+    srt: "subtitles/a-poet-2025.srt",
+    authors: ["genco"],
+    award: true,
+    ratings: { letterboxd: 4.12 },
+    description: ""
+  },
+
+  {
+    id: "arco-2025",
+    title: "Arco",
+    titleRu: "Арко",
+    year: 2025,
+    poster: "posters/arco-2025.jpg",
+    srt: "subtitles/arco-2025.DV.HDR.srt",
+    authors: ["kirgitara"],
+    award: true,
+    ratings: { letterboxd: 3.88 },
+    description: ""
+  },
+
+  {
+    id: "the-stranger-2025",
+    title: "The Stranger",
+    titleRu: "Посторонний",
+    year: 2025,
+    poster: "posters/the-stranger-2025.jpg",
+    srt: "subtitles/the-stranger-2025.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 3.56 },
+    description: ""
+  },
+
+  {
+    id: "baby-2024",
+    title: "Baby",
+    titleRu: "Малыш",
+    year: 2024,
+    poster: "posters/baby-2024.jpg",
+    srt: "subtitles/baby-2024.srt",
+    authors: ["rainbow_world"],
+    ratings: { letterboxd: 3.49 },
+    description: ""
+  },
+
+  {
+    id: "four-mothers-2024",
+    title: "Four Mothers",
+    titleRu: "Четыре матери",
+    year: 2024,
+    poster: "posters/four-mothers-2024.jpg",
+    srt: "subtitles/four-mothers-2024.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.54 },
+    description: ""
+  },
+
+  {
+    id: "we-are-2020",
+    title: "We Are",
+    titleRu: "We Are",
+    year: 2020,
+    poster: "posters/we-are-2020.jpg",
+    srt: "subtitles/we-are-2020.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.3 },
+    description: ""
+  },
+
+  {
+    id: "a-woman-like-eve-1979",
+    title: "A Woman Like Eve",
+    titleRu: "Подобно Еве",
+    year: 1979,
+    poster: "posters/a-woman-like-eve-1979.jpg",
+    srt: "subtitles/a-woman-like-eve-1979.srt",
+    authors: ["serge_shepeleff"],
+    ratings: { letterboxd: 3.54 },
+    description: ""
+  },
+
+  {
+    id: "the-world-without-sun-1964",
+    title: "World Without Sun",
+    titleRu: "Мир без солнца",
+    year: 1964,
+    poster: "posters/the-world-without-sun-1964.jpg",
+    srt: "subtitles/the-world-without-sun-1964.srt",
+    authors: ["novoid13"],
+    award: true,
+    ratings: { letterboxd: 3.58 },
+    description: ""
+  },
+
+  {
+    id: "the-young-ladies-1961",
+    title: "Ojôsan",
+    titleRu: "Девушка из хорошей семьи",
+    year: 1961,
+    poster: "posters/the-young-ladies-1961.jpg",
+    srt: "subtitles/the-young-ladies-1961.srt",
+    authors: ["ded_sto_let"],
+    ratings: {},
+    description: ""
+  },
+
+  {
+    id: "the-x-files-i-want-to-believe-2008",
+    title: "The X-Files: I Want to Believe",
+    titleRu: "Секретные материалы: Я хочу верить",
+    year: 2008,
+    badge: "Director's cut",
+    poster: "posters/the-x-files-i-want-to-believe-2008.jpg",
+    srt: "subtitles/the-x-files-i-want-to-believe-2008.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 2.89 },
+    description: ""
   },
 
   {
@@ -1277,6 +1461,7 @@ function makeCard(film, i){
       <span class="poster-content">
         <span class="year">${film.year}</span>
         ${episodes ? `<span class="episodes">${escapeHtml(episodes)}</span>` : ""}
+        ${film.badge ? `<span class="badge">${escapeHtml(film.badge)}</span>` : ""}
 
         <span class="title-wrap">
           ${film.award ? `<span class="award-icon" aria-label="Award-winning title"></span>` : ""}

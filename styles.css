@@ -344,6 +344,19 @@ body{
   white-space:nowrap;
 }
 
+.badge{
+  position:absolute;
+  top:41px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size: 17.5px;
+  line-height:1;
+  color:var(--muted);
+  white-space:nowrap;
+  font-variant-caps:all-small-caps;
+  letter-spacing:0.05em;
+}
+
 .title{
   position:absolute;
   top:38%;
