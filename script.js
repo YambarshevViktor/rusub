@@ -292,6 +292,7 @@ const FILMS = [
     episodesTotal: 8,
     authors: ["goodman"],
     ratings: {},
+    rip: "Invincible.2021.S04.1080p.WEB.h264-ETHEL",
     description: ""
   },
 
@@ -304,6 +305,7 @@ const FILMS = [
     srt: "subtitles/magellan-2025.srt",
     authors: ["alice"],
     ratings: { letterboxd: 2.88 },
+    rip: "Magellan.2026.1080p.AMZN.WEB-DL",
     description: ""
   },
 
@@ -316,6 +318,7 @@ const FILMS = [
     srt: "subtitles/wuthering-heights-2026.srt",
     authors: ["alice"],
     ratings: { letterboxd: 2.74 },
+    rip: "Wuthering.Heights.2026.1080p.WEBRip",
     description: ""
   },
 
@@ -343,6 +346,7 @@ const FILMS = [
     authors: ["kirgitara"],
     award: true,
     ratings: { letterboxd: 3.88 },
+    rip: "Arco.2025.2160p.WEB-DL.HEVC.DV.HDR",
     description: ""
   },
 
@@ -355,6 +359,7 @@ const FILMS = [
     srt: "subtitles/the-stranger-2025.srt",
     authors: ["alice"],
     ratings: { letterboxd: 3.56 },
+    rip: "L.Etranger.2025.FRENCH.1080p.WEB-DL",
     description: ""
   },
 
@@ -379,6 +384,7 @@ const FILMS = [
     srt: "subtitles/four-mothers-2024.srt",
     authors: ["genco"],
     ratings: { letterboxd: 3.54 },
+    rip: "Four.Mothers.2024.1080p.BluRay.x264-VETO",
     description: ""
   },
 
@@ -416,6 +422,7 @@ const FILMS = [
     authors: ["novoid13"],
     award: true,
     ratings: { letterboxd: 3.58 },
+    rip: "WORLD_WITHOUT_SUN_1964_BD-REMUX_HDCLUB",
     description: ""
   },
 
