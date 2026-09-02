@@ -292,7 +292,6 @@ const FILMS = [
     episodesTotal: 8,
     authors: ["goodman"],
     ratings: {},
-    rip: "Invincible.2021.S04.1080p.WEB.h264-ETHEL",
     description: ""
   },
 
@@ -305,7 +304,6 @@ const FILMS = [
     srt: "subtitles/magellan-2025.srt",
     authors: ["alice"],
     ratings: { letterboxd: 2.88 },
-    rip: "Magellan.2026.1080p.AMZN.WEB-DL",
     description: ""
   },
 
@@ -318,7 +316,6 @@ const FILMS = [
     srt: "subtitles/wuthering-heights-2026.srt",
     authors: ["alice"],
     ratings: { letterboxd: 2.74 },
-    rip: "Wuthering.Heights.2026.1080p.WEBRip",
     description: ""
   },
 
@@ -332,7 +329,6 @@ const FILMS = [
     authors: ["genco"],
     award: true,
     ratings: { letterboxd: 4.12 },
-    rip: "A.Poet.2025.1080p.AMZN.WEB-DL.DDP5.1.H.264-BiOMA",
     description: ""
   },
 
@@ -346,7 +342,6 @@ const FILMS = [
     authors: ["kirgitara"],
     award: true,
     ratings: { letterboxd: 3.88 },
-    rip: "Arco.2025.2160p.WEB-DL.HEVC.DV.HDR",
     description: ""
   },
 
@@ -359,7 +354,6 @@ const FILMS = [
     srt: "subtitles/the-stranger-2025.srt",
     authors: ["alice"],
     ratings: { letterboxd: 3.56 },
-    rip: "L.Etranger.2025.FRENCH.1080p.WEB-DL",
     description: ""
   },
 
@@ -384,7 +378,6 @@ const FILMS = [
     srt: "subtitles/four-mothers-2024.srt",
     authors: ["genco"],
     ratings: { letterboxd: 3.54 },
-    rip: "Four.Mothers.2024.1080p.BluRay.x264-VETO",
     description: ""
   },
 
@@ -422,7 +415,6 @@ const FILMS = [
     authors: ["novoid13"],
     award: true,
     ratings: { letterboxd: 3.58 },
-    rip: "WORLD_WITHOUT_SUN_1964_BD-REMUX_HDCLUB",
     description: ""
   },
 
@@ -1427,6 +1419,16 @@ function renderRatings(ratings){
     </div>`;
 }
 
+// Трекеры для поиска рипа: label — название, url(q) — ссылка на поиск
+// по запросу q (название фильма + год, уже закодировано encodeURIComponent).
+const TRACKERS = [
+  { label: "RuTracker", url: q => `https://rutracker.org/forum/tracker.php?nm=${q}` },
+  { label: "Rutor",     url: q => `https://rutor.info/search/${q}` },
+  { label: "TheRarBg",  url: q => `https://therarbg.com/get-posts/keywords:${q}/` },
+  { label: "Ext.to",    url: q => `https://ext.to/browse/?q=${q}` },
+  { label: "BT4G",      url: q => `https://bt4gprx.com/search?q=${q}` },
+];
+
 function makeCard(film, i){
   if(film.type === "fundraiser"){
     if(film.active === false || film.done) return "";
@@ -1449,12 +1451,17 @@ function makeCard(film, i){
     .join("");
 
   const ratingsHtml = renderRatings(film.ratings);
-  const ripHtml = film.rip
-    ? `<button type="button" class="rip-row" data-rip="${escapeHtml(film.rip)}" aria-label="Скопировать название рипа">
-        <span class="rip-text">${escapeHtml(film.rip)}</span>
-        <span class="rip-copy">copy</span>
-      </button>`
-    : "";
+  const dlQuery = encodeURIComponent(`${film.title} ${film.year}`);
+  const dlHtml = `
+    <div class="dl-wrap">
+      <button type="button" class="dl-row" aria-haspopup="true" aria-expanded="false" aria-label="Найти видео на трекерах">
+        <span class="dl-row-label">Video</span>
+        <svg class="dl-row-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.6 10.4 L10.4 3.6 M4.4 3.6 H10.4 V9.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dl-pop">
+        ${TRACKERS.map(t => `<a class="dl-pop-link" href="${t.url(dlQuery)}" target="_blank" rel="noopener noreferrer">${t.label}</a>`).join("")}
+      </div>
+    </div>`;
 
   const searchText = normForSearch([film.title, film.titleRu, film.year]
     .concat((film.authors || []).map(key => PEOPLE[key]?.label))
@@ -1489,8 +1496,8 @@ function makeCard(film, i){
     </button>
 
     <div class="meta">
-      ${ripHtml}
       ${ratingsHtml}
+      ${dlHtml}
       ${metaLinks}
     </div>
     ${film.description ? `<p class="description">${escapeHtml(film.description)}</p>` : ""}
@@ -1556,40 +1563,6 @@ function attachDownloadHandlers(){
       }, 2000);
     });
   });
-}
-
-// Копирование названия рипа по клику: "copy" → "copied" на ~2с.
-function attachRipHandlers(){
-  document.querySelectorAll(".rip-row").forEach((row) => {
-    if (row.dataset.hooked) return;
-    row.dataset.hooked = "1";
-    row.addEventListener("click", async () => {
-      const copy = row.querySelector(".rip-copy");
-      try {
-        await navigator.clipboard.writeText(row.dataset.rip);
-      } catch {
-        fallbackCopy(row.dataset.rip);
-      }
-      row.classList.add("copied");
-      copy.textContent = "copied";
-      clearTimeout(row._ripTimer);
-      row._ripTimer = setTimeout(() => {
-        row.classList.remove("copied");
-        copy.textContent = "copy";
-      }, 2000);
-    });
-  });
-}
-
-function fallbackCopy(text){
-  const ta = document.createElement("textarea");
-  ta.value = text;
-  ta.style.position = "fixed";
-  ta.style.opacity = "0";
-  document.body.appendChild(ta);
-  ta.select();
-  try { document.execCommand("copy"); } catch {}
-  ta.remove();
 }
 
 const CHEVRON = '<svg class="chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 2 L6 6.2 L10.5 2"/></svg>';
@@ -1765,7 +1738,6 @@ function attachFilterHandlers(){
 
   cachedCards = document.querySelectorAll(".card");
   attachDownloadHandlers();
-  attachRipHandlers();
 
   renderFilters();
   attachFilterHandlers();

@@ -479,58 +479,105 @@ body{
   padding-top:7.5px;
 }
 
-/* Строка-рип (название релиза) — копируется в буфер по клику */
-.rip-row{
+/* Кнопка Download (поиск рипа на трекерах) — над рейтингами, в .meta */
+.dl-wrap{
+  position:relative;
+}
+/* невидимый мост через зазор 8px над попапом — чтобы попап не исчезал,
+   когда мышь переходит с кнопки на список трекеров */
+.dl-wrap::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:0;
+  right:0;
+  height:8px;
+  z-index:5;
+}
+.dl-row{
+  position:relative;
   display:flex;
   align-items:center;
-  gap:8px;
-  width:100%;
-  max-width:100%;
-  margin-bottom:7.5px;
-  padding:0 8px;
-  border:1px solid rgba(241,238,232,.18);
+  margin-left:-2px;
+  width:calc(100% + 2px);
+  padding:0;
+  border:none;
   border-radius:0;
   background:transparent;
   box-sizing:border-box;
   height:26.5px;
-  color:var(--muted);
+  color:var(--ink);
   font-family:"Literata", Georgia, serif;
-  font-size:13px;
+  font-size:17.5px;
   line-height:1;
   text-align:left;
   cursor:pointer;
-  overflow:hidden;
-  transition:border-color .2s ease, color .2s ease;
+  transition:background-color .2s ease;
 }
-.rip-row:hover{
-  border-color:rgba(74,168,255,.6);
-  color:var(--ink);
+.dl-row:hover{
+  background:rgba(241,238,232,.06);
 }
-.rip-text{
-  flex:1 1 auto;
-  min-width:0;
-  overflow:hidden;
-  white-space:nowrap;
+/* У Literata ink глифов выходит за line box → при line-height:1 текст
+   прижат книзу. Поднятие — как у рипа: line-height:1.2 + padding-bottom:2px */
+.dl-row-label{
   line-height:1.2;
   padding-top:0;
   padding-bottom:2px;
-  -webkit-mask-image:linear-gradient(to right, #000 92%, transparent 100%);
-  mask-image:linear-gradient(to right, #000 92%, transparent 100%);
+  padding-left:17.5px;
 }
-.rip-copy{
-  flex:0 0 auto;
-  line-height:1.2;
-  padding-top:0;
-  padding-bottom:2px;
-  font-variant-caps:all-small-caps;
-  letter-spacing:.05em;
-  font-size:12px;
+.dl-row-arrow{
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:14px;
+  height:14px;
   color:var(--muted);
   transition:color .2s ease;
 }
-.rip-row.copied .rip-copy{
+.dl-row:hover .dl-row-arrow{
   color:var(--blue);
 }
+
+/* Попап со списком трекеров — стиль как у .faq-card */
+.dl-pop{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  width:max-content;
+  min-width:100%;
+  padding:8px;
+  background:rgba(16,22,28,1);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:12px;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+  font-family:"Literata", Georgia, serif;
+  font-size:15px;
+  line-height:1.4;
+  color:var(--ink);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease;
+  z-index:20;
+}
+@media (hover:hover){
+  .dl-wrap:hover .dl-pop{opacity:1;pointer-events:auto}
+}
+/* .card имеет isolation:isolate (свой stacking context) → попап не может
+   подняться над нижним рядом. Поднимаем саму карточку, когда открыт попап */
+@media (hover:hover){
+  .card:has(.dl-wrap:hover){z-index:30}
+}
+.dl-pop-link{
+  display:block;
+  padding:6px 10px;
+  color:var(--ink);
+  text-decoration:none;
+  border-radius:8px;
+  transition:background .15s ease, color .15s ease;
+}
+.dl-pop-link + .dl-pop-link{margin-top:2px}
+.dl-pop-link:hover{background:rgba(74,168,255,.14);color:var(--blue)}
 
 .meta-link{
   position:relative;
@@ -601,7 +648,7 @@ body{
   text-decoration-line:underline;
   text-decoration-color:var(--blue);
   text-decoration-thickness:0.5px;
-  text-underline-offset:7.5px;
+  text-underline-offset:7px;
   background-image:linear-gradient(var(--blue),var(--blue));
   background-repeat:no-repeat;
   background-position:left center;
@@ -634,6 +681,7 @@ body{
   flex-wrap:wrap;
   align-items:center;
   gap:6px;
+  margin-bottom:7.5px;
 }
 .rating{
   display:inline-flex;
@@ -735,8 +783,11 @@ body{
   .title-wrap{left:12px;right:12px;min-height:100px;max-height:135px}
   .download{bottom:10px;gap:6px;font-size:14px}
   .meta{padding-top:6px}
+  .meta-icon{top:6px}
   .meta-link{padding-left:14px}
   .meta-link-text{font-size:14px}
+  .dl-row-label{font-size:14px}
+  .meta-author-label{font-size:14px}
   .description{font-size:14px}
   .rating{font-size:14px;padding:3px 6px 6px}
   .rating-letterboxd{padding-left:12px}
