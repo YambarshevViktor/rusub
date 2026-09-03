@@ -236,11 +236,11 @@ const PEOPLE = {
   },
 
   rainbow_world: {
-    label: "rainbow_world"
+    label: "Rainbow World"
   },
 
   serge_shepeleff: {
-    label: "serge_shepeleff"
+    label: "Serge Shepeleff"
   },
 
   novoid13: {
@@ -248,7 +248,20 @@ const PEOPLE = {
   },
 
   ded_sto_let: {
-    label: "ded_sto_let"
+    label: "дед_сто_лет"
+  },
+
+  andrulek: {
+    label: "Andrulek's World",
+    href: "https://t.me/kenshirothethird"
+  },
+
+  olya22222: {
+    label: "Olya22222"
+  },
+
+  eduzinho12: {
+    label: "eduzinho12"
   },
 
 };
@@ -280,6 +293,133 @@ const FILMS = [
   },
 
   {
+    id: "furious-2026",
+    title: "Furious",
+    titleRu: "Ярость",
+    year: 2026,
+    type: "series",
+    poster: "posters/furious-2026.jpg",
+    zip: "subtitles/furious-2026.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 8,
+    authors: ["noBetter"],
+    ratings: { imdb: 7.6 },
+    description: ""
+  },
+
+  {
+    id: "i-want-your-sex-2026",
+    title: "I Want Your Sex",
+    titleRu: "Хочу заняться с тобой сексом",
+    year: 2026,
+    badge: "NOT FINAL",
+    poster: "posters/i-want-your-sex-2026.jpg",
+    srt: "subtitles/i-want-your-sex-2026.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.27 },
+    description: ""
+  },
+
+  {
+    id: "project-hail-mary-2026",
+    title: "Project Hail Mary",
+    titleRu: "Проект «Конец света»",
+    year: 2026,
+    poster: "posters/project-hail-mary-2026.jpg",
+    srt: "subtitles/project-hail-mary-2026.srt",
+    authors: ["dark", "chatAndalou"],
+    ratings: { letterboxd: 4.32 },
+    description: ""
+  },
+
+  {
+    id: "fire-of-love-2022",
+    title: "Fire of Love",
+    titleRu: "Вулкан любви",
+    year: 2022,
+    award: true,
+    poster: "posters/fire-of-love-2022.jpg",
+    srt: "subtitles/fire-of-love-2022.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 4.16 },
+    description: ""
+  },
+
+  {
+    id: "nirvanna-the-band-the-show-the-movie-2025",
+    title: "Nirvanna the Band the Show the Movie",
+    titleRu: "Шоу группы «Нирванна». Фильм",
+    year: 2025,
+    award: true,
+    poster: "posters/nirvanna-the-band-the-show-the-movie-2025.jpg",
+    srt: "subtitles/nirvanna-the-band-the-show-the-movie-2025.srt",
+    authors: ["andrulek"],
+    ratings: { letterboxd: 4.22 },
+    description: ""
+  },
+
+  {
+    id: "infinity-pool-2023",
+    title: "Infinity Pool",
+    titleRu: "Бесконечный бассейн",
+    year: 2023,
+    poster: "posters/infinity-pool-2023.jpg",
+    srt: "subtitles/infinity-pool-2023.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.11 },
+    description: ""
+  },
+
+  {
+    id: "obsession-2025",
+    title: "Obsession",
+    titleRu: "Обсессия",
+    year: 2025,
+    poster: "posters/obsession-2025.jpg",
+    srt: "subtitles/obsession-2025.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 4.08 },
+    description: ""
+  },
+
+  {
+    id: "the-furious-2025",
+    title: "The Furious",
+    titleRu: "Живая ярость",
+    year: 2025,
+    poster: "posters/the-furious-2025.jpg",
+    srt: "subtitles/the-furious-2025.srt",
+    authors: ["olya22222"],
+    ratings: { letterboxd: 3.83 },
+    description: ""
+  },
+
+  {
+    id: "cosmic-princess-kaguya-2026",
+    title: "Cosmic Princess Kaguya!",
+    titleRu: "Суперпринцесса Кагуя!",
+    year: 2026,
+    poster: "posters/cosmic-princess-kaguya-2026.jpg",
+    srt: "subtitles/cosmic-princess-kaguya-2026.srt",
+    authors: ["eduzinho12"],
+    ratings: { letterboxd: 3.82 },
+    description: ""
+  },
+
+  {
+    id: "skinamarink-2022",
+    title: "Skinamarink",
+    titleRu: "Паранормальные явления. Скинамаринк",
+    year: 2022,
+    poster: "posters/skinamarink-2022.jpg",
+    srt: "subtitles/skinamarink-2022.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 2.84 },
+    description: ""
+  },
+
+  {
     id: "invincible-2021",
     title: "Invincible",
     titleRu: "Неуязвимый",
@@ -291,7 +431,7 @@ const FILMS = [
     episodesAvailable: 8,
     episodesTotal: 8,
     authors: ["goodman"],
-    ratings: {},
+    ratings: { imdb: 8.7 },
     description: ""
   },
 
@@ -440,22 +580,6 @@ const FILMS = [
     srt: "subtitles/the-x-files-i-want-to-believe-2008.srt",
     authors: ["dark"],
     ratings: { letterboxd: 2.89 },
-    description: ""
-  },
-
-  {
-    id: "furious-2026",
-    title: "Furious",
-    titleRu: "Ярость",
-    year: 2026,
-    type: "series",
-    poster: "posters/furious-2026.jpg",
-    zip: "subtitles/furious-2026.zip",
-    season: 1,
-    episodesAvailable: 4,
-    episodesTotal: 8,
-    authors: ["noBetter"],
-    ratings: {},
     description: ""
   },
 

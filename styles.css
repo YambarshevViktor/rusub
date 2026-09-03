@@ -779,6 +779,7 @@ body{
   .poster-content{padding:14px 12px 40px}
   .year{top:12px;font-size:14px}
   .episodes{top:33px;font-size:14px}
+  .badge{top:33px;font-size:14px}
   .title{left:12px;right:12px;min-height:100px;max-height:124px;font-size:18px}
   .title-wrap{left:12px;right:12px;min-height:100px;max-height:135px}
   .download{bottom:10px;gap:6px;font-size:14px}
