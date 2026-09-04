@@ -37,8 +37,8 @@ function authorsLabel(f){
     .join(", ");
 }
 
-// --- sitemap.xml ---
-const urlXml = ["/", ...films.map(f => `/#${encodeURIComponent(f.id)}`)]
+// --- sitemap.xml (только реальные URL; якоря /#id в sitemap запрещены) ---
+const urlXml = ["/"]
   .map(u => `  <url><loc>${SITE}${u}</loc></url>`)
   .join("\n");
 fs.writeFileSync("sitemap.xml",

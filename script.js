@@ -264,6 +264,15 @@ const PEOPLE = {
     label: "eduzinho12"
   },
 
+  subcon5: {
+    label: "SubCon5"
+  },
+
+  directorCard: {
+    label: "Director's Card",
+    href: "https://t.me/thedirectorscut"
+  },
+
 };
 
 const FILMS = [
@@ -293,6 +302,178 @@ const FILMS = [
   },
 
   {
+    id: "the-death-of-robin-hood-2026",
+    title: "The Death of Robin Hood",
+    titleRu: "Смерть Робин Гуда",
+    year: 2026,
+    poster: "posters/the-death-of-robin-hood-2026.jpg",
+    srt: "subtitles/the-death-of-robin-hood-2026.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.02 },
+    description: ""
+  },
+
+  {
+    id: "filipinana-2026",
+    title: "Filipiñana",
+    titleRu: "Филипиньяна",
+    year: 2026,
+    award: true,
+    poster: "posters/filipinana-2026.jpg",
+    srt: "subtitles/filipinana-2026.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 3.53 },
+    description: ""
+  },
+
+  {
+    id: "neptune-frost-2021",
+    title: "Neptune Frost",
+    titleRu: "Нептун Фрост",
+    year: 2021,
+    poster: "posters/neptune-frost-2021.jpg",
+    srt: "subtitles/neptune-frost-2021.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.55 },
+    description: ""
+  },
+
+  {
+    id: "palm-trees-and-power-lines-2022",
+    title: "Palm Trees and Power Lines",
+    titleRu: "Пальмы и линии электропередач",
+    year: 2022,
+    award: true,
+    poster: "posters/palm-trees-and-power-lines-2022.jpg",
+    srt: "subtitles/palm-trees-and-power-lines-2022.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.2 },
+    description: ""
+  },
+
+  {
+    id: "coma-2022",
+    title: "Coma",
+    titleRu: "Кома",
+    year: 2022,
+    award: true,
+    poster: "posters/coma-2022.jpg",
+    srt: "subtitles/coma-2022.srt",
+    authors: ["chacun", "focs"],
+    ratings: { letterboxd: 3.3 },
+    description: ""
+  },
+
+  {
+    id: "28-years-later-2025",
+    title: "28 Years Later",
+    titleRu: "28 лет спустя",
+    year: 2025,
+    poster: "posters/28-years-later-2025.jpg",
+    srt: "subtitles/28-years-later-2025.srt",
+    authors: ["ripley", "summer", "chatAndalou", "chacun"],
+    ratings: { letterboxd: 3.44 },
+    description: ""
+  },
+
+  {
+    id: "remarkably-bright-creatures-2026",
+    title: "Remarkably Bright Creatures",
+    titleRu: "Необычайно умные создания",
+    year: 2026,
+    poster: "posters/remarkably-bright-creatures-2026.jpg",
+    srt: "subtitles/remarkably-bright-creatures-2026.srt",
+    authors: ["olya22222"],
+    ratings: { letterboxd: 3.79 },
+    description: ""
+  },
+
+  {
+    id: "pavane-2026",
+    title: "Pavane",
+    titleRu: "Павана",
+    year: 2026,
+    poster: "posters/pavane-2026.jpg",
+    srt: "subtitles/pavane-2026.srt",
+    authors: ["subcon5"],
+    ratings: { letterboxd: 3.78 },
+    description: ""
+  },
+
+  {
+    id: "the-sheep-detectives-2026",
+    title: "The Sheep Detectives",
+    titleRu: "Следствие ведут овечки",
+    year: 2026,
+    poster: "posters/the-sheep-detectives-2026.jpg",
+    srt: "subtitles/the-sheep-detectives-2026.srt",
+    authors: ["olya22222"],
+    ratings: { letterboxd: 3.78 },
+    description: ""
+  },
+
+  {
+    id: "tuner-2025",
+    title: "Tuner",
+    titleRu: "Настройщик",
+    year: 2025,
+    poster: "posters/tuner-2025.jpg",
+    srt: "subtitles/tuner-2025.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 3.75 },
+    description: ""
+  },
+
+  {
+    id: "marama-2025",
+    title: "Marama",
+    titleRu: "Марама",
+    year: 2025,
+    poster: "posters/marama-2025.jpg",
+    srt: "subtitles/marama-2025.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.53 },
+    description: ""
+  },
+
+  {
+    id: "asteroid-city-2023",
+    title: "Asteroid City",
+    titleRu: "Город астероидов",
+    year: 2023,
+    poster: "posters/asteroid-city-2023.jpg",
+    srt: "subtitles/asteroid-city-2023.srt",
+    authors: ["chacun", "focs"],
+    ratings: { letterboxd: 3.47 },
+    description: ""
+  },
+
+  {
+    id: "bottoms-2023",
+    title: "Bottoms",
+    titleRu: "Неудачницы",
+    year: 2023,
+    poster: "posters/bottoms-2023.jpg",
+    srt: "subtitles/bottoms-2023.srt",
+    authors: ["chacun", "alice", "focs", "homoSubiens"],
+    ratings: { letterboxd: 3.81 },
+    description: ""
+  },
+
+  {
+    id: "el-conde-2023",
+    title: "El Conde",
+    titleRu: "Граф",
+    year: 2023,
+    award: true,
+    poster: "posters/el-conde-2023.jpg",
+    srt: "subtitles/el-conde-2023.srt",
+    authors: ["chacun", "directorCard"],
+    ratings: { letterboxd: 3.14 },
+    description: ""
+  },
+
+  {
     id: "furious-2026",
     title: "Furious",
     titleRu: "Ярость",
@@ -313,7 +494,6 @@ const FILMS = [
     title: "I Want Your Sex",
     titleRu: "Хочу заняться с тобой сексом",
     year: 2026,
-    badge: "NOT FINAL",
     poster: "posters/i-want-your-sex-2026.jpg",
     srt: "subtitles/i-want-your-sex-2026.srt",
     authors: ["one"],
