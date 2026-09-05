@@ -817,6 +817,20 @@ body{
   font-size:17.5px;
 }
 
+@media (min-width:876px){
+  #filters{
+    width:max-content;
+    max-width:100%;
+    margin:37.5px auto 50px;
+    padding:4px;
+    border-radius:999px;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:#182530;
+  }
+}
+
 .filter{
   position:relative;
   font-family:"Literata", Georgia, serif;
