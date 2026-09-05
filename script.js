@@ -302,6 +302,168 @@ const FILMS = [
   },
 
   {
+    id: "furious-2026",
+    title: "Furious",
+    titleRu: "Ярость",
+    year: 2026,
+    type: "series",
+    poster: "posters/furious-2026.jpg",
+    zip: "subtitles/furious-2026.zip",
+    season: 1,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["noBetter"],
+    ratings: { imdb: 7.6 },
+    description: ""
+  },
+
+  {
+    id: "one-fine-morning-2022",
+    title: "One Fine Morning",
+    titleRu: "Одним прекрасным утром",
+    year: 2022,
+    poster: "posters/one-fine-morning-2022.jpg",
+    srt: "subtitles/one-fine-morning-2022.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "afire-2023",
+    title: "Afire",
+    titleRu: "Красное небо",
+    year: 2023,
+    award: true,
+    poster: "posters/afire-2023.jpg",
+    srt: "subtitles/afire-2023.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "passages-2023",
+    title: "Passages",
+    titleRu: "Пассажи",
+    year: 2023,
+    poster: "posters/passages-2023.jpg",
+    srt: "subtitles/passages-2023.srt",
+    authors: ["chacun", "homoSubiens"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "send-help-2026",
+    title: "Send Help",
+    titleRu: "На помощь!",
+    year: 2026,
+    poster: "posters/send-help-2026.jpg",
+    srt: "subtitles/send-help-2026.srt",
+    authors: ["ripley", "chatAndalou"],
+    ratings: { letterboxd: 3.3 },
+    description: ""
+  },
+
+  {
+    id: "pretty-lethal-2026",
+    title: "Pretty Lethal",
+    titleRu: "Смертельно прекрасна",
+    year: 2026,
+    poster: "posters/pretty-lethal-2026.jpg",
+    srt: "subtitles/pretty-lethal-2026.srt",
+    authors: ["naruhinka"],
+    ratings: { letterboxd: 2.7 },
+    description: ""
+  },
+
+  {
+    id: "resurrection-2025",
+    title: "Resurrection",
+    titleRu: "Воскрешение",
+    year: 2025,
+    award: true,
+    poster: "posters/resurrection-2025.jpg",
+    srt: "subtitles/resurrection-2025.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 4.1 },
+    description: ""
+  },
+
+  {
+    id: "sore-a-wife-from-the-future-2025",
+    title: "Sore: A Wife from the Future",
+    titleRu: "Соре: Жена из будущего",
+    year: 2025,
+    poster: "posters/sore-a-wife-from-the-future-2025.jpg",
+    srt: "subtitles/sore-a-wife-from-the-future-2025.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
+    id: "whether-the-weather-is-fine-2021",
+    title: "Whether the Weather Is Fine",
+    titleRu: "Если погода будет хорошей",
+    year: 2021,
+    poster: "posters/whether-the-weather-is-fine-2021.jpg",
+    srt: "subtitles/whether-the-weather-is-fine-2021.srt",
+    authors: ["kleinzeit"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
+    id: "daredevil-born-again-2025",
+    title: "Daredevil: Born Again",
+    titleRu: "Сорвиголова: Рождённый заново",
+    year: 2025,
+    type: "series",
+    poster: "posters/daredevil-born-again-2025.jpg",
+    zip: "subtitles/daredevil-born-again-2025.zip",
+    season: 1,
+    episodesAvailable: 9,
+    episodesTotal: 9,
+    authors: ["lebowski"],
+    ratings: { imdb: 8.1 },
+    description: ""
+  },
+
+  {
+    id: "daredevil-born-again-2026",
+    title: "Daredevil: Born Again",
+    titleRu: "Сорвиголова: Рождённый заново",
+    year: 2026,
+    type: "series",
+    poster: "posters/daredevil-born-again-2026.jpg",
+    zip: "subtitles/daredevil-born-again-2026.zip",
+    season: 2,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["lebowski"],
+    ratings: { imdb: 8.1 },
+    description: ""
+  },
+
+  {
+    id: "neighbors-2026",
+    title: "Neighbors",
+    titleRu: "Соседи",
+    year: 2026,
+    type: "series",
+    poster: "posters/neighbors-2026.jpg",
+    zip: "subtitles/neighbors-2026.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 6,
+    authors: ["chacun"],
+    ratings: { imdb: 6.1 },
+    description: ""
+  },
+
+  {
     id: "the-death-of-robin-hood-2026",
     title: "The Death of Robin Hood",
     titleRu: "Смерть Робин Гуда",
@@ -471,23 +633,7 @@ const FILMS = [
     authors: ["chacun", "directorCard"],
     ratings: { letterboxd: 3.14 },
     description: ""
-  },
-
-  {
-    id: "furious-2026",
-    title: "Furious",
-    titleRu: "Ярость",
-    year: 2026,
-    type: "series",
-    poster: "posters/furious-2026.jpg",
-    zip: "subtitles/furious-2026.zip",
-    season: 1,
-    episodesAvailable: 6,
-    episodesTotal: 8,
-    authors: ["noBetter"],
-    ratings: { imdb: 7.6 },
-    description: ""
-  },
+},
 
   {
     id: "i-want-your-sex-2026",
@@ -534,7 +680,7 @@ const FILMS = [
     award: true,
     poster: "posters/nirvanna-the-band-the-show-the-movie-2025.jpg",
     srt: "subtitles/nirvanna-the-band-the-show-the-movie-2025.srt",
-    authors: ["andrulek"],
+    authors: ["andrulek", "summer"],
     ratings: { letterboxd: 4.22 },
     description: ""
   },
@@ -1642,16 +1788,13 @@ function makeCompletedCard(item){
 }
 
 // Скачивается всегда только ОДИН сезон целиком (один zip), поэтому подпись
-// показывает именно его: "2s · 4/12e" пока выложены не все серии сезона,
-// и просто "2s · 12e", когда весь сезон уже добавлен целиком.
+// всегда показывает "доступно/всего": "1s · 8/8e" (сезон 1, 8 из 8 серий).
 function episodesLabel(film){
   if(film.type !== "series") return "";
   const parts = [];
   if(film.season) parts.push(`${film.season}s`);
   if(film.episodesAvailable != null && film.episodesTotal != null){
-    parts.push(film.episodesAvailable === film.episodesTotal
-      ? `${film.episodesTotal}e`
-      : `${film.episodesAvailable}/${film.episodesTotal}e`);
+    parts.push(`${film.episodesAvailable}/${film.episodesTotal}e`);
   } else if(film.episodesTotal != null){
     parts.push(`${film.episodesTotal}e`);
   } else if(film.episodesAvailable != null){
