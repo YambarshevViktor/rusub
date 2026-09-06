@@ -273,6 +273,18 @@ const PEOPLE = {
     href: "https://t.me/thedirectorscut"
   },
 
+  kornickolay: {
+    label: "kornickolay"
+  },
+
+  playball: {
+    label: "Playball"
+  },
+
+  darkSquall: {
+    label: "DarkSquall"
+  },
+
 };
 
 const FILMS = [
@@ -299,6 +311,157 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "give-me-your-hand-2008",
+    title: "Give Me Your Hand",
+    titleRu: "Дай мне руку",
+    year: 2008,
+    poster: "posters/give-me-your-hand-2008.jpg",
+    srt: "subtitles/give-me-your-hand-2008.srt",
+    authors: ["kornickolay"],
+    ratings: { letterboxd: 3.2 },
+    description: ""
+  },
+
+  {
+    id: "may-december-2023",
+    title: "May December",
+    titleRu: "Май декабрь",
+    year: 2023,
+    award: true,
+    poster: "posters/may-december-2023.jpg",
+    srt: "subtitles/may-december-2023.srt",
+    authors: ["chacun", "homoSubiens", "one"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "vanished-2026",
+    title: "Vanished",
+    titleRu: "Исчезнувший",
+    year: 2026,
+    type: "series",
+    poster: "posters/vanished-2026.jpg",
+    zip: "subtitles/vanished-2026.zip",
+    season: 1,
+    episodesAvailable: 4,
+    episodesTotal: 4,
+    authors: ["focs"],
+    ratings: { letterboxd: 3.1 },
+    description: ""
+  },
+
+  {
+    id: "yannick-2023",
+    title: "Yannick",
+    titleRu: "Янник",
+    year: 2023,
+    award: true,
+    poster: "posters/yannick-2023.jpg",
+    srt: "subtitles/yannick-2023.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "perro-perro-2025",
+    title: "Perro Perro",
+    titleRu: "Собака Собака",
+    year: 2025,
+    poster: "posters/perro-perro-2025.jpg",
+    srt: "subtitles/perro-perro-2025.srt",
+    authors: ["playball"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
+    id: "kokuho-2025",
+    title: "Kokuho",
+    titleRu: "Национальное достояние",
+    year: 2025,
+    poster: "posters/kokuho-2025.jpg",
+    srt: "subtitles/kokuho-2025.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
+    id: "she-loved-blossoms-more-2024",
+    title: "She Loved Blossoms More",
+    titleRu: "Она больше любила цветы",
+    year: 2024,
+    poster: "posters/she-loved-blossoms-more-2024.jpg",
+    srt: "subtitles/she-loved-blossoms-more-2024.srt",
+    authors: ["darkSquall"],
+    ratings: { letterboxd: 2.7 },
+    description: ""
+  },
+
+  {
+    id: "trenque-lauquen-part-1-2022",
+    title: "Trenque Lauquen, part I",
+    titleRu: "Тренке-Лаукен",
+    year: 2022,
+    poster: "posters/trenque-lauquen-2022.jpg",
+    srt: "subtitles/trenque-lauquen-part-1-2022.srt",
+    authors: ["chacun", "one"],
+    ratings: { letterboxd: 4.0 },
+    description: ""
+  },
+
+  {
+    id: "trenque-lauquen-part-2-2022",
+    title: "Trenque Lauquen, part II",
+    titleRu: "Тренке-Лаукен",
+    year: 2022,
+    poster: "posters/trenque-lauquen-2022.jpg",
+    srt: "subtitles/trenque-lauquen-part-2-2022.srt",
+    authors: ["chacun", "one"],
+    ratings: { letterboxd: 4.0 },
+    description: ""
+  },
+
+  {
+    id: "blue-jay-2016",
+    title: "Blue Jay",
+    titleRu: "Синяя сойка",
+    year: 2016,
+    poster: "posters/blue-jay-2016.jpg",
+    srt: "subtitles/blue-jay-2016.srt",
+    authors: ["darkSquall"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
+    id: "the-taste-of-things-2023",
+    title: "The Taste of Things",
+    titleRu: "Рецепт любви",
+    year: 2023,
+    award: true,
+    poster: "posters/the-taste-of-things-2023.jpg",
+    srt: "subtitles/the-taste-of-things-2023.srt",
+    authors: ["chacun", "tuffetu", "one"],
+    ratings: { letterboxd: 4.0 },
+    description: ""
+  },
+
+  {
+    id: "wasteman-2025",
+    title: "Wasteman",
+    titleRu: "Пустое место",
+    year: 2025,
+    poster: "posters/wasteman-2025.jpg",
+    srt: "subtitles/wasteman-2025.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
   },
 
   {
