@@ -137,7 +137,7 @@ body{
   opacity:0;
   pointer-events:none;
   transition:opacity .22s ease;
-  z-index:20;
+  z-index:60;
 }
 /* фестон-низ: сплошные полукруги от края до края, глубиной 20px */
 .faq-card::after{
@@ -248,6 +248,14 @@ body{
   position:relative;
   min-width:0;
   isolation:isolate;
+  /* "Бумага" карточки = светлый вариант главного цвета постера (ставится из JS).
+     Тёмный вариант — в media-запросе ниже, по системной теме. */
+  --paper: var(--paper-light,#f4f2e9);
+}
+@media (prefers-color-scheme: dark){
+  .card{
+    --paper: var(--paper-dark,#12181d);
+  }
 }
 
 .poster-button{
@@ -330,7 +338,7 @@ body{
   transform:translateX(-50%);
   font-size:17.5px;
   line-height:1;
-  color:var(--muted);
+  color:#fff;
 }
 
 .episodes{
@@ -340,7 +348,7 @@ body{
   transform:translateX(-50%);
   font-size: 17.5px;
   line-height:1;
-  color:var(--muted);
+  color:#fff;
   white-space:nowrap;
 }
 
@@ -351,7 +359,7 @@ body{
   transform:translateX(-50%);
   font-size: 17.5px;
   line-height:1;
-  color:var(--muted);
+  color:#fff;
   white-space:nowrap;
   font-variant-caps:all-small-caps;
   letter-spacing:0.05em;
@@ -827,7 +835,7 @@ body{
     position:sticky;
     top:0;
     z-index:50;
-    background:#182530;
+    background:rgb(23 34 45);
   }
 }
 
@@ -943,7 +951,7 @@ body{
   overflow-x:hidden;
   padding:5px;
   z-index:20;
-  background:rgba(16,22,28,.98);
+  background:rgba(16,22,28,1);
   border:1px solid rgba(255,255,255,.13);
   border-radius:12.5px;
   box-shadow:0 22.5px 50px rgba(0,0,0,.45);
@@ -958,7 +966,10 @@ body{
 }
 
 .filter-option{
-  display:block;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
   width:100%;
   text-align:left;
   white-space:nowrap;
@@ -974,6 +985,17 @@ body{
   cursor:pointer;
   transition:background-color .15s ease,color .15s ease;
 }
+.filter-count{
+  color:var(--muted);
+  font-family:"Victor Mono", monospace;
+  font-size:15px;
+  font-style:italic;
+  order:2;
+  flex:0 0 auto;
+}
+.filter-option-label{
+  order:1;
+}
 .filter-option:hover{
   background:rgba(255,255,255,.08);
 }
@@ -981,6 +1003,9 @@ body{
   background:var(--blue);
   color:#0c1013;
   transition:none; /* без анимации — иначе при повторном открытии видно, как подсветка "едет" от прошлого пункта */
+}
+.filter-option.is-active .filter-count{
+  color:rgba(12,16,19,.75);
 }
 
 .type-toggle{

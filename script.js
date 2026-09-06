@@ -1684,13 +1684,6 @@ const FILMS = [
   },
 ];
 
-// Палитра "бумажных" фонов карточек — цвет подставляется автоматически по названию.
-const PALETTE = [
-  "#f4f2e9","#f1f2e7","#f3e7e4","#eeebf2","#e9f1ee","#f5f3ec",
-  "#f2f0e8","#eff1e6","#f3e5e2","#eeeaf1","#e8f0ed","#f4f2ec",
-  "#f0f1e5","#f3f1e9","#f2e4e2","#eeeaf2"
-];
-
 // 15 вариантов рукописной стрелки, все указывают вниз (иконка скачивания)
 const ARROWS = [
   '<path d="M8 2 C6 8,10 11,8 17 M4 13 C6 15,7 16,8 17 M12 13 C10 15,9 16,8 17"/>',
@@ -1852,7 +1845,73 @@ function hashString(str){
   return Math.abs(h);
 }
 
-let cachedCards = null;
+// Главный цвет постера — вариант «акцент»: выбирается самая насыщенная цветная
+// зона (обычно название/акцент), а не фон с кинематографичным тёплым грейдингом.
+// Гистограмма оттенков × насыщенность → самая «красочная» корзина. Оттенок
+// сохраняется, насыщенность/светлота срезаются в контролируемый диапазон
+// (без pin-а канала в 255 — иначе тёплые постеры все становятся красными).
+function dominantColor(img){
+  try{
+    const s = 24;
+    const ratio = img.naturalHeight / img.naturalWidth;
+    const h = Math.max(1, Math.round(s * ratio));
+    const c = document.createElement("canvas");
+    c.width = s; c.height = h;
+    const ctx = c.getContext("2d");
+    ctx.drawImage(img, 0, 0, s, h);
+    const data = ctx.getImageData(0, 0, s, h).data;
+    const bins = new Array(24);
+    for(let i = 0; i < bins.length; i++) bins[i] = { n:0, sat:0, r:0, g:0, b:0 };
+    for(let i = 0; i < data.length; i += 4){
+      const r = data[i], g = data[i+1], b = data[i+2];
+      const mx = Math.max(r,g,b), mn = Math.min(r,g,b);
+      const sat = mx - mn;
+      if(sat < 64 || mx < 64 || mx > 242) continue;
+      const d = sat;
+      let hue;
+      if(d === 0) continue;
+      if(mx === r) hue = ((g-b)/d) % 6;
+      else if(mx === g) hue = (b-r)/d + 2;
+      else hue = (r-g)/d + 4;
+      hue *= 60;
+      if(hue < 0) hue += 360;
+      const bin = bins[Math.min(23, Math.floor(hue/15))];
+      bin.n++; bin.sat += sat; bin.r += r; bin.g += g; bin.b += b;
+    }
+    let best = null, bestScore = -1;
+    for(const bin of bins){
+      if(!bin.n) continue;
+      const score = bin.n * (bin.sat / bin.n);
+      if(score > bestScore){ bestScore = score; best = bin; }
+    }
+    if(!best) return null;
+    const br = best.r / best.n, bg = best.g / best.n, bb = best.b / best.n;
+    // RGB → HSL и два варианта "бумаги": светлая тема — светлая пастель,
+    // тёмная — тёмная пастель того же оттенка (минимум светлоты 30%, чтобы
+    // цвет был различим в обеих темах, а не "чёрная дыра").
+    const rr = br/255, gg = bg/255, bbb = bb/255;
+    const mx = Math.max(rr,gg,bbb), mn = Math.min(rr,gg,bbb);
+    const l = (mx+mn)/2;
+    const d = mx-mn;
+    let hue, sv;
+    if(d === 0){ hue = 0; sv = 0; }
+    else{
+      sv = l > 0.5 ? d/(2-mx-mn) : d/(mx+mn);
+      if(mx === rr) hue = ((gg-bbb)/d) % 6;
+      else if(mx === gg) hue = (bbb-rr)/d + 2;
+      else hue = (rr-gg)/d + 4;
+      hue *= 60; if(hue < 0) hue += 360;
+    }
+    const satPct = Math.round(Math.min(0.7, Math.max(0.45, sv * 1.1)) * 100);
+    // Светлая тема — очень светлая бумага (90%): текст через mix-blend
+    // difference инвертируется почти в чистый чёрный. Тёмная — 24%:
+    // цвет глуше, белый текст остаётся белым.
+    return {
+      light: `hsl(${Math.round(hue)} ${satPct}% 90%)`,
+      dark:  `hsl(${Math.round(hue)} ${satPct}% 24%)`
+    };
+  }catch{ return null; }
+}
 
 // Общий рендер блока рейтингов — используется и обычными карточками, и карточкой сбора
 function fmt(n){ return Number.isInteger(n) && n >= 0 && n < 10 ? n.toFixed(1) : n; }
@@ -1882,7 +1941,6 @@ function makeCard(film, i){
     return makeFundraiserCard(film);
   }
   
-  const color = PALETTE[hashString(film.title + i) % PALETTE.length];
   const arrow = ARROWS[hashString(film.title + i) % ARROWS.length];
   const isSeries = film.type === "series";
   const downloadPath = isSeries ? (film.zip || "") : (film.srt || "");
@@ -1919,7 +1977,7 @@ function makeCard(film, i){
     : "";
 
   return `
-  <article class="card" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-award="${film.award ? '1' : ''}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--paper:${color}; --poster:url('${escapeHtml(film.poster)}')">
+  <article class="card" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-award="${film.award ? '1' : ''}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--poster:url('${escapeHtml(film.poster)}')">
     ${stackLayers}
     <button class="poster-button" type="button"
       aria-label="Скачать субтитры${isSeries ? ' (zip)' : ''}: ${escapeHtml(film.title)}"
@@ -2012,6 +2070,32 @@ function attachDownloadHandlers(){
   });
 }
 
+// Постер грузится лениво → когда кадр пришёл, из него берём главный цвет
+// и ставим оба варианта "бумаги" карточки (светлый/тёмный, выбор — в CSS по теме OS).
+function attachPaperColors(){
+  document.querySelectorAll(".card .poster-image").forEach(img => {
+    if(img.complete && img.naturalWidth){
+      applyPaper(img);
+      return;
+    }
+    img.addEventListener("load", () => applyPaper(img), { once:true });
+  });
+}
+let warnedFileScheme = false;
+function applyPaper(img){
+  const d = dominantColor(img);
+  if(!d){
+    if(!warnedFileScheme && location.protocol === "file:"){
+      warnedFileScheme = true;
+      console.warn("rusub: цвета карточек не считаются через file:// — открой сайт через http://localhost (python3 -m http.server).");
+    }
+    return;
+  }
+  const card = img.closest(".card");
+  if(card) card.style.setProperty("--paper-light", d.light);
+  if(card) card.style.setProperty("--paper-dark", d.dark);
+}
+
 const CHEVRON = '<svg class="chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 2 L6 6.2 L10.5 2"/></svg>';
 
 // Списки для выпадающих списков собираются сами из реальных данных —
@@ -2025,18 +2109,26 @@ function renderFilters(){
       .filter(year => year != null)
   )].sort((a, b) => b - a);
 
-  const authorKeys = [...new Set(FILMS.flatMap(f => f.authors || []))];
+  const nonFund = FILMS.filter(f => f.type !== "fundraiser");
+
+  const authorCounts = {};
+  nonFund.forEach(f => (f.authors || []).forEach(k => { authorCounts[k] = (authorCounts[k] || 0) + 1; }));
+
+  const yearCounts = {};
+  nonFund.forEach(f => { if(f.year != null) yearCounts[f.year] = (yearCounts[f.year] || 0) + 1; });
+
+  const authorKeys = Object.keys(authorCounts);
   const authors = authorKeys
     .map(key => ({ key, label: PEOPLE[key]?.label }))
     .filter(a => a.label)
     .sort((a, b) => a.label.localeCompare(b.label, "en"));
 
   const authorOptions = authors
-    .map(a => `<button type="button" class="filter-option" data-filter="author" data-value="${escapeHtml(a.key)}">${escapeHtml(a.label)}</button>`)
+    .map(a => `<button type="button" class="filter-option" data-filter="author" data-value="${escapeHtml(a.key)}"><span class="filter-count">${authorCounts[a.key]}</span><span class="filter-option-label">${escapeHtml(a.label)}</span></button>`)
     .join("");
 
   const yearOptions = years
-    .map(y => `<button type="button" class="filter-option" data-filter="year" data-value="${y}">${y}</button>`)
+    .map(y => `<button type="button" class="filter-option" data-filter="year" data-value="${y}"><span class="filter-count">${yearCounts[y]}</span><span class="filter-option-label">${y}</span></button>`)
     .join("");
 
   document.getElementById("filters").innerHTML = `
@@ -2116,7 +2208,7 @@ function attachFilterHandlers(){
 
         if(label){
           label.textContent = btn.dataset.value
-            ? btn.textContent.trim()
+            ? (btn.querySelector(".filter-option-label")?.textContent.trim() || btn.textContent.trim())
             : (key === "author" ? "Author" : "Year");
         }
 
@@ -2183,6 +2275,7 @@ function attachFilterHandlers(){
       </section>`);
   }
 
+  attachPaperColors();
   cachedCards = document.querySelectorAll(".card");
   attachDownloadHandlers();
 
