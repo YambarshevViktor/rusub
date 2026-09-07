@@ -314,6 +314,22 @@ const FILMS = [
   },
 
   {
+    id: "lanterns-2026",
+    title: "Lanterns",
+    titleRu: "Фонари",
+    year: 2026,
+    type: "series",
+    poster: "posters/lanterns-2026.jpg",
+    zip: "subtitles/lanterns-2026.zip",
+    season: 1,
+    episodesAvailable: 4,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: { rt: 94, metacritic: 72 },
+    description: ""
+  },
+
+  {
     id: "give-me-your-hand-2008",
     title: "Give Me Your Hand",
     titleRu: "Дай мне руку",
@@ -1182,22 +1198,6 @@ const FILMS = [
     srt: "subtitles/johns-gone-2010.srt",
     authors: ["chacun"],
     ratings: { letterboxd: 3.32 },
-    description: ""
-  },
-
-  {
-    id: "lanterns-2026",
-    title: "Lanterns",
-    titleRu: "Фонари",
-    year: 2026,
-    type: "series",
-    poster: "posters/lanterns-2026.jpg",
-    zip: "subtitles/lanterns-2026.zip",
-    season: 1,
-    episodesAvailable: 3,
-    episodesTotal: 8,
-    authors: ["goodman"],
-    ratings: { rt: 94, metacritic: 72 },
     description: ""
   },
 

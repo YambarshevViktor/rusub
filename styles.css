@@ -251,10 +251,12 @@ body{
   /* "Бумага" карточки = светлый вариант главного цвета постера (ставится из JS).
      Тёмный вариант — в media-запросе ниже, по системной теме. */
   --paper: var(--paper-light,#f4f2e9);
+  --poster-text:#000;
 }
 @media (prefers-color-scheme: dark){
   .card{
     --paper: var(--paper-dark,#12181d);
+    --poster-text:#fff;
   }
 }
 
@@ -313,11 +315,8 @@ body{
   transition:opacity 0s,transform .7s cubic-bezier(.2,.7,.2,1);
 }
 
-/* mix-blend-mode на всём блоке целиком (не по отдельным строкам) — год и
-   название инвертируются как одна группа относительно того, что под ними
-   (фото или бумага), и остаются читаемыми без плашек/теней. Цвет здесь
-   обязательно должен быть светлым — тёмный цвет на difference не даёт
-   видимого эффекта. */
+/* Текст на постере: в покое — явный чёрный/белый (--poster-text) поверх
+   бумаги; на hover — белый + difference для читаемости на любом фото. */
 .poster-content{
   position:relative;
   z-index:2;
@@ -327,6 +326,9 @@ body{
   align-items:center;
   justify-content:center;
   padding:17.5px 15px 50px;
+  color:var(--poster-text,#000);
+}
+.card:hover .poster-content{
   color:#fff;
   mix-blend-mode:difference;
 }
@@ -338,7 +340,6 @@ body{
   transform:translateX(-50%);
   font-size:17.5px;
   line-height:1;
-  color:#fff;
 }
 
 .episodes{
@@ -348,7 +349,6 @@ body{
   transform:translateX(-50%);
   font-size: 17.5px;
   line-height:1;
-  color:#fff;
   white-space:nowrap;
 }
 
@@ -359,7 +359,6 @@ body{
   transform:translateX(-50%);
   font-size: 17.5px;
   line-height:1;
-  color:#fff;
   white-space:nowrap;
   font-variant-caps:all-small-caps;
   letter-spacing:0.05em;
@@ -408,12 +407,16 @@ body{
   height: 30px;
 
   background: url("assets/award-icon.svg") center / contain no-repeat;
+  filter: invert(1);
 
   z-index: 10;
   pointer-events: none;
 
   opacity: 1;
   transition: opacity .25s ease;
+}
+@media (prefers-color-scheme: dark){
+  .award-icon{ filter:none; }
 }
 
 .title-wrap .title {
@@ -441,8 +444,7 @@ body{
   align-items:center;
   justify-content:center;
   gap:7.5px;
-  color:#fff;
-  mix-blend-mode:difference;
+  color:var(--poster-text,#000);
   font-family:"Victor Mono", monospace;
   font-size:17.5px;
   font-style:italic;
@@ -456,6 +458,8 @@ body{
 }
 
 .card:hover .download{
+  color:#fff;
+  mix-blend-mode:difference;
   opacity:1;
   transform:translate(-50%,0);
 }
