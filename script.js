@@ -285,6 +285,28 @@ const PEOPLE = {
     label: "DarkSquall"
   },
 
+  rusubmaker: {
+    label: "rusubmaker"
+  },
+
+  madnessmethod: {
+    label: "There's method in my madness.",
+    href: "https://t.me/madnessmethod"
+  },
+
+  Aldr22111: {
+    label: "Aldr22111"
+  },
+
+  CoopGames: {
+    label: "Coop Games",
+    href: "https://t.me/coopgamez"
+  },
+
+  dulov: {
+    label: "Дмитрий Дулов"
+  },
+
 };
 
 const FILMS = [
@@ -311,6 +333,286 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "hacks-2021",
+    title: "Hacks",
+    titleRu: "Хитрости",
+    year: 2021,
+    type: "series",
+    poster: "posters/hacks-2021.jpg",
+    zip: "subtitles/hacks-2021.zip",
+    season: 1,
+    episodesAvailable: 10,
+    episodesTotal: 10,
+    authors: ["rusubmaker"],
+    ratings: { imdb: 8.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "hacks-2022",
+    title: "Hacks",
+    titleRu: "Хитрости",
+    year: 2022,
+    type: "series",
+    poster: "posters/hacks-2022.jpg",
+    zip: "subtitles/hacks-2022.zip",
+    season: 2,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["rusubmaker"],
+    ratings: { imdb: 8.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "hacks-2024",
+    title: "Hacks",
+    titleRu: "Хитрости",
+    year: 2024,
+    type: "series",
+    poster: "posters/hacks-2024.jpg",
+    zip: "subtitles/hacks-2024.zip",
+    season: 3,
+    episodesAvailable: 9,
+    episodesTotal: 9,
+    authors: ["rusubmaker"],
+    ratings: { imdb: 8.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "hacks-2025",
+    title: "Hacks",
+    titleRu: "Хитрости",
+    year: 2025,
+    type: "series",
+    poster: "posters/hacks-2025.jpg",
+    zip: "subtitles/hacks-2025.zip",
+    season: 4,
+    episodesAvailable: 10,
+    episodesTotal: 10,
+    authors: ["madnessmethod"],
+    ratings: { imdb: 8.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "hacks-2026",
+    title: "Hacks",
+    titleRu: "Хитрости",
+    year: 2026,
+    type: "series",
+    poster: "posters/hacks-2026.jpg",
+    zip: "subtitles/hacks-2026.zip",
+    season: 5,
+    episodesAvailable: 10,
+    episodesTotal: 10,
+    authors: ["Aldr22111"],
+    ratings: { imdb: 8.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "ren-faire-2024",
+    title: "Ren Faire",
+    titleRu: "Ярмарка эпохи Возрождения",
+    year: 2024,
+    type: "series",
+    poster: "posters/ren-faire-2024.jpg",
+    zip: "subtitles/ren-faire-2024.zip",
+    season: 1,
+    episodesAvailable: 3,
+    episodesTotal: 3,
+    authors: ["chacun"],
+    ratings: { imdb: 6.8 },
+    description: ""
+  },
+
+  {
+    id: "star-wars-maul-shadow-lord-2026",
+    title: "Star Wars: Maul — Shadow Lord",
+    titleRu: "Звёздные войны: Маул — Повелитель теней",
+    year: 2026,
+    type: "series",
+    poster: "posters/star-wars-maul-shadow-lord-2026.jpg",
+    zip: "subtitles/star-wars-maul-shadow-lord-2026.zip",
+    season: 1,
+    episodesAvailable: 10,
+    episodesTotal: 10,
+    authors: ["CoopGames"],
+    ratings: { imdb: 8.6 },
+    description: ""
+  },
+
+  {
+    id: "half-man-2026",
+    title: "Half Man",
+    titleRu: "Наполовину человек",
+    year: 2026,
+    type: "series",
+    poster: "posters/half-man-2026.jpg",
+    zip: "subtitles/half-man-2026.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 6,
+    authors: ["one"],
+    ratings: { imdb: 7.0 },
+    description: ""
+  },
+
+  {
+    id: "the-presidents-cake-2025",
+    title: "The President's Cake",
+    titleRu: "Торт для президента",
+    year: 2025,
+    award: true,
+    poster: "posters/the-presidents-cake-2025.jpg",
+    srt: "subtitles/the-presidents-cake-2025.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 4.0 },
+    description: ""
+  },
+
+  {
+    id: "about-a-place-in-the-kinki-region-2025",
+    title: "About a Place in the Kinki Region",
+    titleRu: "Об одном месте региона Кансай",
+    year: 2025,
+    poster: "posters/about-a-place-in-the-kinki-region-2025.jpg",
+    srt: "subtitles/about-a-place-in-the-kinki-region-2025.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "two-seasons-two-strangers-2025",
+    title: "Two Seasons, Two Strangers",
+    titleRu: "Два сезона, два незнакомца",
+    year: 2025,
+    award: true,
+    poster: "posters/two-seasons-two-strangers-2025.jpg",
+    srt: "subtitles/two-seasons-two-strangers-2025.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "riddle-of-fire-2023",
+    title: "Riddle of Fire",
+    titleRu: "Огненная тайна",
+    year: 2023,
+    poster: "posters/riddle-of-fire-2023.jpg",
+    srt: "subtitles/riddle-of-fire-2023.srt",
+    authors: ["chacun", "one"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
+    id: "an-urban-allegory-2024",
+    title: "An Urban Allegory",
+    titleRu: "Городская аллегория",
+    year: 2024,
+    poster: "posters/an-urban-allegory-2024.jpg",
+    srt: "subtitles/an-urban-allegory-2024.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "onward-2020",
+    title: "Onward",
+    titleRu: "Вперёд",
+    year: 2020,
+    award: true,
+    poster: "posters/onward-2020.jpg",
+    srt: "subtitles/onward-2020.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.3 },
+    description: ""
+  },
+
+  {
+    id: "emma-2020",
+    title: "Emma.",
+    titleRu: "Эмма",
+    year: 2020,
+    poster: "posters/emma-2020.jpg",
+    srt: "subtitles/emma-2020.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "the-bride-2026",
+    title: "The Bride!",
+    titleRu: "Невеста!",
+    year: 2026,
+    poster: "posters/the-bride-2026.jpg",
+    srt: "subtitles/the-bride-2026.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 2.8 },
+    description: ""
+  },
+
+  {
+    id: "amrum-2025",
+    title: "Amrum",
+    titleRu: "Амрум",
+    year: 2025,
+    poster: "posters/amrum-2025.jpg",
+    srt: "subtitles/amrum-2025.srt",
+    authors: ["dulov"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "night-nurse-1931",
+    title: "Night Nurse",
+    titleRu: "Ночная сиделка",
+    year: 1931,
+    poster: "posters/night-nurse-1931.jpg",
+    srt: "subtitles/night-nurse-1931.srt",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "dragonfly-2025",
+    title: "Dragonfly",
+    titleRu: "Стрекоза",
+    year: 2025,
+    poster: "posters/dragonfly-2025.jpg",
+    srt: "subtitles/dragonfly-2025.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "undertone-2025",
+    title: "Undertone",
+    titleRu: "Полутон",
+    year: 2025,
+    poster: "posters/undertone-2025.jpg",
+    srt: "subtitles/undertone-2025.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 2.9 },
+    description: ""
   },
 
   {
