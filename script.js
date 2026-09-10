@@ -336,6 +336,29 @@ const FILMS = [
   },
 
   {
+    type: "fundraiser",
+    active: true,
+    title: "Teenage Sex and Death at Camp Miasma",
+    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
+    image: "fundraisers/teenage-sex-and-death-at-camp-miasma-2026.jpg",
+    goal: "5 000 ₽",
+    ratings: { letterboxd: 3.8 },
+    link: { label: "one inch tall", href: "https://t.me/oneinchtall2/91" },
+    shade: true
+  },
+
+  {
+    id: "good-valley-stories-2025",
+    title: "Good Valley Stories",
+    titleRu: "Истории из Доброй долины",
+    year: 2025,
+    poster: "posters/good-valley-stories-2025.jpg",
+    srt: "subtitles/good-valley-stories-2025.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.85 },
+  },
+
+  {
     id: "hacks-2021",
     title: "Hacks",
     titleRu: "Хитрости",
