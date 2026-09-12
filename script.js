@@ -348,6 +348,70 @@ const FILMS = [
   },
 
   {
+    id: "the-inventor-out-for-blood-in-silicon-valley-2019",
+    title: "The Inventor: Out for Blood in Silicon Valley",
+    titleRu: "Изобретатель: Жажда крови в Кремниевой долине",
+    year: 2019,
+    poster: "posters/the-inventor-out-for-blood-in-silicon-valley-2019.jpg",
+    srt: "subtitles/the-inventor-out-for-blood-in-silicon-valley-2019.srt",
+    authors: ["subbedAf"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
+    id: "the-other-bennet-sister-2026",
+    title: "The Other Bennet Sister",
+    titleRu: "Другая сестра Беннет",
+    year: 2026,
+    type: "series",
+    poster: "posters/the-other-bennet-sister-2026.jpg",
+    zip: "subtitles/the-other-bennet-sister-2026.zip",
+    season: 1,
+    episodesAvailable: 10,
+    episodesTotal: 10,
+    authors: ["tuffetu"],
+    ratings: { imdb: 8.3 },
+    description: ""
+  },
+
+  {
+    id: "they-will-kill-you-2026",
+    title: "They Will Kill You",
+    titleRu: "Они придут за тобой",
+    year: 2026,
+    poster: "posters/they-will-kill-you-2026.jpg",
+    srt: "subtitles/they-will-kill-you-2026.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 2.9 },
+    description: ""
+  },
+
+  {
+    id: "friendship-2024",
+    title: "Friendship",
+    titleRu: "Дружба",
+    year: 2024,
+    poster: "posters/friendship-2024.jpg",
+    srt: "subtitles/friendship-2024.srt",
+    authors: ["homoSubiens"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
+    id: "drib-2017",
+    title: "DRIB",
+    titleRu: "ДРИБ",
+    year: 2017,
+    poster: "posters/drib-2017.jpg",
+    srt: "subtitles/drib-2017.ass",
+    authors: ["chacun"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
     id: "good-valley-stories-2025",
     title: "Good Valley Stories",
     titleRu: "Истории из Доброй долины",
@@ -2432,7 +2496,7 @@ function makeCard(film, i){
   const arrow = ARROWS[hashString(film.title + i) % ARROWS.length];
   const isSeries = film.type === "series";
   const downloadPath = isSeries ? (film.zip || "") : (film.srt || "");
-  const downloadLabel = isSeries ? "download zip" : "download srt";
+  const downloadLabel = isSeries ? "download zip" : (film.srt || "").endsWith(".ass") ? "download ass" : "download srt";
   const episodes = episodesLabel(film);
 
   const metaLinks = (film.authors || [])
