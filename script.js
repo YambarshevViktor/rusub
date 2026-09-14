@@ -307,6 +307,10 @@ const PEOPLE = {
     label: "Дмитрий Дулов"
   },
 
+  chuban: {
+    label: "Николай Чубан"
+  },
+
 };
 
 const FILMS = [
@@ -345,6 +349,107 @@ const FILMS = [
     ratings: { letterboxd: 3.8 },
     link: { label: "one inch tall", href: "https://t.me/oneinchtall2/91" },
     shade: true
+  },
+
+  {
+    id: "lanterns-2026",
+    title: "Lanterns",
+    titleRu: "Фонари",
+    year: 2026,
+    type: "series",
+    poster: "posters/lanterns-2026.jpg",
+    zip: "subtitles/lanterns-2026.zip",
+    season: 1,
+    episodesAvailable: 5,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: { rt: 94, metacritic: 72 },
+    description: ""
+  },
+
+  {
+    id: "the-end-of-oak-street-2026",
+    title: "The End of Oak Street",
+    titleRu: "На краю Оук-стрит",
+    year: 2026,
+    poster: "posters/the-end-of-oak-street-2026.jpg",
+    srt: "subtitles/the-end-of-oak-street-2026.srt",
+    authors: ["dungeons"],
+    ratings: { letterboxd: 3.1 },
+    description: ""
+  },
+
+  {
+    id: "pillion-2025",
+    title: "Pillion",
+    titleRu: "Седло",
+    year: 2025,
+    poster: "posters/pillion-2025.jpg",
+    srt: "subtitles/pillion-2025.srt",
+    authors: ["focs", "alice"],
+    ratings: { letterboxd: 3.5 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "the-drama-2026",
+    title: "The Drama",
+    titleRu: "Вот это драма!",
+    year: 2026,
+    poster: "posters/the-drama-2026.jpg",
+    srt: "subtitles/the-drama-2026.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "crespia-2003",
+    title: "Crespià",
+    titleRu: "Креспия",
+    year: 2003,
+    poster: "posters/crespia-2003.jpg",
+    srt: "subtitles/crespia-2003.ass",
+    authors: ["chatAndalou"],
+    ratings: { imdb: 5.2 },
+    description: ""
+  },
+
+  {
+    id: "ready-or-not-2019",
+    title: "Ready or Not",
+    titleRu: "Я иду искать",
+    year: 2019,
+    poster: "posters/ready-or-not-2019.jpg",
+    srt: "subtitles/ready-or-not-2019.srt",
+    authors: ["chuban"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "ready-or-not-2-here-i-come-2026",
+    title: "Ready or Not 2: Here I Come",
+    titleRu: "Я иду искать 2",
+    year: 2026,
+    poster: "posters/ready-or-not-2-here-i-come-2026.jpg",
+    srt: "subtitles/ready-or-not-2-here-i-come-2026.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 3.3 },
+    description: ""
+  },
+
+  {
+    id: "i-am-frankelda-2025",
+    title: "I Am Frankelda",
+    titleRu: "Я, Франкельда",
+    year: 2025,
+    poster: "posters/i-am-frankelda-2025.jpg",
+    srt: "subtitles/i-am-frankelda-2025.srt",
+    authors: ["chatAndalou", "chacun"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
   },
 
   {
@@ -699,22 +804,6 @@ const FILMS = [
     srt: "subtitles/undertone-2025.srt",
     authors: ["focs"],
     ratings: { letterboxd: 2.9 },
-    description: ""
-  },
-
-  {
-    id: "lanterns-2026",
-    title: "Lanterns",
-    titleRu: "Фонари",
-    year: 2026,
-    type: "series",
-    poster: "posters/lanterns-2026.jpg",
-    zip: "subtitles/lanterns-2026.zip",
-    season: 1,
-    episodesAvailable: 4,
-    episodesTotal: 8,
-    authors: ["goodman"],
-    ratings: { rt: 94, metacritic: 72 },
     description: ""
   },
 
