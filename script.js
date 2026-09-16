@@ -311,9 +311,30 @@ const PEOPLE = {
     label: "Николай Чубан"
   },
 
+  honami: {
+    label: "Honami"
+  },
+
+  oakislandtk: {
+    label: "oakislandtk"
+  },
+
 };
 
 const FILMS = [
+  {
+    type: "fundraiser",
+    active: true,
+    done: true,
+    title: "Teenage Sex and Death at Camp Miasma",
+    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
+    image: "fundraisers/teenage-sex-and-death-at-camp-miasma-2026.jpg",
+    goal: "5 000 ₽",
+    ratings: { letterboxd: 3.8 },
+    link: { label: "one inch tall", href: "https://t.me/oneinchtall2/91" },
+    shade: true
+  },
+
   {
     type: "fundraiser",
     active: true,
@@ -340,15 +361,100 @@ const FILMS = [
   },
 
   {
-    type: "fundraiser",
-    active: true,
-    title: "Teenage Sex and Death at Camp Miasma",
-    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
-    image: "fundraisers/teenage-sex-and-death-at-camp-miasma-2026.jpg",
-    goal: "5 000 ₽",
-    ratings: { letterboxd: 3.8 },
-    link: { label: "one inch tall", href: "https://t.me/oneinchtall2/91" },
-    shade: true
+    id: "good-omens-2019",
+    title: "Good Omens",
+    titleRu: "Благие знамения",
+    year: 2019,
+    type: "series",
+    poster: "posters/good-omens-2019.jpg",
+    zip: "subtitles/good-omens-2019.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 6,
+    authors: ["honami"],
+    ratings: { imdb: 8.0 },
+    description: ""
+  },
+
+  {
+    id: "good-omens-2023",
+    title: "Good Omens",
+    titleRu: "Благие знамения",
+    year: 2023,
+    type: "series",
+    poster: "posters/good-omens-2023.jpg",
+    zip: "subtitles/good-omens-2023.zip",
+    season: 2,
+    episodesAvailable: 6,
+    episodesTotal: 6,
+    authors: ["oakislandtk"],
+    ratings: { imdb: 8.0 },
+    description: ""
+  },
+
+  {
+    id: "good-omens-2026",
+    title: "Good Omens",
+    titleRu: "Благие знамения",
+    year: 2026,
+    type: "series",
+    poster: "posters/good-omens-2026.jpg",
+    zip: "subtitles/good-omens-2026.zip",
+    season: 3,
+    episodesAvailable: 1,
+    episodesTotal: 1,
+    authors: ["focs"],
+    ratings: { imdb: 8.0 },
+    description: ""
+  },
+
+  {
+    id: "everything-everywhere-all-at-once-2022",
+    title: "Everything Everywhere All at Once",
+    titleRu: "Всё везде и сразу",
+    year: 2022,
+    poster: "posters/everything-everywhere-all-at-once-2022.jpg",
+    srt: "subtitles/everything-everywhere-all-at-once-2022.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 4.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "the-love-that-remains-2025",
+    title: "The Love That Remains",
+    titleRu: "Любовь, которая остаётся",
+    year: 2025,
+    poster: "posters/the-love-that-remains-2025.jpg",
+    srt: "subtitles/the-love-that-remains-2025.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "drifting-laurent-2025",
+    title: "Drifting Laurent",
+    titleRu: "Блуждающий Лоран",
+    year: 2025,
+    poster: "posters/drifting-laurent-2025.jpg",
+    srt: "subtitles/drifting-laurent-2025.srt",
+    authors: ["alice"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "on-the-sea-2025",
+    title: "On the Sea",
+    titleRu: "На море",
+    year: 2025,
+    poster: "posters/on-the-sea-2025.jpg",
+    srt: "subtitles/on-the-sea-2025.srt",
+    authors: ["alice", "focs"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
   },
 
   {
