@@ -361,6 +361,158 @@ const FILMS = [
   },
 
   {
+    id: "tony-2026",
+    title: "Tony",
+    titleRu: "Тони",
+    year: 2026,
+    poster: "posters/tony-2026.jpg",
+    srt: "subtitles/tony-2026.srt",
+    authors: ["noBetter"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
+    id: "hoppers-2026",
+    title: "Hoppers",
+    titleRu: "Прыгуны",
+    year: 2026,
+    poster: "posters/hoppers-2026.jpg",
+    srt: "subtitles/hoppers-2026.srt",
+    authors: ["naruhinka"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "the-christophers-2026",
+    title: "The Christophers",
+    titleRu: "Кристоферы",
+    year: 2026,
+    poster: "posters/the-christophers-2026.jpg",
+    srt: "subtitles/the-christophers-2026.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "phantosmia-2024",
+    title: "Phantosmia",
+    titleRu: "Фантосмия",
+    year: 2024,
+    poster: "posters/phantosmia-2024.jpg",
+    srt: "subtitles/phantosmia-2024.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "offline-2012",
+    title: "Offline",
+    titleRu: "Офлайн",
+    year: 2012,
+    poster: "posters/offline-2012.jpg",
+    srt: "subtitles/offline-2012.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
+    id: "mile-end-kicks-2026",
+    title: "Mile End Kicks",
+    titleRu: "Майл-Энд-Кикс",
+    year: 2026,
+    poster: "posters/mile-end-kicks-2026.jpg",
+    srt: "subtitles/mile-end-kicks-2026.srt",
+    authors: ["summer"],
+    ratings: { letterboxd: 3.1 },
+    description: ""
+  },
+
+  {
+    id: "the-legend-of-vox-machina-2024",
+    title: "The Legend of Vox Machina",
+    titleRu: "Легенда о Vox Machina",
+    year: 2024,
+    type: "series",
+    poster: "posters/the-legend-of-vox-machina-2024.jpg",
+    zip: "subtitles/the-legend-of-vox-machina-2024.zip",
+    season: 3,
+    episodesAvailable: 12,
+    episodesTotal: 12,
+    authors: ["lebowski", "naruhinka"],
+    ratings: { imdb: 8.4 },
+    description: ""
+  },
+
+  {
+    id: "the-legend-of-vox-machina-2026",
+    title: "The Legend of Vox Machina",
+    titleRu: "Легенда о Vox Machina",
+    year: 2026,
+    type: "series",
+    poster: "posters/the-legend-of-vox-machina-2026.jpg",
+    zip: "subtitles/the-legend-of-vox-machina-2026.zip",
+    season: 4,
+    episodesAvailable: 12,
+    episodesTotal: 12,
+    authors: ["lebowski", "naruhinka"],
+    ratings: { imdb: 8.4 },
+    description: ""
+  },
+
+  {
+    id: "hokum-2026",
+    title: "Hokum",
+    titleRu: "Хокум",
+    year: 2026,
+    poster: "posters/hokum-2026.jpg",
+    srt: "subtitles/hokum-2026.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.3 },
+    description: ""
+  },
+
+  {
+    id: "mother-mary-2026",
+    title: "Mother Mary",
+    titleRu: "Мать Мария",
+    year: 2026,
+    poster: "posters/mother-mary-2026.jpg",
+    srt: "subtitles/mother-mary-2026.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 2.9 },
+    description: ""
+  },
+
+  {
+    id: "prom-night-1980",
+    title: "Prom Night",
+    titleRu: "Школьный бал",
+    year: 1980,
+    poster: "posters/prom-night-1980.jpg",
+    srt: "subtitles/prom-night-1980.srt",
+    authors: ["chatAndalou"],
+    ratings: { letterboxd: 2.6 },
+    description: ""
+  },
+
+  {
+    id: "michael-2026",
+    title: "Michael",
+    titleRu: "Майкл",
+    year: 2026,
+    poster: "posters/michael-2026.jpg",
+    srt: "subtitles/michael-2026.srt",
+    authors: ["rusubmaker"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
     id: "good-omens-2019",
     title: "Good Omens",
     titleRu: "Благие знамения",
