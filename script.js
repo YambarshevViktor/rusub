@@ -361,6 +361,102 @@ const FILMS = [
   },
 
   {
+    id: "hadestown-the-musical-2026",
+    title: "Hadestown: The Musical",
+    titleRu: "Хейдстаун",
+    year: 2026,
+    poster: "posters/hadestown-the-musical-2026.jpg",
+    srt: "subtitles/hadestown-the-musical-2026.srt",
+    authors: ["wastedTime"],
+    ratings: { letterboxd: 4.5 },
+    description: ""
+  },
+
+  {
+    id: "teenage-sex-and-death-at-camp-miasma-2026-one",
+    title: "Teenage Sex and Death at Camp Miasma",
+    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
+    year: 2026,
+    poster: "posters/teenage-sex-and-death-at-camp-miasma-2026.jpg",
+    srt: "subtitles/teenage-sex-and-death-at-camp-miasma-2026-one.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
+    id: "teenage-sex-and-death-at-camp-miasma-2026-nobetter",
+    title: "Teenage Sex and Death at Camp Miasma",
+    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
+    year: 2026,
+    poster: "posters/teenage-sex-and-death-at-camp-miasma-2026.jpg",
+    srt: "subtitles/teenage-sex-and-death-at-camp-miasma-2026-nobetter.srt",
+    authors: ["noBetter"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
+    id: "the-rivals-of-amziah-king-2026",
+    title: "The Rivals of Amziah King",
+    titleRu: "Соперники Амзиа Кинга",
+    year: 2026,
+    poster: "posters/the-rivals-of-amziah-king-2026.jpg",
+    srt: "subtitles/the-rivals-of-amziah-king-2026.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
+    id: "romeria-2025",
+    title: "Romería",
+    titleRu: "Ромерия",
+    year: 2025,
+    poster: "posters/romeria-2025.jpg",
+    srt: "subtitles/romeria-2025.srt",
+    authors: ["noBetter"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "suspiria-1977",
+    title: "Suspiria",
+    titleRu: "Суспирия",
+    year: 1977,
+    poster: "posters/suspiria-1977.jpg",
+    srt: "subtitles/suspiria-1977.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
+    id: "carolina-caroline-2025",
+    title: "Carolina Caroline",
+    titleRu: "Каролина Кэролайн",
+    year: 2025,
+    poster: "posters/carolina-caroline-2025.jpg",
+    srt: "subtitles/carolina-caroline-2025.srt",
+    authors: ["chatAndalou", "dark"],
+    ratings: { letterboxd: 3.5 },
+    description: ""
+  },
+
+  {
+    id: "idiotka-2025",
+    title: "Idiotka",
+    titleRu: "Идиотка",
+    year: 2025,
+    poster: "posters/idiotka-2025.jpg",
+    srt: "subtitles/idiotka-2025.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.1 },
+    description: ""
+  },
+
+  {
     id: "tony-2026",
     title: "Tony",
     titleRu: "Тони",
@@ -1496,7 +1592,7 @@ const FILMS = [
     year: 2025,
     poster: "posters/tuner-2025.jpg",
     srt: "subtitles/tuner-2025.srt",
-    authors: ["dark"],
+    authors: ["dark", "chatAndalou"],
     ratings: { letterboxd: 3.75 },
     description: ""
   },
