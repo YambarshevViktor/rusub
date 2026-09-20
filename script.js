@@ -361,6 +361,42 @@ const FILMS = [
   },
 
   {
+    id: "the-great-arch-2025",
+    title: "The Great Arch",
+    titleRu: "Большая арка",
+    year: 2025,
+    poster: "posters/the-great-arch-2025.jpg",
+    srt: "subtitles/the-great-arch-2025.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "burn-2026",
+    title: "Burn",
+    titleRu: "Гори",
+    year: 2026,
+    poster: "posters/burn-2026.jpg",
+    srt: "subtitles/burn-2026.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "mickey-17-2025",
+    title: "Mickey 17",
+    titleRu: "Микки 17",
+    year: 2025,
+    poster: "posters/mickey-17-2025.jpg",
+    srt: "subtitles/mickey-17-2025.srt",
+    authors: ["focs", "summer"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
     id: "hadestown-the-musical-2026",
     title: "Hadestown: The Musical",
     titleRu: "Хейдстаун",
