@@ -361,6 +361,70 @@ const FILMS = [
   },
 
   {
+    id: "lanterns-2026",
+    title: "Lanterns",
+    titleRu: "Фонари",
+    year: 2026,
+    type: "series",
+    poster: "posters/lanterns-2026.jpg",
+    zip: "subtitles/lanterns-2026.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: { rt: 94, metacritic: 72 },
+    description: ""
+  },
+
+  {
+    id: "babylon-2022",
+    title: "Babylon",
+    titleRu: "Вавилон",
+    year: 2022,
+    poster: "posters/babylon-2022.jpg",
+    srt: "subtitles/babylon-2022.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
+    id: "the-worst-person-in-the-world-2021",
+    title: "The Worst Person in the World",
+    titleRu: "Худший человек на свете",
+    year: 2021,
+    poster: "posters/the-worst-person-in-the-world-2021.jpg",
+    srt: "subtitles/the-worst-person-in-the-world-2021.srt",
+    authors: ["subbedAf"],
+    ratings: { letterboxd: 4.1 },
+    description: ""
+  },
+
+  {
+    id: "lucky-2017",
+    title: "Lucky",
+    titleRu: "Счастливчик",
+    year: 2017,
+    poster: "posters/lucky-2017.jpg",
+    srt: "subtitles/lucky-2017.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
+    id: "men-2022",
+    title: "Men",
+    titleRu: "Мужчины",
+    year: 2022,
+    poster: "posters/men-2022.jpg",
+    srt: "subtitles/men-2022.srt",
+    authors: ["coolStory"],
+    ratings: { letterboxd: 2.8 },
+    description: ""
+  },
+
+  {
     id: "the-great-arch-2025",
     title: "The Great Arch",
     titleRu: "Большая арка",
@@ -738,22 +802,6 @@ const FILMS = [
     srt: "subtitles/on-the-sea-2025.srt",
     authors: ["alice", "focs"],
     ratings: { letterboxd: 3.4 },
-    description: ""
-  },
-
-  {
-    id: "lanterns-2026",
-    title: "Lanterns",
-    titleRu: "Фонари",
-    year: 2026,
-    type: "series",
-    poster: "posters/lanterns-2026.jpg",
-    zip: "subtitles/lanterns-2026.zip",
-    season: 1,
-    episodesAvailable: 5,
-    episodesTotal: 8,
-    authors: ["goodman"],
-    ratings: { rt: 94, metacritic: 72 },
     description: ""
   },
 
