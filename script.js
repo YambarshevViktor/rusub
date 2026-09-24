@@ -273,6 +273,10 @@ const PEOPLE = {
     href: "https://t.me/thedirectorscut"
   },
 
+  physkids: {
+    label: "PhysKids"
+  },
+
   kornickolay: {
     label: "kornickolay"
   },
@@ -358,6 +362,68 @@ const FILMS = [
 	  ratings: { imdb: 8.0 },
     link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
     shade: true
+  },
+
+  {
+    id: "sunday-in-the-park-with-george-2013",
+    title: "Sunday in the Park with George",
+    titleRu: "Воскресенье в парке с Джорджем",
+    year: 2013,
+    poster: "posters/sunday-in-the-park-with-george-2013.jpg",
+    srt: "subtitles/sunday-in-the-park-with-george-2013.srt",
+    authors: ["wastedTime"],
+    ratings: { imdb: 7.7 },
+    description: ""
+  },
+
+  {
+    id: "past-lives-2023",
+    title: "Past Lives",
+    titleRu: "Прошлые жизни",
+    year: 2023,
+    poster: "posters/past-lives-2023.jpg",
+    srt: "subtitles/past-lives-2023.srt",
+    authors: ["directorCard"],
+    ratings: { letterboxd: 4.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "death-of-a-unicorn-2025",
+    title: "Death of a Unicorn",
+    titleRu: "Смерть единорога",
+    year: 2025,
+    poster: "posters/death-of-a-unicorn-2025.jpg",
+    srt: "subtitles/death-of-a-unicorn-2025.srt",
+    authors: ["goodman"],
+    ratings: { letterboxd: 2.7 },
+    description: ""
+  },
+
+  {
+    id: "national-theatre-live-vanya-2024",
+    title: "National Theatre Live: Vanya",
+    titleRu: "Ваня",
+    year: 2024,
+    poster: "posters/national-theatre-live-vanya-2024.jpg",
+    srt: "subtitles/national-theatre-live-vanya-2024.srt",
+    authors: ["tuffetu"],
+    ratings: { letterboxd: 4.4 },
+    description: ""
+  },
+
+  {
+    id: "soul-2020",
+    title: "Soul",
+    titleRu: "Душа",
+    year: 2020,
+    poster: "posters/soul-2020.jpg",
+    srt: "subtitles/soul-2020.srt",
+    authors: ["physkids"],
+    ratings: { letterboxd: 3.3 },
+    award: true,
+    description: ""
   },
 
   {
