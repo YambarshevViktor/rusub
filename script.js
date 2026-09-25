@@ -365,6 +365,46 @@ const FILMS = [
   },
 
   {
+    id: "american-horror-story-2026",
+    title: "American Horror Story",
+    titleRu: "Американская история ужасов: 13",
+    year: 2026,
+    type: "series",
+    poster: "posters/american-horror-story-2026.jpg",
+    zip: "subtitles/american-horror-story-2026.zip",
+    season: 13,
+    episodesAvailable: 3,
+    episodesTotal: 13,
+    authors: ["focs"],
+    ratings: { imdb: 7.9 },
+    description: ""
+  },
+
+  {
+    id: "sometimes-i-think-about-dying-2023",
+    title: "Sometimes I Think About Dying",
+    titleRu: "Иногда я думаю о смерти",
+    year: 2023,
+    poster: "posters/sometimes-i-think-about-dying-2023.jpg",
+    srt: "subtitles/sometimes-i-think-about-dying-2023.srt",
+    authors: ["lebowski"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "twinless-2025",
+    title: "Twinless",
+    titleRu: "Без близнеца",
+    year: 2025,
+    poster: "posters/twinless-2025.jpg",
+    srt: "subtitles/twinless-2025.srt",
+    authors: ["chacun", "one"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
     id: "sunday-in-the-park-with-george-2013",
     title: "Sunday in the Park with George",
     titleRu: "Воскресенье в парке с Джорджем",
