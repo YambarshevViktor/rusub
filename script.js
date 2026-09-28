@@ -365,6 +365,22 @@ const FILMS = [
   },
 
   {
+    id: "lanterns-2026",
+    title: "Lanterns",
+    titleRu: "Фонари",
+    year: 2026,
+    type: "series",
+    poster: "posters/lanterns-2026.jpg",
+    zip: "subtitles/lanterns-2026.zip",
+    season: 1,
+    episodesAvailable: 7,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: { rt: 94, metacritic: 72 },
+    description: ""
+  },
+
+  {
     id: "american-horror-story-2026",
     title: "American Horror Story",
     titleRu: "Американская история ужасов: 13",
@@ -463,22 +479,6 @@ const FILMS = [
     authors: ["physkids"],
     ratings: { letterboxd: 3.3 },
     award: true,
-    description: ""
-  },
-
-  {
-    id: "lanterns-2026",
-    title: "Lanterns",
-    titleRu: "Фонари",
-    year: 2026,
-    type: "series",
-    poster: "posters/lanterns-2026.jpg",
-    zip: "subtitles/lanterns-2026.zip",
-    season: 1,
-    episodesAvailable: 6,
-    episodesTotal: 8,
-    authors: ["goodman"],
-    ratings: { rt: 94, metacritic: 72 },
     description: ""
   },
 
