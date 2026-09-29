@@ -365,6 +365,30 @@ const FILMS = [
   },
 
   {
+    id: "rose-2026",
+    title: "Rose",
+    titleRu: "Роза",
+    year: 2026,
+    poster: "posters/rose-2026.jpg",
+    srt: "subtitles/rose-2026.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
+    id: "coyote-vs-acme-2026",
+    title: "Coyote vs. Acme",
+    titleRu: "Хитрый Койот",
+    year: 2026,
+    poster: "posters/coyote-vs-acme-2026.jpg",
+    srt: "subtitles/coyote-vs-acme-2026.srt",
+    authors: ["goodman"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
     id: "lanterns-2026",
     title: "Lanterns",
     titleRu: "Фонари",
