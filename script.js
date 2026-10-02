@@ -365,6 +365,22 @@ const FILMS = [
   },
 
   {
+    id: "american-horror-story-2026",
+    title: "American Horror Story",
+    titleRu: "Американская история ужасов: 13",
+    year: 2026,
+    type: "series",
+    poster: "posters/american-horror-story-2026.jpg",
+    zip: "subtitles/american-horror-story-2026.zip",
+    season: 13,
+    episodesAvailable: 6,
+    episodesTotal: 13,
+    authors: ["focs"],
+    ratings: { imdb: 7.9 },
+    description: ""
+  },
+
+  {
     id: "rose-2026",
     title: "Rose",
     titleRu: "Роза",
@@ -401,22 +417,6 @@ const FILMS = [
     episodesTotal: 8,
     authors: ["goodman"],
     ratings: { rt: 94, metacritic: 72 },
-    description: ""
-  },
-
-  {
-    id: "american-horror-story-2026",
-    title: "American Horror Story",
-    titleRu: "Американская история ужасов: 13",
-    year: 2026,
-    type: "series",
-    poster: "posters/american-horror-story-2026.jpg",
-    zip: "subtitles/american-horror-story-2026.zip",
-    season: 13,
-    episodesAvailable: 3,
-    episodesTotal: 13,
-    authors: ["focs"],
-    ratings: { imdb: 7.9 },
     description: ""
   },
 
