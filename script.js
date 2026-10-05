@@ -365,6 +365,50 @@ const FILMS = [
   },
 
   {
+    id: "lanterns-2026",
+    title: "Lanterns",
+    titleRu: "Фонари",
+    year: 2026,
+    type: "series",
+    poster: "posters/lanterns-2026.jpg",
+    zip: "subtitles/lanterns-2026.zip",
+    season: 1,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["goodman"],
+    ratings: { rt: 94, metacritic: 72 },
+    description: ""
+  },
+
+  {
+    id: "east-of-eden-2026",
+    title: "East of Eden",
+    titleRu: "К востоку от рая",
+    year: 2026,
+    type: "series",
+    poster: "posters/east-of-eden-2026.jpg",
+    zip: "subtitles/east-of-eden-2026.zip",
+    season: 1,
+    episodesAvailable: 7,
+    episodesTotal: 7,
+    authors: ["olya22222"],
+    ratings: { imdb: 8.0 },
+    description: ""
+  },
+
+  {
+    id: "spider-man-brand-new-day-2026",
+    title: "Spider-Man: Brand New Day",
+    titleRu: "Человек-паук: Новый день",
+    year: 2026,
+    poster: "posters/spider-man-brand-new-day-2026.jpg",
+    srt: "subtitles/spider-man-brand-new-day-2026.srt",
+    authors: ["coolStory"],
+    ratings: { letterboxd: 4.0 },
+    description: ""
+  },
+
+  {
     id: "american-horror-story-2026",
     title: "American Horror Story",
     titleRu: "Американская история ужасов: 13",
@@ -401,22 +445,6 @@ const FILMS = [
     srt: "subtitles/coyote-vs-acme-2026.srt",
     authors: ["goodman"],
     ratings: { letterboxd: 3.8 },
-    description: ""
-  },
-
-  {
-    id: "lanterns-2026",
-    title: "Lanterns",
-    titleRu: "Фонари",
-    year: 2026,
-    type: "series",
-    poster: "posters/lanterns-2026.jpg",
-    zip: "subtitles/lanterns-2026.zip",
-    season: 1,
-    episodesAvailable: 7,
-    episodesTotal: 8,
-    authors: ["goodman"],
-    ratings: { rt: 94, metacritic: 72 },
     description: ""
   },
 
