@@ -365,6 +365,22 @@ const FILMS = [
   },
 
   {
+    id: "american-horror-story-2026",
+    title: "American Horror Story",
+    titleRu: "Американская история ужасов: 13",
+    year: 2026,
+    type: "series",
+    poster: "posters/american-horror-story-2026.jpg",
+    zip: "subtitles/american-horror-story-2026.zip",
+    season: 13,
+    episodesAvailable: 8,
+    episodesTotal: 13,
+    authors: ["focs"],
+    ratings: { imdb: 7.9 },
+    description: ""
+  },
+
+  {
     id: "lanterns-2026",
     title: "Lanterns",
     titleRu: "Фонари",
@@ -405,22 +421,6 @@ const FILMS = [
     srt: "subtitles/spider-man-brand-new-day-2026.srt",
     authors: ["coolStory"],
     ratings: { letterboxd: 4.0 },
-    description: ""
-  },
-
-  {
-    id: "american-horror-story-2026",
-    title: "American Horror Story",
-    titleRu: "Американская история ужасов: 13",
-    year: 2026,
-    type: "series",
-    poster: "posters/american-horror-story-2026.jpg",
-    zip: "subtitles/american-horror-story-2026.zip",
-    season: 13,
-    episodesAvailable: 6,
-    episodesTotal: 13,
-    authors: ["focs"],
-    ratings: { imdb: 7.9 },
     description: ""
   },
 
