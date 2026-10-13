@@ -365,6 +365,30 @@ const FILMS = [
   },
 
   {
+    id: "hope-2026",
+    title: "Hope",
+    titleRu: "Надежда",
+    year: 2026,
+    poster: "posters/hope-2026.jpg",
+    srt: "subtitles/hope-2026.srt",
+    authors: ["dark"],
+    ratings: { letterboxd: 3.2 },
+    description: ""
+  },
+
+  {
+    id: "buddy-2026",
+    title: "Buddy",
+    titleRu: "Приятель",
+    year: 2026,
+    poster: "posters/buddy-2026.jpg",
+    srt: "subtitles/buddy-2026.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.1 },
+    description: ""
+  },
+
+  {
     id: "american-horror-story-2026",
     title: "American Horror Story",
     titleRu: "Американская история ужасов: 13",
