@@ -365,6 +365,34 @@ const FILMS = [
   },
 
   {
+    id: "visionquest-2026",
+    title: "VisionQuest",
+    titleRu: "Квест Вижна",
+    year: 2026,
+    type: "series",
+    poster: "posters/visionquest-2026.jpg",
+    zip: "subtitles/visionquest-2026.zip",
+    season: 1,
+    episodesAvailable: 1,
+    episodesTotal: 8,
+    authors: ["lebowski"],
+    ratings: { imdb: 8.7 },
+    description: ""
+  },
+
+  {
+    id: "late-fame-2025",
+    title: "Late Fame",
+    titleRu: "Поздняя слава",
+    year: 2025,
+    poster: "posters/late-fame-2025.jpg",
+    srt: "subtitles/late-fame-2025.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
     id: "hope-2026",
     title: "Hope",
     titleRu: "Надежда",
