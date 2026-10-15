@@ -373,7 +373,7 @@ const FILMS = [
     poster: "posters/visionquest-2026.jpg",
     zip: "subtitles/visionquest-2026.zip",
     season: 1,
-    episodesAvailable: 1,
+    episodesAvailable: 2,
     episodesTotal: 8,
     authors: ["lebowski"],
     ratings: { imdb: 8.7 },
