@@ -365,6 +365,34 @@ const FILMS = [
   },
 
   {
+    id: "american-horror-story-2026",
+    title: "American Horror Story",
+    titleRu: "Американская история ужасов: 13",
+    year: 2026,
+    type: "series",
+    poster: "posters/american-horror-story-2026.jpg",
+    zip: "subtitles/american-horror-story-2026.zip",
+    season: 13,
+    episodesAvailable: 10,
+    episodesTotal: 13,
+    authors: ["focs"],
+    ratings: { imdb: 7.9 },
+    description: ""
+  },
+
+  {
+    id: "the-incomer-2026",
+    title: "The Incomer",
+    titleRu: "Пришлый",
+    year: 2026,
+    poster: "posters/the-incomer-2026.jpg",
+    srt: "subtitles/the-incomer-2026.srt",
+    authors: ["alice", "focs"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
     id: "visionquest-2026",
     title: "VisionQuest",
     titleRu: "Квест Вижна",
@@ -413,22 +441,6 @@ const FILMS = [
     srt: "subtitles/buddy-2026.srt",
     authors: ["one"],
     ratings: { letterboxd: 3.1 },
-    description: ""
-  },
-
-  {
-    id: "american-horror-story-2026",
-    title: "American Horror Story",
-    titleRu: "Американская история ужасов: 13",
-    year: 2026,
-    type: "series",
-    poster: "posters/american-horror-story-2026.jpg",
-    zip: "subtitles/american-horror-story-2026.zip",
-    season: 13,
-    episodesAvailable: 8,
-    episodesTotal: 13,
-    authors: ["focs"],
-    ratings: { imdb: 7.9 },
     description: ""
   },
 
