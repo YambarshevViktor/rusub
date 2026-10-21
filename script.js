@@ -70,6 +70,11 @@
        оценку. letterboxd автоматика не трогает вообще — его вы всегда
        проставляете сюда сами.
 
+     - ai: true — постер внизу, над кнопкой «скачать», появится метка
+       «AI-assisted» (перевод делали с помощью ИИ). Работает и для
+       фильмов, и для сериалов. Отдельное поле, не badge: badge
+       остаётся для подписей вида «Director's cut» вверху карточки.
+
    3) Если появляется новый автор/кинопоказ, которого раньше не было —
       его нужно один раз завести в PEOPLE (см. ниже), а потом просто
       ссылаться на его ключ из authors у любого числа фильмов.
@@ -326,6 +331,20 @@ const PEOPLE = {
 };
 
 const FILMS = [
+
+  {
+    type: "fundraiser",
+    active: true,
+    done: true,
+    title: "A Woman Under the Influence",
+    titleRu: "Женщина под влиянием",
+    image: "fundraisers/a-woman-under-the-influence-1974.jpg",
+    goal: "6 666 ₽",
+	  ratings: { imdb: 8.0 },
+    link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
+    shade: true
+  },
+
   {
     type: "fundraiser",
     active: true,
@@ -353,15 +372,32 @@ const FILMS = [
   },
 
   {
-    type: "fundraiser",
-    active: true,
-    title: "A Woman Under the Influence",
+    id: "visionquest-2026",
+    title: "VisionQuest",
+    titleRu: "Квест Вижна",
+    year: 2026,
+    type: "series",
+    ai: true,
+    poster: "posters/visionquest-2026.jpg",
+    zip: "subtitles/visionquest-2026.zip",
+    season: 1,
+    episodesAvailable: 4,
+    episodesTotal: 8,
+    authors: ["lebowski"],
+    ratings: { imdb: 8.7 },
+    description: ""
+  },
+
+  {
+    id: "a-woman-under-the-influence-1974",
+    title: "A Woman Under the Influence",
     titleRu: "Женщина под влиянием",
-    image: "fundraisers/a-woman-under-the-influence-1974.jpg",
-    goal: "6 666 ₽",
-	  ratings: { imdb: 8.0 },
-    link: { label: "serpentarium", href: "https://t.me/serpentarium_subs/297" },
-    shade: true
+    year: 1974,
+    poster: "posters/a-woman-under-the-influence-1974.jpg",
+    srt: "subtitles/a-woman-under-the-influence-1974.srt",
+    authors: ["serpentarium"],
+    ratings: { imdb: 8.0, letterboxd: 4.4 },
+    description: ""
   },
 
   {
@@ -389,22 +425,6 @@ const FILMS = [
     srt: "subtitles/the-incomer-2026.srt",
     authors: ["alice", "focs"],
     ratings: { letterboxd: 3.8 },
-    description: ""
-  },
-
-  {
-    id: "visionquest-2026",
-    title: "VisionQuest",
-    titleRu: "Квест Вижна",
-    year: 2026,
-    type: "series",
-    poster: "posters/visionquest-2026.jpg",
-    zip: "subtitles/visionquest-2026.zip",
-    season: 1,
-    episodesAvailable: 2,
-    episodesTotal: 8,
-    authors: ["lebowski"],
-    ratings: { imdb: 8.7 },
     description: ""
   },
 
@@ -3289,6 +3309,7 @@ function makeCard(film, i){
         <span class="year">${film.year}</span>
         ${episodes ? `<span class="episodes">${escapeHtml(episodes)}</span>` : ""}
         ${film.badge ? `<span class="badge">${escapeHtml(film.badge)}</span>` : ""}
+        ${film.ai ? `<span class="ai-badge">AI-assisted</span>` : ""}
 
         <span class="title-wrap">
           ${film.award ? `<span class="award-icon" aria-label="Award-winning title"></span>` : ""}
