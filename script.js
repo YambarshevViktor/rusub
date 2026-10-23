@@ -372,6 +372,22 @@ const FILMS = [
   },
 
   {
+    id: "american-horror-story-2026",
+    title: "American Horror Story",
+    titleRu: "Американская история ужасов: 13",
+    year: 2026,
+    type: "series",
+    poster: "posters/american-horror-story-2026.jpg",
+    zip: "subtitles/american-horror-story-2026.zip",
+    season: 13,
+    episodesAvailable: 12,
+    episodesTotal: 13,
+    authors: ["focs"],
+    ratings: { imdb: 7.9 },
+    description: ""
+  },
+
+  {
     id: "visionquest-2026",
     title: "VisionQuest",
     titleRu: "Квест Вижна",
@@ -397,22 +413,6 @@ const FILMS = [
     srt: "subtitles/a-woman-under-the-influence-1974.srt",
     authors: ["serpentarium"],
     ratings: { imdb: 8.0, letterboxd: 4.4 },
-    description: ""
-  },
-
-  {
-    id: "american-horror-story-2026",
-    title: "American Horror Story",
-    titleRu: "Американская история ужасов: 13",
-    year: 2026,
-    type: "series",
-    poster: "posters/american-horror-story-2026.jpg",
-    zip: "subtitles/american-horror-story-2026.zip",
-    season: 13,
-    episodesAvailable: 10,
-    episodesTotal: 13,
-    authors: ["focs"],
-    ratings: { imdb: 7.9 },
     description: ""
   },
 
