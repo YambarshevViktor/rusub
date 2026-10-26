@@ -335,6 +335,18 @@ const FILMS = [
   {
     type: "fundraiser",
     active: true,
+    title: "La bola negra",
+    titleRu: "Чёрный шар",
+    image: "fundraisers/la-bola-negra-2026.jpg",
+    goal: "10 000 ₽",
+    ratings: { letterboxd: 4.4 },
+    link: { label: "genco", href: "https://t.me/genco_tm/461" },
+    shade: true
+  },
+
+  {
+    type: "fundraiser",
+    active: true,
     done: true,
     title: "A Woman Under the Influence",
     titleRu: "Женщина под влиянием",
