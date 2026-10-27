@@ -396,6 +396,18 @@ const FILMS = [
   },
 
   {
+    id: "forgotten-island-2026",
+    title: "Forgotten Island",
+    titleRu: "Остров забвения",
+    year: 2026,
+    poster: "posters/forgotten-island-2026.jpg",
+    srt: "subtitles/forgotten-island-2026.srt",
+    authors: ["noBetter"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
     id: "american-horror-story-2026",
     title: "American Horror Story",
     titleRu: "Американская история ужасов: 13",
