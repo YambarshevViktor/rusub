@@ -335,6 +335,19 @@ const FILMS = [
   {
     type: "fundraiser",
     active: true,
+    done: true,
+    title: "La bola negra",
+    titleRu: "Чёрный шар",
+    image: "fundraisers/la-bola-negra-2026.jpg",
+    goal: "10 000 ₽",
+    ratings: { letterboxd: 4.4 },
+    link: { label: "Genco", href: "https://t.me/genco_tm/461" },
+    shade: true
+  },
+
+  {
+    type: "fundraiser",
+    active: true,
     title: "Primetime",
     titleRu: "Прайм-тайм",
     image: "fundraisers/primetime-2026.jpg",
@@ -345,15 +358,20 @@ const FILMS = [
   },
 
   {
-    type: "fundraiser",
-    active: true,
-    title: "La bola negra",
-    titleRu: "Чёрный шар",
-    image: "fundraisers/la-bola-negra-2026.jpg",
-    goal: "10 000 ₽",
-    ratings: { letterboxd: 4.4 },
-    link: { label: "Genco", href: "https://t.me/genco_tm/461" },
-    shade: true
+    id: "visionquest-2026",
+    title: "VisionQuest",
+    titleRu: "Квест Вижна",
+    year: 2026,
+    type: "series",
+    ai: true,
+    poster: "posters/visionquest-2026.jpg",
+    zip: "subtitles/visionquest-2026.zip",
+    season: 1,
+    episodesAvailable: 6,
+    episodesTotal: 8,
+    authors: ["lebowski"],
+    ratings: { imdb: 8.7 },
+    description: ""
   },
 
   {
@@ -420,23 +438,6 @@ const FILMS = [
     episodesTotal: 13,
     authors: ["focs"],
     ratings: { imdb: 7.9 },
-    description: ""
-  },
-
-  {
-    id: "visionquest-2026",
-    title: "VisionQuest",
-    titleRu: "Квест Вижна",
-    year: 2026,
-    type: "series",
-    ai: true,
-    poster: "posters/visionquest-2026.jpg",
-    zip: "subtitles/visionquest-2026.zip",
-    season: 1,
-    episodesAvailable: 4,
-    episodesTotal: 8,
-    authors: ["lebowski"],
-    ratings: { imdb: 8.7 },
     description: ""
   },
 
