@@ -336,24 +336,25 @@ const FILMS = [
     type: "fundraiser",
     active: true,
     done: true,
-    title: "La bola negra",
-    titleRu: "Чёрный шар",
-    image: "fundraisers/la-bola-negra-2026.jpg",
-    goal: "10 000 ₽",
-    ratings: { letterboxd: 4.4 },
-    link: { label: "Genco", href: "https://t.me/genco_tm/461" },
-    shade: true
-  },
-
-  {
-    type: "fundraiser",
-    active: true,
     title: "Primetime",
     titleRu: "Прайм-тайм",
     image: "fundraisers/primetime-2026.jpg",
     goal: "7 000 ₽",
     ratings: { letterboxd: 3.7 },
     link: { label: "FOCS", href: "https://t.me/forFOCSsake/1287" },
+    shade: true
+  },
+
+  {
+    type: "fundraiser",
+    active: true,
+    done: true,
+    title: "La bola negra",
+    titleRu: "Чёрный шар",
+    image: "fundraisers/la-bola-negra-2026.jpg",
+    goal: "10 000 ₽",
+    ratings: { letterboxd: 4.4 },
+    link: { label: "Genco", href: "https://t.me/genco_tm/461" },
     shade: true
   },
 
