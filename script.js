@@ -359,6 +359,34 @@ const FILMS = [
   },
 
   {
+    id: "american-horror-story-2026",
+    title: "American Horror Story",
+    titleRu: "Американская история ужасов: 13",
+    year: 2026,
+    type: "series",
+    poster: "posters/american-horror-story-2026.jpg",
+    zip: "subtitles/american-horror-story-2026.zip",
+    season: 13,
+    episodesAvailable: 13,
+    episodesTotal: 13,
+    authors: ["focs"],
+    ratings: { imdb: 7.9 },
+    description: ""
+  },
+
+  {
+    id: "the-last-blossom-2025",
+    title: "The Last Blossom",
+    titleRu: "Последнее цветение",
+    year: 2025,
+    poster: "posters/the-last-blossom-2025.jpg",
+    srt: "subtitles/the-last-blossom-2025.srt",
+    authors: ["chatAndalou"],
+    ratings: { letterboxd: 3.4 },
+    description: ""
+  },
+
+  {
     id: "visionquest-2026",
     title: "VisionQuest",
     titleRu: "Квест Вижна",
@@ -423,22 +451,6 @@ const FILMS = [
     srt: "subtitles/forgotten-island-2026.srt",
     authors: ["noBetter"],
     ratings: { letterboxd: 3.9 },
-    description: ""
-  },
-
-  {
-    id: "american-horror-story-2026",
-    title: "American Horror Story",
-    titleRu: "Американская история ужасов: 13",
-    year: 2026,
-    type: "series",
-    poster: "posters/american-horror-story-2026.jpg",
-    zip: "subtitles/american-horror-story-2026.zip",
-    season: 13,
-    episodesAvailable: 12,
-    episodesTotal: 13,
-    authors: ["focs"],
-    ratings: { imdb: 7.9 },
     description: ""
   },
 
