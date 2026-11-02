@@ -359,6 +359,30 @@ const FILMS = [
   },
 
   {
+    id: "resident-evil-2026-r",
+    title: "Resident Evil",
+    titleRu: "Обитель зла",
+    year: 2026,
+    poster: "posters/resident-evil-2026.jpg",
+    srt: "subtitles/resident-evil-2026-r.srt",
+    authors: ["ripley", "chatAndalou"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
+    id: "resident-evil-2026-c",
+    title: "Resident Evil",
+    titleRu: "Обитель зла",
+    year: 2026,
+    poster: "posters/resident-evil-2026.jpg",
+    srt: "subtitles/resident-evil-2026-c.srt",
+    authors: ["coolStory"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
     id: "american-horror-story-2026",
     title: "American Horror Story",
     titleRu: "Американская история ужасов: 13",
