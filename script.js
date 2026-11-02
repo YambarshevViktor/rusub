@@ -383,6 +383,18 @@ const FILMS = [
   },
 
   {
+    id: "queen-at-sea-2026",
+    title: "Queen at Sea",
+    titleRu: "Королева у моря",
+    year: 2026,
+    poster: "posters/queen-at-sea-2026.jpg",
+    srt: "subtitles/queen-at-sea-2026.srt",
+    authors: ["alice", "one"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
     id: "american-horror-story-2026",
     title: "American Horror Story",
     titleRu: "Американская история ужасов: 13",
