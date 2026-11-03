@@ -359,6 +359,18 @@ const FILMS = [
   },
 
   {
+    id: "primetime-2026",
+    title: "Primetime",
+    titleRu: "Прайм-тайм",
+    year: 2026,
+    poster: "posters/primetime-2026.jpg",
+    srt: "subtitles/primetime-2026.srt",
+    authors: ["focs"],
+    ratings: { letterboxd: 3.7 },
+    description: ""
+  },
+
+  {
     id: "resident-evil-2026-r",
     title: "Resident Evil",
     titleRu: "Обитель зла",
