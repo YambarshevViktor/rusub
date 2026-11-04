@@ -359,6 +359,19 @@ const FILMS = [
   },
 
   {
+    id: "la-bola-negra-2026",
+    title: "La bola negra",
+    titleRu: "Чёрный шар",
+    year: 2026,
+    poster: "posters/la-bola-negra-2026.jpg",
+    srt: "subtitles/la-bola-negra-2026.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 4.4 },
+    award: true,
+    description: ""
+  },
+
+  {
     id: "primetime-2026",
     title: "Primetime",
     titleRu: "Прайм-тайм",
