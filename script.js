@@ -359,6 +359,23 @@ const FILMS = [
   },
 
   {
+    id: "visionquest-2026",
+    title: "VisionQuest",
+    titleRu: "Квест Вижна",
+    year: 2026,
+    type: "series",
+    ai: true,
+    poster: "posters/visionquest-2026.jpg",
+    zip: "subtitles/visionquest-2026.zip",
+    season: 1,
+    episodesAvailable: 7,
+    episodesTotal: 8,
+    authors: ["lebowski"],
+    ratings: { imdb: 8.7 },
+    description: ""
+  },
+
+  {
     id: "la-bola-negra-2026",
     title: "La bola negra",
     titleRu: "Чёрный шар",
@@ -444,23 +461,6 @@ const FILMS = [
     srt: "subtitles/the-last-blossom-2025.srt",
     authors: ["chatAndalou"],
     ratings: { letterboxd: 3.4 },
-    description: ""
-  },
-
-  {
-    id: "visionquest-2026",
-    title: "VisionQuest",
-    titleRu: "Квест Вижна",
-    year: 2026,
-    type: "series",
-    ai: true,
-    poster: "posters/visionquest-2026.jpg",
-    zip: "subtitles/visionquest-2026.zip",
-    season: 1,
-    episodesAvailable: 6,
-    episodesTotal: 8,
-    authors: ["lebowski"],
-    ratings: { imdb: 8.7 },
     description: ""
   },
 
