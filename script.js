@@ -359,6 +359,18 @@ const FILMS = [
   },
 
   {
+    id: "your-mother-your-mother-your-mother-2026",
+    title: "Your Mother Your Mother Your Mother",
+    titleRu: "Твоя мать, твоя мать, твоя мать",
+    year: 2026,
+    poster: "posters/your-mother-your-mother-your-mother-2026.jpg",
+    srt: "subtitles/your-mother-your-mother-your-mother-2026.srt",
+    authors: ["summer"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
     id: "visionquest-2026",
     title: "VisionQuest",
     titleRu: "Квест Вижна",
