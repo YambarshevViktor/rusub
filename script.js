@@ -359,6 +359,18 @@ const FILMS = [
   },
 
   {
+    id: "the-odyssey-2026",
+    title: "The Odyssey",
+    titleRu: "Одиссея",
+    year: 2026,
+    poster: "posters/the-odyssey-2026.jpg",
+    srt: "subtitles/the-odyssey-2026.srt",
+    authors: ["coolStory"],
+    ratings: { letterboxd: 4.3 },
+    description: ""
+  },
+
+  {
     id: "soudain-2026",
     title: "All of a Sudden",
     titleRu: "Внезапно",
