@@ -359,6 +359,18 @@ const FILMS = [
   },
 
   {
+    id: "soudain-2026",
+    title: "All of a Sudden",
+    titleRu: "Внезапно",
+    year: 2026,
+    poster: "posters/soudain-2026.jpg",
+    srt: "subtitles/soudain-2026.srt",
+    authors: ["noBetter"],
+    ratings: { letterboxd: 4.2 },
+    description: ""
+  },
+
+  {
     id: "your-mother-your-mother-your-mother-2026",
     title: "Your Mother Your Mother Your Mother",
     titleRu: "Твоя мать, твоя мать, твоя мать",
