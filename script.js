@@ -359,6 +359,18 @@ const FILMS = [
   },
 
   {
+    id: "the-history-of-concrete-2026",
+    title: "The History of Concrete",
+    titleRu: "История бетона",
+    year: 2026,
+    poster: "posters/the-history-of-concrete-2026.jpg",
+    srt: "subtitles/the-history-of-concrete-2026.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.9 },
+    description: ""
+  },
+
+  {
     id: "the-odyssey-2026",
     title: "The Odyssey",
     titleRu: "Одиссея",
@@ -463,7 +475,7 @@ const FILMS = [
   {
     id: "queen-at-sea-2026",
     title: "Queen at Sea",
-    titleRu: "Королева у моря",
+    titleRu: "Королева у моря",
     year: 2026,
     poster: "posters/queen-at-sea-2026.jpg",
     srt: "subtitles/queen-at-sea-2026.srt",
@@ -518,7 +530,7 @@ const FILMS = [
     active: true,
     done: true,
     title: "Teenage Sex and Death at Camp Miasma",
-    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
+    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
     image: "fundraisers/teenage-sex-and-death-at-camp-miasma-2026.jpg",
     goal: "5 000 ₽",
     ratings: { letterboxd: 3.8 },
@@ -630,7 +642,7 @@ const FILMS = [
   {
     id: "east-of-eden-2026",
     title: "East of Eden",
-    titleRu: "К востоку от рая",
+    titleRu: "К востоку от рая",
     year: 2026,
     type: "series",
     poster: "posters/east-of-eden-2026.jpg",
@@ -682,7 +694,7 @@ const FILMS = [
   {
     id: "sometimes-i-think-about-dying-2023",
     title: "Sometimes I Think About Dying",
-    titleRu: "Иногда я думаю о смерти",
+    titleRu: "Иногда я думаю о смерти",
     year: 2023,
     poster: "posters/sometimes-i-think-about-dying-2023.jpg",
     srt: "subtitles/sometimes-i-think-about-dying-2023.srt",
@@ -706,7 +718,7 @@ const FILMS = [
   {
     id: "sunday-in-the-park-with-george-2013",
     title: "Sunday in the Park with George",
-    titleRu: "Воскресенье в парке с Джорджем",
+    titleRu: "Воскресенье в парке с Джорджем",
     year: 2013,
     poster: "posters/sunday-in-the-park-with-george-2013.jpg",
     srt: "subtitles/sunday-in-the-park-with-george-2013.srt",
@@ -780,7 +792,7 @@ const FILMS = [
   {
     id: "the-worst-person-in-the-world-2021",
     title: "The Worst Person in the World",
-    titleRu: "Худший человек на свете",
+    titleRu: "Худший человек на свете",
     year: 2021,
     poster: "posters/the-worst-person-in-the-world-2021.jpg",
     srt: "subtitles/the-worst-person-in-the-world-2021.srt",
@@ -864,7 +876,7 @@ const FILMS = [
   {
     id: "teenage-sex-and-death-at-camp-miasma-2026-one",
     title: "Teenage Sex and Death at Camp Miasma",
-    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
+    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
     year: 2026,
     poster: "posters/teenage-sex-and-death-at-camp-miasma-2026.jpg",
     srt: "subtitles/teenage-sex-and-death-at-camp-miasma-2026-one.srt",
@@ -876,7 +888,7 @@ const FILMS = [
   {
     id: "teenage-sex-and-death-at-camp-miasma-2026-nobetter",
     title: "Teenage Sex and Death at Camp Miasma",
-    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
+    titleRu: "Подростковый секс и смерть в лагере «Миазма»",
     year: 2026,
     poster: "posters/teenage-sex-and-death-at-camp-miasma-2026.jpg",
     srt: "subtitles/teenage-sex-and-death-at-camp-miasma-2026-nobetter.srt",
@@ -1020,7 +1032,7 @@ const FILMS = [
   {
     id: "the-legend-of-vox-machina-2024",
     title: "The Legend of Vox Machina",
-    titleRu: "Легенда о Vox Machina",
+    titleRu: "Легенда о Vox Machina",
     year: 2024,
     type: "series",
     poster: "posters/the-legend-of-vox-machina-2024.jpg",
@@ -1036,7 +1048,7 @@ const FILMS = [
   {
     id: "the-legend-of-vox-machina-2026",
     title: "The Legend of Vox Machina",
-    titleRu: "Легенда о Vox Machina",
+    titleRu: "Легенда о Vox Machina",
     year: 2026,
     type: "series",
     poster: "posters/the-legend-of-vox-machina-2026.jpg",
@@ -1148,7 +1160,7 @@ const FILMS = [
   {
     id: "everything-everywhere-all-at-once-2022",
     title: "Everything Everywhere All at Once",
-    titleRu: "Всё везде и сразу",
+    titleRu: "Всё везде и сразу",
     year: 2022,
     poster: "posters/everything-everywhere-all-at-once-2022.jpg",
     srt: "subtitles/everything-everywhere-all-at-once-2022.srt",
@@ -1185,7 +1197,7 @@ const FILMS = [
   {
     id: "on-the-sea-2025",
     title: "On the Sea",
-    titleRu: "На море",
+    titleRu: "На море",
     year: 2025,
     poster: "posters/on-the-sea-2025.jpg",
     srt: "subtitles/on-the-sea-2025.srt",
@@ -1197,7 +1209,7 @@ const FILMS = [
   {
     id: "the-end-of-oak-street-2026",
     title: "The End of Oak Street",
-    titleRu: "На краю Оук-стрит",
+    titleRu: "На краю Оук-стрит",
     year: 2026,
     poster: "posters/the-end-of-oak-street-2026.jpg",
     srt: "subtitles/the-end-of-oak-street-2026.srt",
@@ -1246,7 +1258,7 @@ const FILMS = [
   {
     id: "ready-or-not-2019",
     title: "Ready or Not",
-    titleRu: "Я иду искать",
+    titleRu: "Я иду искать",
     year: 2019,
     poster: "posters/ready-or-not-2019.jpg",
     srt: "subtitles/ready-or-not-2019.srt",
@@ -1258,7 +1270,7 @@ const FILMS = [
   {
     id: "ready-or-not-2-here-i-come-2026",
     title: "Ready or Not 2: Here I Come",
-    titleRu: "Я иду искать 2",
+    titleRu: "Я иду искать 2",
     year: 2026,
     poster: "posters/ready-or-not-2-here-i-come-2026.jpg",
     srt: "subtitles/ready-or-not-2-here-i-come-2026.srt",
@@ -1282,7 +1294,7 @@ const FILMS = [
   {
     id: "the-inventor-out-for-blood-in-silicon-valley-2019",
     title: "The Inventor: Out for Blood in Silicon Valley",
-    titleRu: "Изобретатель: Жажда крови в Кремниевой долине",
+    titleRu: "Изобретатель: Жажда крови в Кремниевой долине",
     year: 2019,
     poster: "posters/the-inventor-out-for-blood-in-silicon-valley-2019.jpg",
     srt: "subtitles/the-inventor-out-for-blood-in-silicon-valley-2019.srt",
@@ -1310,7 +1322,7 @@ const FILMS = [
   {
     id: "they-will-kill-you-2026",
     title: "They Will Kill You",
-    titleRu: "Они придут за тобой",
+    titleRu: "Они придут за тобой",
     year: 2026,
     poster: "posters/they-will-kill-you-2026.jpg",
     srt: "subtitles/they-will-kill-you-2026.srt",
@@ -1346,7 +1358,7 @@ const FILMS = [
   {
     id: "good-valley-stories-2025",
     title: "Good Valley Stories",
-    titleRu: "Истории из Доброй долины",
+    titleRu: "Истории из Доброй долины",
     year: 2025,
     poster: "posters/good-valley-stories-2025.jpg",
     srt: "subtitles/good-valley-stories-2025.srt",
@@ -1503,7 +1515,7 @@ const FILMS = [
   {
     id: "about-a-place-in-the-kinki-region-2025",
     title: "About a Place in the Kinki Region",
-    titleRu: "Об одном месте региона Кансай",
+    titleRu: "Об одном месте региона Кансай",
     year: 2025,
     poster: "posters/about-a-place-in-the-kinki-region-2025.jpg",
     srt: "subtitles/about-a-place-in-the-kinki-region-2025.srt",
@@ -1841,7 +1853,7 @@ const FILMS = [
   {
     id: "send-help-2026",
     title: "Send Help",
-    titleRu: "На помощь!",
+    titleRu: "На помощь!",
     year: 2026,
     poster: "posters/send-help-2026.jpg",
     srt: "subtitles/send-help-2026.srt",
@@ -1878,7 +1890,7 @@ const FILMS = [
   {
     id: "sore-a-wife-from-the-future-2025",
     title: "Sore: A Wife from the Future",
-    titleRu: "Соре: Жена из будущего",
+    titleRu: "Соре: Жена из будущего",
     year: 2025,
     poster: "posters/sore-a-wife-from-the-future-2025.jpg",
     srt: "subtitles/sore-a-wife-from-the-future-2025.srt",
@@ -1987,7 +1999,7 @@ const FILMS = [
   {
     id: "palm-trees-and-power-lines-2022",
     title: "Palm Trees and Power Lines",
-    titleRu: "Пальмы и линии электропередач",
+    titleRu: "Пальмы и линии электропередач",
     year: 2022,
     award: true,
     poster: "posters/palm-trees-and-power-lines-2022.jpg",
@@ -2122,7 +2134,7 @@ const FILMS = [
   {
     id: "i-want-your-sex-2026",
     title: "I Want Your Sex",
-    titleRu: "Хочу заняться с тобой сексом",
+    titleRu: "Хочу заняться с тобой сексом",
     year: 2026,
     poster: "posters/i-want-your-sex-2026.jpg",
     srt: "subtitles/i-want-your-sex-2026.srt",
@@ -2371,7 +2383,7 @@ const FILMS = [
   {
     id: "the-young-ladies-1961",
     title: "Ojôsan",
-    titleRu: "Девушка из хорошей семьи",
+    titleRu: "Девушка из хорошей семьи",
     year: 1961,
     poster: "posters/the-young-ladies-1961.jpg",
     srt: "subtitles/the-young-ladies-1961.srt",
@@ -2383,7 +2395,7 @@ const FILMS = [
   {
     id: "the-x-files-i-want-to-believe-2008",
     title: "The X-Files: I Want to Believe",
-    titleRu: "Секретные материалы: Я хочу верить",
+    titleRu: "Секретные материалы: Я хочу верить",
     year: 2008,
     badge: "Director's cut",
     poster: "posters/the-x-files-i-want-to-believe-2008.jpg",
@@ -2450,7 +2462,7 @@ const FILMS = [
   {
     id: "good-luck-have-fun-dont-die-2025",
     title: "Good Luck, Have Fun, Don't Die",
-    titleRu: "Удачи, веселья, не сдохни",
+    titleRu: "Удачи, веселья, не сдохни",
     year: 2025,
     poster: "posters/good-luck-have-fun-dont-die-2025.jpg",
     srt: "subtitles/good-luck-have-fun-dont-die-2025.srt",
@@ -2617,7 +2629,7 @@ const FILMS = [
   {
     id: "real-women-have-curves-2002",
     title: "Real Women Have Curves",
-    titleRu: "Настоящие женщины всегда в теле",
+    titleRu: "Настоящие женщины всегда в теле",
     year: 2002,
     poster: "posters/real-women-have-curves-2002.jpg",
     srt: "subtitles/real-women-have-curves-2002.srt",
@@ -2642,7 +2654,7 @@ const FILMS = [
   {
     id: "david-and-lisa-1962",
     title: "David and Lisa",
-    titleRu: "Дэвид и Лиза",
+    titleRu: "Дэвид и Лиза",
     year: 1962,
     poster: "posters/david-and-lisa-1962.jpg",
     srt: "subtitles/david-and-lisa-1962.srt",
@@ -2678,7 +2690,7 @@ const FILMS = [
   {
     id: "you-dont-belong-here-2026",
     title: "You Don't Belong Here",
-    titleRu: "Тебе здесь не место",
+    titleRu: "Тебе здесь не место",
     year: 2026,
     poster: "posters/you-dont-belong-here-2026.jpg",
     srt: "subtitles/you-dont-belong-here-2026.srt",
@@ -2815,7 +2827,7 @@ const FILMS = [
   {
     id: "preparations-to-be-together-for-an-unknown-period-of-time-2020",
     title: "Preparations to Be Together for an Unknown Period of Time",
-    titleRu: "Подготовка к совместной жизни на неопределённый срок",
+    titleRu: "Подготовка к совместной жизни на неопределённый срок",
     year: 2020,
     poster: "posters/preparations-to-be-together-for-an-unknown-period-of-time-2020.jpg",
     srt: "subtitles/preparations-to-be-together-for-an-unknown-period-of-time-2020.srt",
@@ -2827,7 +2839,7 @@ const FILMS = [
   {
     id: "the-death-of-cinema-and-my-father-too-2020",
     title: "The Death of Cinema and My Father Too",
-    titleRu: "Смерть кино и моего отца тоже",
+    titleRu: "Смерть кино и моего отца тоже",
     year: 2020,
     poster: "posters/the-death-of-cinema-and-my-father-too-2020.jpg",
     srt: "subtitles/the-death-of-cinema-and-my-father-too-2020.srt",
@@ -2838,7 +2850,7 @@ const FILMS = [
   {
     id: "mike-nick-nick-alice-2026",
     title: "Mike & Nick & Nick & Alice",
-    titleRu: "Майк и Ник и Ник и Элис",
+    titleRu: "Майк и Ник и Ник и Элис",
     year: 2026,
     poster: "posters/mike-nick-nick-alice-2026.jpg",
     srt: "subtitles/mike-nick-nick-alice-2026.srt",
@@ -2878,7 +2890,7 @@ const FILMS = [
   {
     id: "seven-winters-in-tehran-2023",
     title: "Seven Winters in Tehran",
-    titleRu: "Семь зим в Тегеране",
+    titleRu: "Семь зим в Тегеране",
     year: 2023,
     poster: "posters/seven-winters-in-tehran-2023.jpg",
     srt: "subtitles/seven-winters-in-tehran-2023.srt",
@@ -2967,7 +2979,7 @@ const FILMS = [
   {
     id: "moss-freud-2025",
     title: "Moss & Freud",
-    titleRu: "Мосс и Фрейд",
+    titleRu: "Мосс и Фрейд",
     year: 2025,
     poster: "posters/moss-freud-2025.jpg",
     srt: "subtitles/moss-freud-2025.srt",
@@ -2991,7 +3003,7 @@ const FILMS = [
   {
     id: "i-love-boosters-2026",
     title: "I Love Boosters",
-    titleRu: "Я люблю бустеров",
+    titleRu: "Я люблю бустеров",
     year: 2026,
     poster: "posters/i-love-boosters-2026.jpg",
     srt: "subtitles/i-love-boosters-2026.srt",
@@ -3003,7 +3015,7 @@ const FILMS = [
   {
     id: "minions-monsters-2026",
     title: "Minions & Monsters",
-    titleRu: "Миньоны и монстры",
+    titleRu: "Миньоны и монстры",
     year: 2026,
     poster: "posters/minions-monsters-2026.jpg",
     srt: "subtitles/minions-monsters-2026.srt",
@@ -3055,7 +3067,7 @@ const FILMS = [
   {
     id: "the-mandalorian-and-grogu-2026",
     title: "The Mandalorian and Grogu",
-    titleRu: "Мандалорец и Грогу",
+    titleRu: "Мандалорец и Грогу",
     year: 2026,
     poster: "posters/the-mandalorian-and-grogu-2026.jpg",
     srt: "subtitles/the-mandalorian-and-grogu-2026.srt",
@@ -3079,7 +3091,7 @@ const FILMS = [
   {
     id: "how-to-divorce-during-the-war-2025",
     title: "How to Divorce During the War",
-    titleRu: "Как развестись во время войны",
+    titleRu: "Как развестись во время войны",
     year: 2025,
     poster: "posters/how-to-divorce-during-the-war-2025.jpg",
     srt: "subtitles/how-to-divorce-during-the-war-2025.srt",
@@ -3177,6 +3189,120 @@ const CHECK = '<path d="M3 10 L7 14 L14 4"/>';
 // Маленькая иконка-стрелочка перед каждым автором в подписи (не путать со стрелкой скачивания)
 const AUTHOR_ICON = '<path d="M2.5 2 v4.2 a2 2 0 0 0 2 2 h7"/><path d="M8.5 5.6 L11.5 8.2 L8.5 10.8"/>';
 
+// --- Язык интерфейса: EN/РУ ---
+// Переключатель живёт в #filters (рендерится из JS, стили переиспользует
+// от .type-option — CSS не трогаем). Выбор хранится в localStorage.
+// Правила: srt/zip/ass, имена авторов, названия рейтингов и содержимое
+// полей FILMS (title/titleRu/description/badge) не переводятся — только UI.
+// В РУ-режиме крупным идёт titleRu, оригинал — второй строкой (.title-orig).
+const STRINGS = {
+  en: {
+    searchPlaceholder: "Search",
+    searchAria: "Search",
+    films: "Films",
+    series: "Series",
+    award: "Award",
+    typeGroup: "Type",
+    awardGroup: "Award",
+    year: "Year",
+    allYears: "All years",
+    author: "Author",
+    allAuthors: "All authors",
+    downloadSrt: "download srt",
+    downloadZip: "download zip",
+    downloadAss: "download ass",
+    downloaded: "downloaded",
+    downloadAria: (title, isZip) => `Download subtitles${isZip ? " (zip)" : ""}: ${title}`,
+    video: "Video",
+    videoAria: "Find video on trackers",
+    awardAria: "Award-winning title",
+    fundraiser: "Fundraiser",
+    goal: goal => `Goal — ${goal}`,
+    collected: "Collected",
+    completedTitle: "Completed fundraisers",
+    countLine: (n, done) => `${n} titles now on the site` +
+      (done ? ` · <a class="completed-link" href="#completed">Fundraiser ↓</a>` : ""),
+    introH1: "rusub — human-made subtitles. here collect russian subtitles that are translated and formatted by people",
+    telegramLink: "telegram",
+    faqWatchQ: "How do I watch a movie?",
+    faqSteps: [
+      "Download the subtitles from this website",
+      "Use the Video button on the card — it searches trackers for you",
+      "Place the subtitles file in the same folder as the movie",
+      "Name both files the same way: <code>Film.mkv</code>, <code>Film.srt</code>",
+      "Open the video — subtitles load automatically",
+      "If not — enable them in player settings and select the <code>.srt</code> file"
+    ],
+    faqRatingsQ: "What do the rating colors mean?",
+    faqNoteImdb: "Average viewer rating. Higher = more liked.",
+    faqNoteLetterboxd: "Closer to 5 = higher rating.",
+    faqNoteRt: "Percentage of positive critic reviews.",
+    faqNoteMc: "Average critic score. Higher = better.",
+    docTitle: "russub — human-made subtitles",
+    langGroup: "Language"
+  },
+  ru: {    searchPlaceholder: "Поиск",
+    searchAria: "Поиск",
+    films: "Фильмы",
+    series: "Сериалы",
+    award: "Награда",
+    typeGroup: "Тип",
+    awardGroup: "Награда",
+    year: "Год",
+    allYears: "Все годы",
+    author: "Автор",
+    allAuthors: "Все авторы",
+    downloadSrt: "скачать srt",
+    downloadZip: "скачать zip",
+    downloadAss: "скачать ass",
+    downloaded: "скачано",
+    downloadAria: (title, isZip) => `Скачать субтитры${isZip ? " (zip)" : ""}: ${title}`,
+    video: "Видео",
+    videoAria: "Найти видео на трекерах",
+    awardAria: "Фильм с наградой",
+    fundraiser: "Сбор",
+    goal: goal => `Цель — ${goal}`,
+    collected: "Собрано",
+    completedTitle: "Завершённые сборы",
+    countLine: (n, done) => `на сайте уже ${n} тайтлов` +
+      (done ? ` · <a class="completed-link" href="#completed">Сборы ↓</a>` : ""),
+    introH1: "rusub — субтитры, сделанные людьми. здесь собраны русские субтитры, переведённые и оформленные людьми",
+    telegramLink: "телеграм",
+    faqWatchQ: "Как посмотреть кино?",
+    faqSteps: [
+      "Скачай субтитры с этого сайта",
+      "Нажми кнопку Видео на карточке — она сама найдёт раздачу на трекерах",
+      "Положи файл субтитров в одну папку с фильмом",
+      "Назови оба файла одинаково: <code>Film.mkv</code>, <code>Film.srt</code>",
+      "Открой видео — субтитры подключатся сами",
+      "Если нет — включи их в настройках плеера и выбери файл <code>.srt</code>"
+    ],
+    faqRatingsQ: "Что означают цвета оценок?",
+    faqNoteImdb: "Средняя оценка зрителей. Чем выше — тем больше нравится.",
+    faqNoteLetterboxd: "Чем ближе к 5 — тем выше оценка.",
+    faqNoteRt: "Процент положительных рецензий критиков.",
+    faqNoteMc: "Средняя оценка критиков. Чем выше — тем лучше.",
+    docTitle: "russub — человеческие русские субтитры",
+    langGroup: "Язык"
+  }
+};
+
+function loadLang(){
+  try{
+    return localStorage.getItem("rusub-lang") || "en";
+  }catch{
+    return "en";
+  }
+}
+let lang = loadLang() === "ru" ? "ru" : "en";
+function t(key){
+  return STRINGS[lang][key];
+}
+// Название, крупно показанное на карточке; в РУ-режиме — русское (с фолбэком).
+function shownTitle(film){
+  return (lang === "ru" && film.titleRu) ? film.titleRu : film.title;
+}
+
 // Карточка сбора на субтитры — не фильм, поэтому отдельная функция рендера,
 // но по сути та же самая карточка (постер + подпись снизу), просто вдвое
 // шире и текст на постере свой. Формат объекта в FILMS:
@@ -3203,9 +3329,9 @@ function makeFundraiserCard(item){
       <img class="fundraiser-image" loading="lazy" src="${escapeHtml(item.image)}" alt="" aria-hidden="true">
       ${item.shade ? `<span class="fundraiser-shade" aria-hidden="true"></span>` : ""}
       <span class="fundraiser-content">
-        <span class="fundraiser-label">Fundraiser</span>
-        <span class="fundraiser-title">${escapeHtml(item.title)}</span>
-        <span class="fundraiser-goal">Goal — ${escapeHtml(item.goal)}</span>
+        <span class="fundraiser-label">${escapeHtml(t("fundraiser"))}</span>
+        <span class="fundraiser-title">${escapeHtml(shownTitle(item))}</span>
+        <span class="fundraiser-goal">${escapeHtml(t("goal")(item.goal))}</span>
       </span>
     </a>
 
@@ -3232,9 +3358,9 @@ function makeCompletedCard(item){
       <img class="fundraiser-image" loading="lazy" src="${escapeHtml(item.image)}" alt="" aria-hidden="true">
       <span class="fundraiser-shade" aria-hidden="true"></span>
       <span class="fundraiser-content">
-        <span class="fundraiser-label">Fundraiser</span>
-        <span class="fundraiser-title">${escapeHtml(item.title)}</span>
-        <span class="fundraiser-collected"><svg class="collected-check" viewBox="0 0 17 20" aria-hidden="true">${CHECK}</svg>Collected</span>
+        <span class="fundraiser-label">${escapeHtml(t("fundraiser"))}</span>
+        <span class="fundraiser-title">${escapeHtml(shownTitle(item))}</span>
+        <span class="fundraiser-collected"><svg class="collected-check" viewBox="0 0 17 20" aria-hidden="true">${CHECK}</svg>${escapeHtml(t("collected"))}</span>
       </span>
     </a>
 
@@ -3412,8 +3538,10 @@ function makeCard(film, i){
   const arrow = ARROWS[hashString(film.title + i) % ARROWS.length];
   const isSeries = film.type === "series";
   const downloadPath = isSeries ? (film.zip || "") : (film.srt || "");
-  const downloadLabel = isSeries ? "download zip" : (film.srt || "").endsWith(".ass") ? "download ass" : "download srt";
+  const downloadLabel = isSeries ? t("downloadZip") : (film.srt || "").endsWith(".ass") ? t("downloadAss") : t("downloadSrt");
   const episodes = episodesLabel(film);
+  // В РУ-режиме крупно — только русское название (titleRu есть у всех тайтлов).
+  const cardTitle = shownTitle(film);
 
   const metaLinks = (film.authors || [])
     .map(key => PEOPLE[key])
@@ -3427,8 +3555,8 @@ function makeCard(film, i){
   const dlQuery = encodeURIComponent(`${film.title} ${film.year}`);
   const dlHtml = `
     <div class="dl-wrap">
-      <button type="button" class="dl-row" aria-haspopup="true" aria-expanded="false" aria-label="Найти видео на трекерах">
-        <span class="dl-row-label">Video</span>
+      <button type="button" class="dl-row" aria-haspopup="true" aria-expanded="false" aria-label="${escapeHtml(t("videoAria"))}">
+        <span class="dl-row-label">${escapeHtml(t("video"))}</span>
         <svg class="dl-row-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.6 10.4 L10.4 3.6 M4.4 3.6 H10.4 V9.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="dl-pop">
@@ -3448,7 +3576,7 @@ function makeCard(film, i){
   <article class="card" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-award="${film.award ? '1' : ''}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--poster:url('${escapeHtml(film.poster)}')">
     ${stackLayers}
     <button class="poster-button" type="button"
-      aria-label="Скачать субтитры${isSeries ? ' (zip)' : ''}: ${escapeHtml(film.title)}"
+      aria-label="${escapeHtml(t("downloadAria")(cardTitle, isSeries))}"
       data-file="${escapeHtml(downloadPath)}"
       data-title="${escapeHtml(film.title)}">
       <img class="poster-image" loading="lazy" src="${escapeHtml(film.poster)}" alt="" aria-hidden="true">
@@ -3459,8 +3587,8 @@ function makeCard(film, i){
         ${film.ai ? `<span class="ai-badge">AI-assisted</span>` : ""}
 
         <span class="title-wrap">
-          ${film.award ? `<span class="award-icon" aria-label="Award-winning title"></span>` : ""}
-          <span class="title">${escapeHtml(film.title)}</span>
+          ${film.award ? `<span class="award-icon" aria-label="${escapeHtml(t("awardAria"))}"></span>` : ""}
+          <span class="title">${escapeHtml(cardTitle)}</span>
         </span>
       </span>
       <span class="download" aria-hidden="true">
@@ -3521,7 +3649,7 @@ function attachDownloadHandlers(){
 
       card.classList.add("downloaded");
       arrowSvg.innerHTML = CHECK;
-      label.textContent = "downloaded";
+      label.textContent = t("downloaded");
       card.classList.add("bounce");
 
       card.addEventListener("animationend", function onBounce(e){
@@ -3570,6 +3698,9 @@ const CHEVRON = '<svg class="chevron" viewBox="0 0 12 8" aria-hidden="true"><pat
 // Списки для выпадающих списков собираются сами из реальных данных —
 // год/автор берутся только те, что реально встречаются в FILMS, руками
 // ничего вести не нужно.
+// Состояние фильтров живёт на уровне модуля, чтобы переключение языка
+// (полный перерендер) его не сбрасывало.
+const filterState = { author: "", year: "", type: "", award: "", q: "" };
 function renderFilters(){
   const years = [...new Set(
     FILMS
@@ -3601,33 +3732,61 @@ function renderFilters(){
     .join("");
 
   document.getElementById("filters").innerHTML = `
-    <input type="search" id="search" class="search" placeholder="Search" aria-label="Search" autocomplete="off">
+    <input type="search" id="search" class="search" placeholder="${escapeHtml(t("searchPlaceholder"))}" aria-label="${escapeHtml(t("searchAria"))}" autocomplete="off">
 
-    <div class="type-toggle" role="group" aria-label="Type">
-      <button type="button" class="type-option" data-filter="type" data-value="movie">Films</button>
-      <button type="button" class="type-option" data-filter="type" data-value="series">Series</button>
+    <div class="type-toggle" role="group" aria-label="${escapeHtml(t("typeGroup"))}">
+      <button type="button" class="type-option" data-filter="type" data-value="movie">${escapeHtml(t("films"))}</button>
+      <button type="button" class="type-option" data-filter="type" data-value="series">${escapeHtml(t("series"))}</button>
     </div>
 
-    <div class="type-toggle" role="group" aria-label="Award">
-      <button type="button" class="type-option" data-filter="award" data-value="true">Award</button>
+    <div class="type-toggle" role="group" aria-label="${escapeHtml(t("awardGroup"))}">
+      <button type="button" class="type-option" data-filter="award" data-value="true">${escapeHtml(t("award"))}</button>
     </div>
 
     <details class="filter filter-year" id="filter-year">
-      <summary><span class="filter-label">Year</span>${CHEVRON}</summary>
+      <summary><span class="filter-label">${escapeHtml(t("year"))}</span>${CHEVRON}</summary>
       <div class="filter-menu">
-        <button type="button" class="filter-option is-active" data-filter="year" data-value="">All years</button>
+        <button type="button" class="filter-option is-active" data-filter="year" data-value="">${escapeHtml(t("allYears"))}</button>
         ${yearOptions}
       </div>
     </details>
 
     <details class="filter filter-author" id="filter-author">
-      <summary><span class="filter-label">Author</span>${CHEVRON}</summary>
+      <summary><span class="filter-label">${escapeHtml(t("author"))}</span>${CHEVRON}</summary>
       <div class="filter-menu">
-        <button type="button" class="filter-option is-active" data-filter="author" data-value="">All authors</button>
+        <button type="button" class="filter-option is-active" data-filter="author" data-value="">${escapeHtml(t("allAuthors"))}</button>
         ${authorOptions}
       </div>
     </details>
   `;
+  syncFilterUI();
+}
+
+// Возвращает отрендеренные фильтры к текущему состоянию (после перерендера
+// при смене языка): текст поиска, активные кнопки, подписи Year/Author.
+function syncFilterUI(){
+  const search = document.getElementById("search");
+  if(search){
+    search.value = filterState.q || "";
+    search.classList.toggle("is-active", Boolean(filterState.q));
+  }
+  document.querySelectorAll('.type-option[data-filter="type"], .type-option[data-filter="award"]').forEach(b => {
+    b.classList.toggle("is-active", filterState[b.dataset.filter] === b.dataset.value);
+  });
+  document.querySelectorAll(".filter .filter-option[data-filter]").forEach(b => {
+    b.classList.toggle("is-active", (filterState[b.dataset.filter] || "") === b.dataset.value);
+  });
+  const yearDetails = document.getElementById("filter-year");
+  if(yearDetails){
+    yearDetails.querySelector(".filter-label").textContent = filterState.year || t("year");
+    yearDetails.classList.toggle("is-active", Boolean(filterState.year));
+  }
+  const authorDetails = document.getElementById("filter-author");
+  if(authorDetails){
+    authorDetails.querySelector(".filter-label").textContent =
+      (filterState.author && PEOPLE[filterState.author]?.label) || t("author");
+    authorDetails.classList.toggle("is-active", Boolean(filterState.author));
+  }
 }
 
 function applyCardFilters(state){
@@ -3652,12 +3811,14 @@ function applyCardFilters(state){
 }
 
 function attachFilterHandlers(){
-  const state = { author: "", year: "", type: "", award: "", q: "" };
+  // Делегированный listener вешается на свежий контейнер при каждом рендере
+  // (старый узел уходит вместе со слушателем). Обработчики уровня document —
+  // только один раз, иначе накопятся дубли.
 
   document.getElementById("search").addEventListener("input", (e) => {
-    state.q = e.target.value;
-    document.getElementById("search").classList.toggle("is-active", Boolean(state.q));
-    applyCardFilters(state);
+    filterState.q = e.target.value;
+    document.getElementById("search").classList.toggle("is-active", Boolean(filterState.q));
+    applyCardFilters(filterState);
   });
 
   // Один делегированный listener на всём контейнере фильтров
@@ -3665,7 +3826,7 @@ function attachFilterHandlers(){
     const btn = e.target.closest(".filter-option[data-filter]");
     if(btn){
       const key = btn.dataset.filter;
-      state[key] = btn.dataset.value;
+      filterState[key] = btn.dataset.value;
 
       btn.closest(".filter-menu").querySelectorAll(".filter-option")
         .forEach(b => b.classList.toggle("is-active", b === btn));
@@ -3678,14 +3839,14 @@ function attachFilterHandlers(){
         if(label){
           label.textContent = btn.dataset.value
             ? (btn.querySelector(".filter-option-label")?.textContent.trim() || btn.textContent.trim())
-            : (key === "author" ? "Author" : "Year");
+            : (key === "author" ? t("author") : t("year"));
         }
 
-        details.classList.toggle("is-active", Boolean(state[key]));
+        details.classList.toggle("is-active", Boolean(filterState[key]));
         details.removeAttribute("open");
       }
 
-      applyCardFilters(state);
+      applyCardFilters(filterState);
       return;
     }
 
@@ -3695,10 +3856,19 @@ function attachFilterHandlers(){
       const wasActive = toggleBtn.classList.contains("is-active");
       toggleBtn.closest(".type-toggle").querySelectorAll(".type-option")
         .forEach(b => b.classList.remove("is-active"));
-      state[key] = wasActive ? "" : toggleBtn.dataset.value;
+      filterState[key] = wasActive ? "" : toggleBtn.dataset.value;
       if(!wasActive) toggleBtn.classList.add("is-active");
-      applyCardFilters(state);
+      applyCardFilters(filterState);
     }
+  });
+
+  if(shellHandlersAttached) return;
+  shellHandlersAttached = true;
+
+  // Переключатель языка живёт в серой строке над заголовком (не в фильтрах).
+  document.addEventListener("click", (e) => {
+    const langBtn = e.target.closest("[data-lang]");
+    if(langBtn) setLang(langBtn.dataset.lang);
   });
 
   // Клик вне открытого выпадающего списка — закрывает его
@@ -3711,17 +3881,133 @@ function attachFilterHandlers(){
   // При открытии список сразу прокручивается так, чтобы выбранный пункт
   // был виден — без этого казалось, что подсветка "перескакивает" сверху
   // вниз (или наоборот), пока список сам не долистают до него вручную.
-  document.querySelectorAll("details.filter").forEach(details => {
-    details.addEventListener("toggle", () => {
-      if(!details.open) return;
-      const active = details.querySelector(".filter-option.is-active");
-      if(active) active.scrollIntoView({ block: "nearest" });
+  // Делегируем через document: details пересоздаются при смене языка.
+  document.addEventListener("toggle", (e) => {
+    const details = e.target.closest ? e.target.closest("details.filter") : null;
+    if(!details || !details.open) return;
+    const active = details.querySelector(".filter-option.is-active");
+    if(active) active.scrollIntoView({ block: "nearest" });
+  }, true);
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.faq-item')) {
+      document.querySelectorAll('.faq-item.is-open').forEach(o => o.classList.remove('is-open'));
+    }
+  });
+
+  // Смена вьюпорта (поворот телефона и т.п.) — пересчитать ужатые заголовки.
+  let fitTimer = 0;
+  window.addEventListener("resize", () => {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(() => {
+      document.querySelectorAll("#grid .card .title").forEach(el => { delete el.dataset.fitted; });
+      fitTitles();
+    }, 200);
+  });
+}
+
+let shellHandlersAttached = false;
+let cachedAutoRatings = null;
+
+function setLang(next){
+  const nextLang = next === "ru" ? "ru" : "en";
+  if(nextLang === lang) return;
+  lang = nextLang;
+  try{ localStorage.setItem("rusub-lang", lang); }catch{}
+  renderPage();
+}
+
+// Статическая оболочка из index.html (заголовок, ссылка на телеграм, FAQ):
+// сам HTML не трогаем, текст подменяет JS — та же структура и классы.
+function renderShell(){
+  document.documentElement.lang = lang;
+  document.title = t("docTitle");
+  const h1 = document.querySelector(".intro h1");
+  if(h1) h1.textContent = t("introH1");
+  const tgLink = document.querySelector(".intro a");
+  if(tgLink) tgLink.textContent = t("telegramLink");
+  renderFaq();
+}
+
+function renderFaq(){  const faq = document.querySelector(".faq");
+  if(!faq) return;
+  const steps = t("faqSteps")
+    .map((s, i) => `<span class="faq-step"><span class="faq-num">${i + 1}</span> ${s}</span>`)
+    .join("");
+  faq.innerHTML = `
+    <div class="faq-item">
+      <span class="faq-q">${escapeHtml(t("faqWatchQ"))}</span>
+      <div class="faq-card faq-card--steps">
+        ${steps}
+      </div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">${escapeHtml(t("faqRatingsQ"))}</span>
+      <div class="faq-card faq-card--ratings">
+        <span class="faq-rating"><span class="rating-dot faq-dot--imdb"></span><span class="faq-rating-text"><span class="faq-rating-title">IMDb — 1-10</span><span class="faq-note">${escapeHtml(t("faqNoteImdb"))}</span></span></span>
+        <span class="faq-rating"><span class="rating-dot faq-dot--letterboxd"></span><span class="faq-rating-text"><span class="faq-rating-title">Letterboxd — 0.5-5</span><span class="faq-note">${escapeHtml(t("faqNoteLetterboxd"))}</span></span></span>
+        <span class="faq-rating"><span class="rating-dot faq-dot--rt"></span><span class="faq-rating-text"><span class="faq-rating-title">Rotten Tomatoes — 0-100%</span><span class="faq-note">${escapeHtml(t("faqNoteRt"))}</span></span></span>
+        <span class="faq-rating"><span class="rating-dot faq-dot--metacritic"></span><span class="faq-rating-text"><span class="faq-rating-title">Metacritic — 0-100</span><span class="faq-note">${escapeHtml(t("faqNoteMc"))}</span></span></span>
+      </div>
+    </div>`;
+  faq.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      item.classList.toggle('is-open');
+      faq.querySelectorAll('.faq-item.is-open').forEach(o => {
+        if (o !== item) o.classList.remove('is-open');
+      });
     });
   });
 }
 
-(async () => {
-  const autoRatings = await loadAutoRatings();
+// Серая строка над заголовком: пилюля языка · телеграм · счётчик · сборы.
+// Классы штатные (.updated, .type-toggle, .type-option, .completed-link) —
+// CSS не трогаем. Статичную ссылку на телеграм из шапки забираем в строку.
+let cachedTgHref = "";
+function renderMetaLine(titleCount, doneCount){
+  const line = document.getElementById("title-count");
+  if(!line) return;
+  const header = line.closest(".intro");
+  if(header && !cachedTgHref){
+    const directA = Array.from(header.children).find(el => el.tagName === "A");
+    if(directA) cachedTgHref = directA.href;
+  }
+  const btnBase = "min-height:0;padding:5px 11px;";
+  line.innerHTML =
+    `<span class="type-toggle" role="group" aria-label="${escapeHtml(t("langGroup"))}" style="vertical-align:middle;">` +
+    `<button type="button" class="type-option" data-lang="en" style="${btnBase}color:${lang === "en" ? "#fff" : "#5b6266"};">EN</button>` +
+    `<button type="button" class="type-option" data-lang="ru" style="${btnBase}color:${lang === "ru" ? "#fff" : "#5b6266"};">РУ</button></span>` +
+    (cachedTgHref ? ` · <a class="completed-link" href="${escapeHtml(cachedTgHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("telegramLink"))}</a>` : "") +
+    ` · ${t("countLine")(titleCount, doneCount)}`;
+  if(header){
+    const h1 = header.querySelector("h1");
+    if(h1) header.insertBefore(line, h1);
+    const staticTg = Array.from(header.children).find(el => el.tagName === "A");
+    if(staticTg) staticTg.remove();
+  }
+}
+// РУ-режим: длинные русские слова не переносятся и режутся по бокам
+// (центровка + overflow:hidden), длинные названия — маской снизу.
+// Ужимаем кегль только тем заголовкам, что не влезли (пол 15px).
+// EN-режим и неразрывные пробелы не трогаем.
+function fitTitles(){
+  if(lang !== "ru") return;
+  document.querySelectorAll("#grid .card .title").forEach(el => {
+    if(el.dataset.fitted || el.closest(".is-hidden")) return;
+    el.style.fontSize = "";
+    let size = parseFloat(getComputedStyle(el).fontSize) || 22.5;
+    for(let i = 0; i < 12 && size > 15; i++){
+      if(el.scrollWidth <= el.clientWidth + 1 && el.scrollHeight <= el.clientHeight + 1) break;
+      size -= 1;
+      el.style.fontSize = size + "px";
+    }
+    el.dataset.fitted = "1";
+  });
+}
+async function renderPage(){
+  if(!cachedAutoRatings) cachedAutoRatings = await loadAutoRatings();
+  const autoRatings = cachedAutoRatings;
 
   FILMS.forEach(film => {
     const auto = film.id ? autoRatings[film.id] : null;
@@ -3731,6 +4017,9 @@ function attachFilterHandlers(){
     }
   });
 
+  const oldCompleted = document.getElementById("completed");
+  if(oldCompleted) oldCompleted.remove();
+
   document.getElementById("grid").innerHTML = FILMS.map(makeCard).join("");
 
   const doneCards = FILMS
@@ -3739,7 +4028,7 @@ function attachFilterHandlers(){
   if(doneCards.length){
     document.getElementById("grid").insertAdjacentHTML("afterend",
       `<section class="completed" id="completed">
-        <h2 class="completed-title">Completed fundraisers</h2>
+        <h2 class="completed-title">${escapeHtml(t("completedTitle"))}</h2>
         <div class="grid">${doneCards.join("")}</div>
       </section>`);
   }
@@ -3750,27 +4039,20 @@ function attachFilterHandlers(){
 
   renderFilters();
   attachFilterHandlers();
+  renderShell();
 
   const titleCount = new Set(
     FILMS.filter(f => f.type !== "fundraiser").map(f => f.title + f.year)
   ).size;
   const doneCount = FILMS.filter(f => f.type === "fundraiser" && f.done).length;
-  document.getElementById("title-count").innerHTML =
-    `${titleCount} titles now on the site` +
-    (doneCount ? ` · <a class="completed-link" href="#completed">Fundraiser ↓</a>` : "");
+  renderMetaLine(titleCount, doneCount);
 
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-q');
-    q.addEventListener('click', () => {
-      item.classList.toggle('is-open');
-      document.querySelectorAll('.faq-item.is-open').forEach(o => {
-        if (o !== item) o.classList.remove('is-open');
-      });
-    });
-  });
-  document.addEventListener('click', e => {
-    if (!e.target.closest('.faq-item')) {
-      document.querySelectorAll('.faq-item.is-open').forEach(o => o.classList.remove('is-open'));
-    }
-  });
-})();
+  applyCardFilters(filterState);
+  fitTitles();
+}
+
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(() => fitTitles());
+}
+
+renderPage();
