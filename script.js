@@ -3811,16 +3811,20 @@ function applyCardFilters(state){
 }
 
 function attachFilterHandlers(){
-  // Делегированный listener вешается на свежий контейнер при каждом рендере
-  // (старый узел уходит вместе со слушателем). Обработчики уровня document —
-  // только один раз, иначе накопятся дубли.
-
+  // #search пересоздаётся при каждом рендере — слушатель вешаем заново.
   document.getElementById("search").addEventListener("input", (e) => {
     filterState.q = e.target.value;
     document.getElementById("search").classList.toggle("is-active", Boolean(filterState.q));
     applyCardFilters(filterState);
   });
 
+  if(shellHandlersAttached) return;
+  shellHandlersAttached = true;
+
+  // Контейнер #filters статичен (меняется только его innerHTML), поэтому
+  // делегированный listener — один на весь сеанс. Повторный addEventListener
+  // накапливал дубли, и парное число срабатываний взаимоотменяло тумблеры
+  // (баг: после смены языка Фильмы/Сериалы/Награда переставали нажиматься).
   // Один делегированный listener на всём контейнере фильтров
   document.getElementById("filters").addEventListener("click", (e) => {
     const btn = e.target.closest(".filter-option[data-filter]");
@@ -3861,9 +3865,6 @@ function attachFilterHandlers(){
       applyCardFilters(filterState);
     }
   });
-
-  if(shellHandlersAttached) return;
-  shellHandlersAttached = true;
 
   // Переключатель языка живёт в серой строке над заголовком (не в фильтрах).
   document.addEventListener("click", (e) => {
