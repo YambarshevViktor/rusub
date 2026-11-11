@@ -359,6 +359,23 @@ const FILMS = [
   },
 
   {
+    id: "visionquest-2026",
+    title: "VisionQuest",
+    titleRu: "Квест Вижна",
+    year: 2026,
+    type: "series",
+    ai: true,
+    poster: "posters/visionquest-2026.jpg",
+    zip: "subtitles/visionquest-2026.zip",
+    season: 1,
+    episodesAvailable: 8,
+    episodesTotal: 8,
+    authors: ["lebowski"],
+    ratings: { imdb: 8.7 },
+    description: ""
+  },
+
+  {
     id: "the-history-of-concrete-2026",
     title: "The History of Concrete",
     titleRu: "История бетона",
@@ -403,23 +420,6 @@ const FILMS = [
     srt: "subtitles/your-mother-your-mother-your-mother-2026.srt",
     authors: ["summer"],
     ratings: { letterboxd: 3.9 },
-    description: ""
-  },
-
-  {
-    id: "visionquest-2026",
-    title: "VisionQuest",
-    titleRu: "Квест Вижна",
-    year: 2026,
-    type: "series",
-    ai: true,
-    poster: "posters/visionquest-2026.jpg",
-    zip: "subtitles/visionquest-2026.zip",
-    season: 1,
-    episodesAvailable: 7,
-    episodesTotal: 8,
-    authors: ["lebowski"],
-    ratings: { imdb: 8.7 },
     description: ""
   },
 
