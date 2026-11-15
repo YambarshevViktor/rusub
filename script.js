@@ -328,6 +328,11 @@ const PEOPLE = {
     label: "oakislandtk"
   },
 
+  afterAll: {
+    label: "Титры после всех",
+    href: "https://t.me/Creditsafterall"
+  },
+
 };
 
 const FILMS = [
@@ -356,6 +361,18 @@ const FILMS = [
     ratings: { letterboxd: 4.4 },
     link: { label: "Genco", href: "https://t.me/genco_tm/461" },
     shade: true
+  },
+
+  {
+    id: "jim-queen-2026",
+    title: "Jim Queen",
+    titleRu: "Джим Квин",
+    year: 2026,
+    poster: "posters/jim-queen-2026.jpg",
+    srt: "subtitles/jim-queen-2026.srt",
+    authors: ["afterAll"],
+    ratings: { letterboxd: 4.0 },
+    description: ""
   },
 
   {
