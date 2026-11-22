@@ -364,6 +364,19 @@ const FILMS = [
   },
 
   {
+    id: "sad-girlz-2026",
+    title: "Sad Girlz",
+    titleRu: "Грустные девчонки",
+    year: 2026,
+    poster: "posters/sad-girlz-2026.jpg",
+    srt: "subtitles/sad-girlz-2026.srt",
+    authors: ["afterAll"],
+    ratings: { letterboxd: 3.9 },
+    award: true,
+    description: ""
+  },
+
+  {
     id: "fjord-2026",
     title: "Fjord",
     titleRu: "Фьорд",
