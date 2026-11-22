@@ -364,6 +364,19 @@ const FILMS = [
   },
 
   {
+    id: "fjord-2026",
+    title: "Fjord",
+    titleRu: "Фьорд",
+    year: 2026,
+    poster: "posters/fjord-2026.jpg",
+    srt: "subtitles/fjord-2026.srt",
+    authors: ["subbedAf"],
+    ratings: { letterboxd: 3.7 },
+    award: true,
+    description: ""
+  },
+
+  {
     id: "jim-queen-2026",
     title: "Jim Queen",
     titleRu: "Джим Квин",
