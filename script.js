@@ -377,9 +377,33 @@ const FILMS = [
   },
 
   {
+    id: "extra-geography-2026",
+    title: "Extra Geography",
+    titleRu: "Внеклассная география",
+    year: 2026,
+    poster: "posters/extra-geography-2026.jpg",
+    srt: "subtitles/extra-geography-2026.srt",
+    authors: ["afterAll"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
+    id: "finding-emily-2026",
+    title: "Finding Emily",
+    titleRu: "В поисках Эмили",
+    year: 2026,
+    poster: "posters/finding-emily-2026.jpg",
+    srt: "subtitles/finding-emily-2026.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 3.8 },
+    description: ""
+  },
+
+  {
     id: "jim-queen-2026",
     title: "Jim Queen",
-    titleRu: "Джим Квин",
+    titleRu: "Джим Куин",
     year: 2026,
     poster: "posters/jim-queen-2026.jpg",
     srt: "subtitles/jim-queen-2026.srt",
