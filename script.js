@@ -444,7 +444,7 @@ const FILMS = [
     titleRu: "Квест Вижна",
     year: 2026,
     type: "series",
-    ai: true,
+    // ai: true,
     poster: "posters/visionquest-2026.jpg",
     zip: "subtitles/visionquest-2026.zip",
     season: 1,
