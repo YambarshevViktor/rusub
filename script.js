@@ -364,6 +364,19 @@ const FILMS = [
   },
 
   {
+    id: "you-can-see-everything-2026",
+    title: "You Can See Everything",
+    titleRu: "Увидеть всё",
+    year: 2026,
+    poster: "posters/you-can-see-everything-2026.jpg",
+    srt: "subtitles/you-can-see-everything-2026.srt",
+    authors: ["one", "dark", "chatAndalou"],
+    ratings: { letterboxd: 4.6 },
+    award: true,
+    description: ""
+  },
+
+  {
     id: "sad-girlz-2026",
     title: "Sad Girlz",
     titleRu: "Грустные девчонки",
