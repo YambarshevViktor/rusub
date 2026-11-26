@@ -364,6 +364,21 @@ const FILMS = [
   },
 
   {
+    id: "blade-runner-2099",
+    title: "Blade Runner 2099",
+    titleRu: "Бегущий по лезвию 2099",
+    year: 2026,
+    type: "series",
+    poster: "posters/blade-runner-2099.jpg",
+    zip: "subtitles/blade-runner-2099.zip",
+    season: 1,
+    episodesAvailable: 1,
+    episodesTotal: 8,
+    authors: ["afterAll"],
+    description: ""
+  },
+
+  {
     id: "you-can-see-everything-2026",
     title: "You Can See Everything",
     titleRu: "Увидеть всё",
