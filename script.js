@@ -333,6 +333,10 @@ const PEOPLE = {
     href: "https://t.me/Creditsafterall"
   },
 
+  rebelProject: {
+    label: "RebelProject"
+  },
+
 };
 
 const FILMS = [
@@ -401,6 +405,82 @@ const FILMS = [
     authors: ["one", "dark", "chatAndalou"],
     ratings: { letterboxd: 4.6 },
     award: true,
+    description: ""
+  },
+
+  {
+    id: "the-dog-stars-2026",
+    title: "The Dog Stars",
+    titleRu: "Собачьи звёзды",
+    year: 2026,
+    poster: "posters/the-dog-stars-2026.jpg",
+    srt: "subtitles/the-dog-stars-2026.srt",
+    authors: ["chatAndalou", "ripley"],
+    ratings: { letterboxd: 2.8 },
+    description: ""
+  },
+
+  {
+    id: "poor-things-2023-c",
+    title: "Poor Things",
+    titleRu: "Бедные-несчастные",
+    year: 2023,
+    poster: "posters/poor-things-2023-c.jpg",
+    srt: "subtitles/poor-things-2023-c.srt",
+    authors: ["coolStory"],
+    ratings: { letterboxd: 3.9 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "poor-things-2023-o",
+    title: "Poor Things",
+    titleRu: "Бедные-несчастные",
+    year: 2023,
+    poster: "posters/poor-things-2023-o.jpg",
+    srt: "subtitles/poor-things-2023-o.srt",
+    authors: ["one"],
+    ratings: { letterboxd: 3.9 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "hamnet-2025",
+    title: "Hamnet",
+    titleRu: "Хамнет: История, вдохновившая «Гамлета»",
+    year: 2025,
+    poster: "posters/hamnet-2025.jpg",
+    srt: "subtitles/hamnet-2025.srt",
+    authors: ["genco"],
+    ratings: { letterboxd: 4.2 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "robot-dreams-2023",
+    title: "Robot Dreams",
+    titleRu: "Мечты робота",
+    year: 2023,
+    poster: "posters/robot-dreams-2023.jpg",
+    srt: "subtitles/robot-dreams-2023.srt",
+    authors: ["subbedAf"],
+    ratings: { letterboxd: 4.1 },
+    award: true,
+    description: ""
+  },
+
+  {
+    id: "puss-in-boots-the-last-wish-2022",
+    title: "Puss in Boots: The Last Wish",
+    titleRu: "Кот в сапогах: Последнее желание",
+    year: 2022,
+    poster: "posters/puss-in-boots-the-last-wish-2022.jpg",
+    srt: "subtitles/puss-in-boots-the-last-wish-2022.srt",
+    authors: ["rebelProject"],
+    ratings: { letterboxd: 4.1 },
     description: ""
   },
 
