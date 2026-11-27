@@ -3387,6 +3387,7 @@ const STRINGS = {
   en: {
     searchPlaceholder: "Search",
     searchAria: "Search",
+    loadingMore: "Loading more...",
     films: "Films",
     series: "Series",
     award: "Award",
@@ -3433,6 +3434,7 @@ const STRINGS = {
   },
   ru: {    searchPlaceholder: "Поиск",
     searchAria: "Поиск",
+    loadingMore: "Загружаем ещё...",
     films: "Фильмы",
     series: "Сериалы",
     award: "Награда",
@@ -3621,6 +3623,17 @@ function searchCandidates(token){
   return [token, translitLayout(token, true), translitLayout(token, false)];
 }
 
+// Тот же поисковый корпус, что зашит в data-search карточки в makeCard /
+// makeFundraiserCard, — для фильтрации на уровне данных (чанки грида).
+function filmSearchText(film){
+  if(film.type === "fundraiser"){
+    return normForSearch([film.title, film.titleRu, film.link?.label].filter(Boolean).join(" "));
+  }
+  return normForSearch([film.title, film.titleRu, film.year]
+    .concat((film.authors || []).map(key => PEOPLE[key]?.label))
+    .filter(Boolean).join(" "));
+}
+
 // Стабильный хэш строки — один и тот же фильм всегда получает один и тот же цвет.
 function hashString(str){
   let h = 0;
@@ -3631,12 +3644,12 @@ function hashString(str){
   return Math.abs(h);
 }
 
-// Главный цвет постера — вариант «акцент»: выбирается самая насыщенная цветная
-// зона (обычно название/акцент), а не фон с кинематографичным тёплым грейдингом.
-// Гистограмма оттенков × насыщенность → самая «красочная» корзина. Оттенок
-// сохраняется, насыщенность/светлота срезаются в контролируемый диапазон
-// (без pin-а канала в 255 — иначе тёплые постеры все становятся красными).
-function dominantColor(img){
+// Палитра постера — топ-3 оттенка по площади с весами (тот же подсчёт, что
+// в scripts/paper.py): самые большие цветные зоны (то, что видит глаз),
+// серый фон отсекается порогом насыщенности. Правила красоты (зеркально
+// в paper.py): порог 5%, колпак доминанты 65%, тональные ступени для
+// одноцветных, серый градиент для ч/б.
+function posterPalette(img){
   try{
     const s = 24;
     const ratio = img.naturalHeight / img.naturalWidth;
@@ -3647,12 +3660,19 @@ function dominantColor(img){
     ctx.drawImage(img, 0, 0, s, h);
     const data = ctx.getImageData(0, 0, s, h).data;
     const bins = new Array(24);
-    for(let i = 0; i < bins.length; i++) bins[i] = { n:0, sat:0, r:0, g:0, b:0 };
+    for(let i = 0; i < bins.length; i++) bins[i] = { n:0, r:0, g:0, b:0 };
+    const lums = [];
+    let sumR = 0, sumG = 0, sumB = 0;
     for(let i = 0; i < data.length; i += 4){
       const r = data[i], g = data[i+1], b = data[i+2];
       const mx = Math.max(r,g,b), mn = Math.min(r,g,b);
+      lums.push((mx + mn) / 2);
+      sumR += r; sumG += g; sumB += b;
       const sat = mx - mn;
-      if(sat < 64 || mx < 64 || mx > 242) continue;
+      // Только насыщенность: серый/белый/чёрный отсекаются, а яркие акценты
+      // (R=255) и тёмные тени учитываются — итоговая светлота всё равно
+      // фиксирована (90%/24%).
+      if(sat < 64) continue;
       const d = sat;
       let hue;
       if(d === 0) continue;
@@ -3664,39 +3684,105 @@ function dominantColor(img){
       const bin = bins[Math.min(23, Math.floor(hue/15))];
       bin.n++; bin.sat += sat; bin.r += r; bin.g += g; bin.b += b;
     }
-    let best = null, bestScore = -1;
-    for(const bin of bins){
-      if(!bin.n) continue;
-      const score = bin.n * (bin.sat / bin.n);
-      if(score > bestScore){ bestScore = score; best = bin; }
+    // RGB → оттенок/насыщенность — та же математика, что rgb_hs() в paper.py.
+    const hsOf = (r, g, b) => {
+      const rr = r/255, gg = g/255, bbb = b/255;
+      const mx = Math.max(rr,gg,bbb), mn = Math.min(rr,gg,bbb);
+      const l = (mx+mn)/2, d = mx-mn;
+      let hue, sv;
+      if(d === 0){ hue = 0; sv = 0; }
+      else{
+        sv = l > 0.5 ? d/(2-mx-mn) : d/(mx+mn);
+        if(mx === rr) hue = ((gg-bbb)/d) % 6;
+        else if(mx === gg) hue = (bbb-rr)/d + 2;
+        else hue = (rr-gg)/d + 4;
+        hue *= 60; if(hue < 0) hue += 360;
+      }
+      return [Math.round(hue), Math.round(Math.min(0.7, Math.max(0.45, sv * 1.1)) * 100)];
+    };
+    // Ч/б постер: серый градиент тени → света + tint среднего цвета.
+    const grayTones = (sorted, avg) => {
+      const at = q => sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * q))];
+      const [h, s] = hsOf(avg[0], avg[1], avg[2]);
+      const tint = Math.min(25, s);
+      const picks = [at(0.15), at(0.5), at(0.85)];
+      return {
+        lights: picks.map(p => `hsl(${h} ${tint}% ${80 + Math.round(p * 16 / 255)}%)`),
+        darks: picks.map(p => `hsl(${h} ${tint}% ${12 + Math.round(p * 20 / 255)}%)`),
+        weights: [0.34, 0.33, 0.33]
+      };
+    };
+    // Ранжирование по площади: самая большая цветная зона побеждает.
+    const scored = bins.filter(b => b.n).map(b => [b.n, b]);
+    if(!scored.length){
+      const n = lums.length;
+      return grayTones([...lums].sort((a, b) => a - b), [sumR / n, sumG / n, sumB / n]);
     }
-    if(!best) return null;
-    const br = best.r / best.n, bg = best.g / best.n, bb = best.b / best.n;
-    // RGB → HSL и два варианта "бумаги": светлая тема — светлая пастель,
-    // тёмная — тёмная пастель того же оттенка (минимум светлоты 30%, чтобы
-    // цвет был различим в обеих темах, а не "чёрная дыра").
-    const rr = br/255, gg = bg/255, bbb = bb/255;
-    const mx = Math.max(rr,gg,bbb), mn = Math.min(rr,gg,bbb);
-    const l = (mx+mn)/2;
-    const d = mx-mn;
-    let hue, sv;
-    if(d === 0){ hue = 0; sv = 0; }
-    else{
-      sv = l > 0.5 ? d/(2-mx-mn) : d/(mx+mn);
-      if(mx === rr) hue = ((gg-bbb)/d) % 6;
-      else if(mx === gg) hue = (bbb-rr)/d + 2;
-      else hue = (rr-gg)/d + 4;
-      hue *= 60; if(hue < 0) hue += 360;
+    scored.sort((a, b) => b[0] - a[0]);
+    const bestCount = scored[0][0];
+    const top = scored.slice(0, 3).filter(([s]) => s >= bestCount * 0.05);
+    while(top.length < 3) top.push(top[top.length - 1]);
+    const total = top.reduce((acc, [s]) => acc + s, 0);
+    let weights = top.map(([s]) => Math.round(s / total * 100) / 100);
+    // Колпак красоты: доминанта не шире 65% — градиент виден даже на почти
+    // одноцветных постерах, остаток делят второй и третий цвета.
+    if(weights[0] > 0.65){
+      const rest = weights[1] + weights[2];
+      if(rest > 0) weights = [0.65,
+        Math.round(0.35 * weights[1] / rest * 100) / 100,
+        Math.round(0.35 * weights[2] / rest * 100) / 100];
     }
-    const satPct = Math.round(Math.min(0.7, Math.max(0.45, sv * 1.1)) * 100);
-    // Светлая тема — очень светлая бумага (90%): текст через mix-blend
-    // difference инвертируется почти в чистый чёрный. Тёмная — 24%:
-    // цвет глуше, белый текст остаётся белым.
+    // Схлопнувшаяся в один оттенок тройка: тот же оттенок, ступени по
+    // насыщенности/светлоте — градиент есть везде, выдуманных цветов нет.
+    if(top[0][1] === top[1][1] && top[1][1] === top[2][1]){
+      const single = top[0][1];
+      const [h, s] = hsOf(single.r / single.n, single.g / single.n, single.b / single.n);
+      const s2 = Math.max(30, s - 12), s3 = Math.max(30, s - 18);
+      return {
+        lights: [`hsl(${h} ${s}% 90%)`, `hsl(${h} ${s2}% 85%)`, `hsl(${h} ${s3}% 80%)`],
+        darks: [`hsl(${h} ${s}% 24%)`, `hsl(${h} ${s}% 29%)`, `hsl(${h} ${s}% 34%)`],
+        weights
+      };
+    }
+    const binTones = ([, bin]) => {
+      const [h, s] = hsOf(bin.r / bin.n, bin.g / bin.n, bin.b / bin.n);
+      // Светлая тема — очень светлая бумага (90%): текст через mix-blend
+      // difference инвертируется почти в чистый чёрный. Тёмная — 24%:
+      // цвет глуше, белый текст остаётся белым.
+      return { light: `hsl(${h} ${s}% 90%)`, dark: `hsl(${h} ${s}% 24%)` };
+    };
+    const toned = top.map(binTones);
     return {
-      light: `hsl(${Math.round(hue)} ${satPct}% 90%)`,
-      dark:  `hsl(${Math.round(hue)} ${satPct}% 24%)`
+      lights: toned.map(x => x.light),
+      darks: toned.map(x => x.dark),
+      weights
     };
   }catch{ return null; }
+}
+
+// Мягкий градиент-«бумага» из топ-3 цветов: главный доминирует (но не шире 65%,
+// остаток — вторым/третьим), переходы плавные. Стопы — из весов (paper.json
+// или canvas). Вариант — один из 16 (8 углов × обычный/развёрнутый), по хэшу
+// названия: градиенты разные на разных карточках, но стабильны для одного
+// фильма. shift — редкий сдвиг от анти-повтора соседей (см. refreshGrid).
+const PAPER_ANGLES = [0, 45, 90, 135, 180, 225, 270, 315];
+const PAPER_VARIANTS = 16;
+function paperVariant(seed, shift){
+  return (hashString(seed || "") + (shift || 0)) % PAPER_VARIANTS;
+}
+function paperGradient(colors, weights, seed, shift){
+  const w = (weights && weights.length === 3) ? weights : [1, 0, 0];
+  let p1 = Math.min(100, Math.round(w[0] * 100));
+  let p2 = Math.min(100, Math.max(p1, Math.round((w[0] + w[1]) * 100)));
+  let [c1, c2, c3] = colors;
+  const v = paperVariant(seed, shift);
+  const ang = PAPER_ANGLES[v % 8];
+  if(v >= 8){ // развёрнутый: зеркалим порядок и стопы
+    [c1, c2, c3] = [c3, c2, c1];
+    const q1 = 100 - p2, q2 = 100 - p1;
+    p1 = q1; p2 = q2;
+  }
+  return `linear-gradient(${ang}deg, ${c1} 0%, ${c1} ${p1}%, ${c2} ${p2}%, ${c3} 100%)`;
 }
 
 // Общий рендер блока рейтингов — используется и обычными карточками, и карточкой сбора
@@ -3723,7 +3809,7 @@ const TRACKERS = [
   { label: "BT4G",      url: q => `https://bt4gprx.com/search?q=${q}` },
 ];
 
-function makeCard(film, i){
+function makeCard(film, i, shift){
   if(film.type === "fundraiser"){
     if(film.active === false || film.done) return "";
     return makeFundraiserCard(film);
@@ -3758,22 +3844,23 @@ function makeCard(film, i){
       </div>
     </div>`;
 
-  const searchText = normForSearch([film.title, film.titleRu, film.year]
-    .concat((film.authors || []).map(key => PEOPLE[key]?.label))
-    .filter(Boolean).join(" "));
+  const searchText = filmSearchText(film);
 
   const stackLayers = isSeries
     ? `<span class="stack-layer l2" aria-hidden="true"></span><span class="stack-layer l1" aria-hidden="true"></span>`
     : "";
 
+  // Цвет красится сразу из предрасчёта (paper.json) — ждать картинку не надо.
+  const paper = (typeof cachedPaper !== "undefined" && cachedPaper?.[film.poster]) || null;
+  const paperStyle = paper ? `;--paper-light:${paperGradient(paper[0], paper[2], film.title, shift)};--paper-dark:${paperGradient(paper[1], paper[2], film.title, shift)}` : "";
   return `
-  <article class="card" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-award="${film.award ? '1' : ''}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--poster:url('${escapeHtml(film.poster)}')">
+  <article class="card" data-vshift="${shift || 0}" data-search="${escapeHtml(searchText)}" data-year="${film.year}" data-type="${isSeries ? 'series' : 'movie'}" data-award="${film.award ? '1' : ''}" data-authors="${escapeHtml((film.authors || []).join(' '))}" style="--poster:url('${escapeHtml(film.poster)}')${paperStyle}">
     ${stackLayers}
     <button class="poster-button" type="button"
       aria-label="${escapeHtml(t("downloadAria")(cardTitle, isSeries))}"
       data-file="${escapeHtml(downloadPath)}"
       data-title="${escapeHtml(film.title)}">
-      <img class="poster-image" loading="lazy" src="${escapeHtml(film.poster)}" alt="" aria-hidden="true">
+      <img class="poster-image" loading="${i < 12 ? "eager" : "lazy"}"${i < 6 ? ' fetchpriority="high"' : ""} decoding="async" src="${escapeHtml(film.poster)}" alt="" aria-hidden="true">
       <span class="poster-content">
         <span class="year">${film.year}</span>
         ${episodes ? `<span class="episodes">${escapeHtml(episodes)}</span>` : ""}
@@ -3814,9 +3901,26 @@ async function loadAutoRatings(){
   }
 }
 
+// Предрасчитанные палитры «бумаги» (paper.json — топ-3 оттенка + веса, генерится
+// скриптом из постеров тем же алгоритмом, что и posterPalette): карточка красится
+// мягким градиентом мгновенно, не дожидаясь загрузки картинки и canvas.
+// Нет записи — сработает canvas.
+async function loadPaper(){
+  try{
+    const res = await fetch("paper.json", { cache: "no-store" });
+    if(!res.ok) return {};
+    return await res.json();
+  }catch{
+    return {};
+  }
+}
+
 function attachDownloadHandlers(){
   document.querySelectorAll(".poster-button").forEach((button) => {
     if (!button.querySelector(".download-arrow")) return;
+    // Чанки догружаются позже — повторный вызов не должен вешать дубли.
+    if(button.dataset.dlBound) return;
+    button.dataset.dlBound = "1";
     
     const card = button.closest(".card");
     const arrowSvg = button.querySelector(".download-arrow");
@@ -3865,6 +3969,12 @@ function attachDownloadHandlers(){
 // и ставим оба варианта "бумаги" карточки (светлый/тёмный, выбор — в CSS по теме OS).
 function attachPaperColors(){
   document.querySelectorAll(".card .poster-image").forEach(img => {
+    // Повторный вызов после догрузки чанка — старые узлы пропускаем.
+    if(img.dataset.paperBound) return;
+    img.dataset.paperBound = "1";
+    // Цвет уже вшит инлайном из paper.json — canvas не нужен.
+    const card = img.closest(".card");
+    if(card && card.style.getPropertyValue("--paper-light")) return;
     if(img.complete && img.naturalWidth){
       applyPaper(img);
       return;
@@ -3874,8 +3984,8 @@ function attachPaperColors(){
 }
 let warnedFileScheme = false;
 function applyPaper(img){
-  const d = dominantColor(img);
-  if(!d){
+  const p = posterPalette(img);
+  if(!p){
     if(!warnedFileScheme && location.protocol === "file:"){
       warnedFileScheme = true;
       console.warn("rusub: цвета карточек не считаются через file:// — открой сайт через http://localhost (python3 -m http.server).");
@@ -3883,8 +3993,10 @@ function applyPaper(img){
     return;
   }
   const card = img.closest(".card");
-  if(card) card.style.setProperty("--paper-light", d.light);
-  if(card) card.style.setProperty("--paper-dark", d.dark);
+  const seed = card?.querySelector(".poster-button")?.dataset.title || "";
+  const shift = Number(card?.dataset.vshift || 0);
+  if(card) card.style.setProperty("--paper-light", paperGradient(p.lights, p.weights, seed, shift));
+  if(card) card.style.setProperty("--paper-dark", paperGradient(p.darks, p.weights, seed, shift));
 }
 
 const CHEVRON = '<svg class="chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 2 L6 6.2 L10.5 2"/></svg>';
@@ -3983,25 +4095,93 @@ function syncFilterUI(){
   }
 }
 
-function applyCardFilters(state){
-  if(!cachedCards) cachedCards = document.querySelectorAll(".card");
-  const completed = document.getElementById("completed");
-  if(completed) completed.classList.toggle("is-hidden", Boolean(state.q || state.author || state.year || state.type || state.award));
+// Сетка рисуется чанками (бесконечный скролл без кнопки): первый чанк сразу,
+// остальные — через IntersectionObserver на #sentinel с запасом 800px, так что
+// человек просто скроллит, а "Loading more..." виден лишь на медленной сети.
+const GRID_CHUNK = 40;
+let cachedCards = null;
+let gridList = [];
+let gridRendered = 0;
+let gridObserver = null;
+
+// Та же логика, что раньше жила в applyCardFilters на DOM-узлах, но на данных:
+// скрытые раньше карточками фильтры теперь просто не попадают в gridList.
+function entryMatches(entry, state, tokenVariants){
+  const film = entry.film;
+  const isFund = film.type === "fundraiser";
+  const matchesAuthor = !state.author || ((film.authors || []).includes(state.author));
+  const matchesYear = !state.year || String(film.year ?? "") === state.year;
+  const matchesType = !state.type || (!isFund && (film.type === "series" ? "series" : "movie") === state.type);
+  const matchesAward = !state.award || Boolean(film.award);
   // Каждый токен запроса должен лечь на карточку хоть одним из вариантов
   // (сам токен или ЙЦУКЕН-варианты) — так работают и "медведь 2026",
   // и "медведь (2026)", и ввод с пробелом/скобками.
+  const matchesQ = tokenVariants.every(variants => variants.some(v => entry.search.includes(v)));
+  return matchesAuthor && matchesYear && matchesType && matchesAward && matchesQ;
+}
+
+// Пересчитать отфильтрованный список и показать первый чанк.
+function refreshGrid(){
+  if(gridObserver){ gridObserver.disconnect(); gridObserver = null; }
+  const state = filterState;
   const qTokens = normForSearch(state.q || "").split(" ").filter(Boolean);
   const tokenVariants = qTokens.map(token => searchCandidates(token).filter(v => v));
-
-  cachedCards.forEach(card => {
-    const corpus = card.dataset.search || "";
-    const matchesAuthor = !state.author || (card.dataset.authors || "").split(" ").includes(state.author);
-    const matchesYear = !state.year || card.dataset.year === state.year;
-    const matchesType = !state.type || card.dataset.type === state.type;
-    const matchesAward = !state.award || card.dataset.award === "1";
-    const matchesQ = tokenVariants.every(variants => variants.some(v => corpus.includes(v)));
-    card.classList.toggle("is-hidden", !(matchesAuthor && matchesYear && matchesType && matchesAward && matchesQ));
+  gridList = [];
+  let prevVariant = -1;
+  FILMS.forEach((film, gi) => {
+    if(film.type === "fundraiser" && (film.active === false || film.done)) return;
+    const entry = { film, gi, search: filmSearchText(film) };
+    if(!entryMatches(entry, state, tokenVariants)) return;
+    // Соседи не повторяются: если вариант совпал с предыдущим — сдвигаем.
+    // База детерминирована хэшем названия, сдвиг редок и только визуальный.
+    let shift = 0, variant = paperVariant(film.title, 0);
+    if(variant === prevVariant){ shift = 1; variant = paperVariant(film.title, 1); }
+    prevVariant = variant;
+    entry.html = makeCard(film, gi, shift);
+    if(entry.html) gridList.push(entry);
   });
+  gridRendered = 0;
+  document.getElementById("grid").innerHTML =
+    `<div class="sentinel" id="sentinel"><span class="sentinel-text">${escapeHtml(t("loadingMore"))}</span></div>`;
+  renderGridChunk();
+  setupGridObserver();
+  const completed = document.getElementById("completed");
+  if(completed) completed.classList.toggle("is-hidden", Boolean(state.q || state.author || state.year || state.type || state.award));
+  cachedCards = document.querySelectorAll(".card");
+}
+
+// Дорисовать следующий чанк перед сентинелом.
+function renderGridChunk(){
+  const sentinel = document.getElementById("sentinel");
+  const next = gridList.slice(gridRendered, gridRendered + GRID_CHUNK);
+  if(!next.length){ updateSentinel(); return; }
+  const html = next.map(e => e.html).join("");
+  if(sentinel) sentinel.insertAdjacentHTML("beforebegin", html);
+  else document.getElementById("grid").insertAdjacentHTML("beforeend", html);
+  gridRendered += next.length;
+  attachDownloadHandlers();
+  attachPaperColors();
+  fitTitles();
+  cachedCards = document.querySelectorAll(".card");
+  updateSentinel();
+}
+
+// Сентинел больше не нужен, когда всё нарисовано.
+function updateSentinel(){
+  if(gridRendered >= gridList.length){
+    if(gridObserver){ gridObserver.disconnect(); gridObserver = null; }
+    const sentinel = document.getElementById("sentinel");
+    if(sentinel) sentinel.remove();
+  }
+}
+
+function setupGridObserver(){
+  const sentinel = document.getElementById("sentinel");
+  if(!sentinel || gridRendered >= gridList.length){ updateSentinel(); return; }
+  gridObserver = new IntersectionObserver((entries) => {
+    if(entries.some(e => e.isIntersecting)) renderGridChunk();
+  }, { rootMargin: "800px" });
+  gridObserver.observe(sentinel);
 }
 
 function attachFilterHandlers(){
@@ -4009,7 +4189,7 @@ function attachFilterHandlers(){
   document.getElementById("search").addEventListener("input", (e) => {
     filterState.q = e.target.value;
     document.getElementById("search").classList.toggle("is-active", Boolean(filterState.q));
-    applyCardFilters(filterState);
+    refreshGrid();
   });
 
   if(shellHandlersAttached) return;
@@ -4044,7 +4224,7 @@ function attachFilterHandlers(){
         details.removeAttribute("open");
       }
 
-      applyCardFilters(filterState);
+      refreshGrid();
       return;
     }
 
@@ -4056,7 +4236,7 @@ function attachFilterHandlers(){
         .forEach(b => b.classList.remove("is-active"));
       filterState[key] = wasActive ? "" : toggleBtn.dataset.value;
       if(!wasActive) toggleBtn.classList.add("is-active");
-      applyCardFilters(filterState);
+      refreshGrid();
     }
   });
 
@@ -4103,6 +4283,7 @@ function attachFilterHandlers(){
 
 let shellHandlersAttached = false;
 let cachedAutoRatings = null;
+let cachedPaper = null;
 
 function setLang(next){
   const nextLang = next === "ru" ? "ru" : "en";
@@ -4214,6 +4395,7 @@ function fitTitles(){
 async function renderPage(){
   if(!cachedAutoRatings) cachedAutoRatings = await loadAutoRatings();
   const autoRatings = cachedAutoRatings;
+  if(!cachedPaper) cachedPaper = await loadPaper();
 
   FILMS.forEach(film => {
     const auto = film.id ? autoRatings[film.id] : null;
@@ -4226,8 +4408,6 @@ async function renderPage(){
   const oldCompleted = document.getElementById("completed");
   if(oldCompleted) oldCompleted.remove();
 
-  document.getElementById("grid").innerHTML = FILMS.map(makeCard).join("");
-
   const doneCards = FILMS
     .filter(f => f.type === "fundraiser" && f.done)
     .map(makeCompletedCard);
@@ -4239,9 +4419,9 @@ async function renderPage(){
       </section>`);
   }
 
-  attachPaperColors();
-  cachedCards = document.querySelectorAll(".card");
-  attachDownloadHandlers();
+  // Сетка — чанками c автодогрузкой (первый чанк + сентинел).
+  // Хендлеры, цвета бумаги и ужатие заголовков — внутри refreshGrid/renderGridChunk.
+  refreshGrid();
 
   renderFilters();
   attachFilterHandlers();
@@ -4253,7 +4433,6 @@ async function renderPage(){
   const doneCount = FILMS.filter(f => f.type === "fundraiser" && f.done).length;
   renderMetaLine(titleCount, doneCount);
 
-  applyCardFilters(filterState);
   fitTitles();
 }
 
