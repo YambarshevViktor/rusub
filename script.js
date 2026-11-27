@@ -364,18 +364,6 @@ const FILMS = [
   },
 
   {
-    id: "wicker-2026",
-    title: "Wicker",
-    titleRu: "Плетёный муж",
-    year: 2026,
-    poster: "posters/wicker-2026.jpg",
-    srt: "subtitles/wicker-2026.srt",
-    authors: ["focs", "alice"],
-    ratings: { letterboxd: 3.6 },
-    description: ""
-  },
-
-  {
     id: "blade-runner-2099",
     title: "Blade Runner 2099",
     titleRu: "Бегущий по лезвию 2099",
@@ -384,9 +372,22 @@ const FILMS = [
     poster: "posters/blade-runner-2099.jpg",
     zip: "subtitles/blade-runner-2099.zip",
     season: 1,
-    episodesAvailable: 1,
+    episodesAvailable: 2,
     episodesTotal: 8,
     authors: ["afterAll"],
+    ratings: { imdb: 5.7 },
+    description: ""
+  },
+
+  {
+    id: "wicker-2026",
+    title: "Wicker",
+    titleRu: "Плетёный муж",
+    year: 2026,
+    poster: "posters/wicker-2026.jpg",
+    srt: "subtitles/wicker-2026.srt",
+    authors: ["focs", "alice"],
+    ratings: { letterboxd: 3.6 },
     description: ""
   },
 
