@@ -364,6 +364,18 @@ const FILMS = [
   },
 
   {
+    id: "wicker-2026",
+    title: "Wicker",
+    titleRu: "Плетёный муж",
+    year: 2026,
+    poster: "posters/wicker-2026.jpg",
+    srt: "subtitles/wicker-2026.srt",
+    authors: ["focs", "alice"],
+    ratings: { letterboxd: 3.6 },
+    description: ""
+  },
+
+  {
     id: "blade-runner-2099",
     title: "Blade Runner 2099",
     titleRu: "Бегущий по лезвию 2099",
