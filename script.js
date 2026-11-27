@@ -3346,7 +3346,9 @@ const STRINGS = {
     faqNoteRt: "Percentage of positive critic reviews.",
     faqNoteMc: "Average critic score. Higher = better.",
     docTitle: "russub — human-made subtitles",
-    langGroup: "Language"
+    langGroup: "Language",
+    subcompareL1: "compare",
+    subcompareL2: "subtitles"
   },
   ru: {    searchPlaceholder: "Поиск",
     searchAria: "Поиск",
@@ -3390,7 +3392,9 @@ const STRINGS = {
     faqNoteRt: "Процент положительных рецензий критиков.",
     faqNoteMc: "Средняя оценка критиков. Чем выше — тем лучше.",
     docTitle: "russub — человеческие русские субтитры",
-    langGroup: "Язык"
+    langGroup: "Язык",
+    subcompareL1: "сравнить",
+    subcompareL2: "субтитры"
   }
 };
 
@@ -4032,8 +4036,15 @@ function renderShell(){
   document.title = t("docTitle");
   const h1 = document.querySelector(".intro h1");
   if(h1) h1.textContent = t("introH1");
-  const tgLink = document.querySelector(".intro a");
+  // Ссылка на телеграм — прямой ребёнок шапки (панель subcompare живёт
+  // внутри .intro-top и под этот селектор не попадает).
+  const tgLink = Array.from(document.querySelector(".intro").children)
+    .find(el => el.tagName === "A");
   if(tgLink) tgLink.textContent = t("telegramLink");
+  const scL1 = document.getElementById("subcompare-l1");
+  if(scL1) scL1.textContent = t("subcompareL1");
+  const scL2 = document.getElementById("subcompare-l2");
+  if(scL2) scL2.textContent = t("subcompareL2");
   renderFaq();
 }
 
@@ -4082,15 +4093,19 @@ function renderMetaLine(titleCount, doneCount){
     if(directA) cachedTgHref = directA.href;
   }
   const btnBase = "min-height:0;padding:5px 11px;";
-  line.innerHTML =
+  const pill =
     `<span class="type-toggle" role="group" aria-label="${escapeHtml(t("langGroup"))}" style="vertical-align:middle;">` +
     `<button type="button" class="type-option" data-lang="en" style="${btnBase}color:${lang === "en" ? "#fff" : "#5b6266"};">EN</button>` +
-    `<button type="button" class="type-option" data-lang="ru" style="${btnBase}color:${lang === "ru" ? "#fff" : "#5b6266"};">РУ</button></span>` +
-    (cachedTgHref ? ` · <a class="completed-link" href="${escapeHtml(cachedTgHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("telegramLink"))}</a>` : "") +
-    ` · ${t("countLine")(titleCount, doneCount)}`;
+    `<button type="button" class="type-option" data-lang="ru" style="${btnBase}color:${lang === "ru" ? "#fff" : "#5b6266"};">РУ</button></span>`;
+  line.innerHTML = pill +
+    `<span class="meta-lead"> · </span>` +
+    (cachedTgHref ? `<a class="completed-link" href="${escapeHtml(cachedTgHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("telegramLink"))}</a> · ` : "") +
+    `${t("countLine")(titleCount, doneCount)}`;
+  // Дубликат пилюли в левый верхний угол (виден только на широком экране,
+  // мобилка пользуется пилюлей внутри строки — там она остаётся как была).
+  const corner = document.getElementById("lang-corner");
+  if(corner) corner.innerHTML = pill;
   if(header){
-    const h1 = header.querySelector("h1");
-    if(h1) header.insertBefore(line, h1);
     const staticTg = Array.from(header.children).find(el => el.tagName === "A");
     if(staticTg) staticTg.remove();
   }
