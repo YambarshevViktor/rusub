@@ -3621,13 +3621,15 @@ function dominantColor(img){
 
 // Общий рендер блока рейтингов — используется и обычными карточками, и карточкой сбора
 function fmt(n){ return Number.isInteger(n) && n >= 0 && n < 10 ? n.toFixed(1) : n; }
+// Ширина заливки бара: значение / максимум шкалы (imdb — 10, letterboxd — 5, rt/mc — 100).
+function ratingFill(v, max){ const n = Number(v); if(!Number.isFinite(n)) return "0%"; return Math.min(100, Math.max(0, n / max * 100)).toFixed(1) + "%"; }
 function renderRatings(ratings){
   if(!ratings) return "";
   return `<div class="ratings">
-      ${ratings.imdb != null ? `<span class="rating rating-imdb">${fmt(ratings.imdb)}</span>` : ""}
-      ${ratings.letterboxd != null ? `<span class="rating rating-letterboxd">${Number(ratings.letterboxd).toFixed(1)}</span>` : ""}
-      ${ratings.rt != null ? `<span class="rating rating-rt">${fmt(ratings.rt)}</span>` : ""}
-      ${ratings.metacritic != null ? `<span class="rating rating-metacritic">${fmt(ratings.metacritic)}</span>` : ""}
+      ${ratings.imdb != null ? `<span class="rating rating-imdb" style="--fill:${ratingFill(ratings.imdb, 10)}"><span class="rating-text">${fmt(ratings.imdb)}</span></span>` : ""}
+      ${ratings.letterboxd != null ? `<span class="rating rating-letterboxd" style="--fill:${ratingFill(ratings.letterboxd, 5)}"><span class="rating-text">${Number(ratings.letterboxd).toFixed(1)}</span></span>` : ""}
+      ${ratings.rt != null ? `<span class="rating rating-rt" style="--fill:${ratingFill(ratings.rt, 100)}"><span class="rating-text">${fmt(ratings.rt)}</span></span>` : ""}
+      ${ratings.metacritic != null ? `<span class="rating rating-metacritic" style="--fill:${ratingFill(ratings.metacritic, 100)}"><span class="rating-text">${fmt(ratings.metacritic)}</span></span>` : ""}
     </div>`;
 }
 

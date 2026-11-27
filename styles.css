@@ -748,24 +748,35 @@ body{
   font-variant-numeric: normal;
   height:26.5px;
   box-sizing:border-box;
-}
-.rating-imdb{background:rgba(255,170,5,.2);border-left:6px solid rgba(255,170,5,1);color:var(--ink)}
-.rating-letterboxd{
-  background:conic-gradient(from 0deg,rgba(255,128,0,.2),rgba(0,224,84,.2),rgba(64,188,244,.2),rgba(255,128,0,.2));
   position:relative;
-  border:none;
-  padding-left:12px;
-  color:var(--ink);
+  overflow:hidden;
+  isolation:isolate;
 }
-.rating-letterboxd::before{
+/* Заливка-бар: ::before красится на ширину оценки (--fill ставит renderRatings),
+   бледный фон — незаполненный остаток шкалы */
+.rating::before{
   content:"";
   position:absolute;
   left:0;top:0;bottom:0;
-  width:6px;
-  background:linear-gradient(to bottom,#ff952a,#00e86b,#45c9ff);
+  width:var(--fill,0%);
+  z-index:0;
+  filter:brightness(.9);
 }
-.rating-rt{background:rgba(250,50,10,.2);border-left:6px solid rgba(250,50,10,1);color:var(--ink)}
-.rating-metacritic{background:rgba(84,167,42,.2);border-left:6px solid rgba(84,167,42,1);color:var(--ink)}
+.rating-text{position:relative;z-index:1}
+.rating-imdb{background:rgba(255,170,5,.2);border:none;color:var(--ink)}
+.rating-imdb::before{background:rgba(255,170,5,1)}
+.rating-letterboxd{
+  background:conic-gradient(from 0deg,rgba(255,128,0,.2),rgba(0,224,84,.2),rgba(64,188,244,.2),rgba(255,128,0,.2));
+  border:none;
+  color:var(--ink);
+}
+.rating-letterboxd::before{
+  background:linear-gradient(to right,#ff952a,#00e86b,#45c9ff);
+}
+.rating-rt{background:rgba(250,50,10,.2);border:none;color:var(--ink)}
+.rating-rt::before{background:rgba(250,50,10,1)}
+.rating-metacritic{background:rgba(84,167,42,.2);border:none;color:var(--ink)}
+.rating-metacritic::before{background:rgba(84,167,42,1)}
 
 /* "Стопка серий" — 2 псевдо-карточки позади постера, только у сериалов */
 .stack-layer{
@@ -859,7 +870,6 @@ body{
   .meta-author-label{font-size:14px}
   .description{font-size:14px}
   .rating{font-size:14px;padding:3px 6px 6px}
-  .rating-letterboxd{padding-left:12px}
   :root{--poster-h:250px}
   .faq{flex-direction:column;align-items:center;gap:12px;font-size:13px}
   .faq-card{
