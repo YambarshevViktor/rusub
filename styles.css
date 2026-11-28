@@ -1332,10 +1332,12 @@ body{position:relative}
     margin-bottom:0;
   }
 }
-/* Переключатель языка: на широком экране живёт в левом верхнем углу
+/* Переключатель языка: живёт в левом верхнем углу на всех ширинах
    (зеркало панели subcompare), а пилюля и её разделитель внутри
-   мета-строки прячутся. Уже 1280px и на мобилке — как было. */
+   мета-строки всегда прячутся. */
 .lang-corner{display:none}
+#title-count > .type-toggle,
+#title-count > .meta-lead{display:none}
 @media (min-width:1280px){
   .lang-corner{
     display:block;
@@ -1344,11 +1346,35 @@ body{position:relative}
     left:42.5px;
     z-index:5;
   }
-  #title-count > .type-toggle,
-  #title-count > .meta-lead{display:none}
+}
+/* Уже 1280px и на мобилке — как на десктопе: язык слева сверху,
+   сравнение справа сверху, строка телеграм··· ниже по центру. */
+@media (max-width:1279px){
+  .intro-top{
+    position:relative;
+    padding-top:56px;
+  }
+  /* Уголок — от body, как на десктопе: top = верхний паддинг .page,
+     чтобы верх пилюли совпал с верхом панели сравнения. */
+  .lang-corner{
+    display:block;
+    position:absolute;
+    top:22.5px;
+    left:42.5px;
+    z-index:5;
+  }
+  .subcompare{
+    position:absolute;
+    top:0;
+    right:0;
+    margin-bottom:0;
+  }
+}
+@media (max-width:1125px){
+  .lang-corner{left:22.5px}
 }
 @media (max-width:875px){
-  .intro-top{padding-top:0}
+  .intro-top{padding-top:48px}
   .intro .subcompare-name{font-size:13px}
   .subcompare-text{transform:translateY(-2px)}
   .subcompare-icon{

@@ -409,6 +409,18 @@ const FILMS = [
   },
 
   {
+    id: "gentle-monster-2026",
+    title: "Gentle Monster",
+    titleRu: "Нежный монстр",
+    year: 2026,
+    poster: "posters/gentle-monster-2026.jpg",
+    srt: "subtitles/gentle-monster-2026.srt",
+    authors: ["noBetter"],
+    ratings: { letterboxd: 3.3 },
+    description: ""
+  },
+
+  {
     id: "the-dog-stars-2026",
     title: "The Dog Stars",
     titleRu: "Собачьи звёзды",
@@ -4344,7 +4356,8 @@ function renderFaq(){  const faq = document.querySelector(".faq");
   });
 }
 
-// Серая строка над заголовком: пилюля языка · телеграм · счётчик · сборы.
+// Серая строка над заголовком: телеграм · счётчик · сборы
+// (пилюля языка живёт в левом верхнем углу, не в строке).
 // Классы штатные (.updated, .type-toggle, .type-option, .completed-link) —
 // CSS не трогаем. Статичную ссылку на телеграм из шапки забираем в строку.
 let cachedTgHref = "";
@@ -4365,8 +4378,8 @@ function renderMetaLine(titleCount, doneCount){
     `<span class="meta-lead"> · </span>` +
     (cachedTgHref ? `<a class="completed-link" href="${escapeHtml(cachedTgHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("telegramLink"))}</a> · ` : "") +
     `${t("countLine")(titleCount, doneCount)}`;
-  // Дубликат пилюли в левый верхний угол (виден только на широком экране,
-  // мобилка пользуется пилюлей внутри строки — там она остаётся как была).
+  // Дубликат пилюли в левый верхний угол — виден на всех ширинах
+  // (внутри строки пилюля всегда скрыта через CSS).
   const corner = document.getElementById("lang-corner");
   if(corner) corner.innerHTML = pill;
   if(header){
